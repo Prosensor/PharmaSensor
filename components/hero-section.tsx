@@ -17,7 +17,7 @@ export function HeroSection() {
   const [activeFeature, setActiveFeature] = useState(0)
 
   return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-br from-[#e6f3f9] via-[#f4f8e8] to-white">
+    <section className="relative py-20 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center mb-12">
           <motion.h1 

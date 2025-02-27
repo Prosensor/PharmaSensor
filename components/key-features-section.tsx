@@ -57,7 +57,7 @@ export function SectionAvantagesConcrets() {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-br from-[#e6f3f9] via-white to-[#f4f8e8]">
+    <section className="py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2 
           className="text-4xl font-bold text-center mb-16 text-[#0b89c0]"

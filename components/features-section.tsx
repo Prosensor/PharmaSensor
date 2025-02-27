@@ -48,7 +48,7 @@ export function SectionFonctionnalites() {
   const [activeFeature, setActiveFeature] = useState<number | null>(null)
 
   return (
-    <section className="py-24 bg-gradient-to-b from-[#e6f3f9] to-white" id="fonctionnalites">
+    <section className="py-24" id="fonctionnalites">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center max-w-3xl mx-auto mb-16"

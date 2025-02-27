@@ -25,7 +25,7 @@ const ecoFeatures = [
 
 export function SectionSeparation() {
   return (
-    <AnimatedSection className="py-24 bg-gradient-to-br from-[#f4f8e8] via-white to-[#e6f3f9]">
+    <AnimatedSection className="py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center mb-16"
