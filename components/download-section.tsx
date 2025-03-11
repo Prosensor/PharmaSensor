@@ -1,179 +1,185 @@
-"use client"
+import { Check } from "lucide-react"
+import Link from "next/link"
 
-import { useState } from 'react'
-import { Check, X, Info, ArrowRight } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { motion, AnimatePresence } from "framer-motion"
+export default function PricingSection() {
+  const formules = [
+    {
+      titre: "Achat",
+      prix: "599€",
+      description: "Achetez votre PharmaSensor et profitez d'un service complet",
+      avantages: [
+        "Appareil PharmaSensor",
+        "Accès illimité au cloud",
+        "Rapports mensuels",
+        "Support technique 24/7",
+        "Garantie 2 ans",
+      ],
+    },
+    {
+      titre: "Location",
+      prix: "49€",
+      description: "Optez pour la flexibilité avec notre formule location",
+      avantages: [
+        "Appareil PharmaSensor",
+        "Accès illimité au cloud",
+        "Rapports mensuels",
+        "Support technique 24/7",
+        "Remplacement gratuit en cas de panne",
+      ],
+    },
+  ]
 
-const formules = [
-  {
-    titre: "Achat",
-    prix: "599€",
-    description: "Achetez votre PharmaSensor et profitez d'un service complet",
-    avantages: [
-      "Appareil PharmaSensor",
-      "Accès illimité au cloud",
-      "Rapports mensuels",
-      "Support technique 24/7",
-      "Garantie 2 ans",
-    ],
-    couleur: "bg-[#0b89c0]",
-  },
-  {
-    titre: "Location",
-    prix: "49€/mois",
-    description: "Optez pour la flexibilité avec notre formule location",
-    avantages: [
-      "Appareil PharmaSensor",
-      "Accès illimité au cloud",
-      "Rapports mensuels",
-      "Support technique 24/7",
-      "Remplacement gratuit en cas de panne",
-    ],
-    couleur: "bg-[#a4c41d]",
-  },
-]
-
-const comparaisonDetails = [
-  { feature: "Coût initial", achat: "Élevé", location: "Faible" },
-  { feature: "Flexibilité", achat: "Limitée", location: "Élevée" },
-  { feature: "Propriété de l'appareil", achat: "Oui", location: "Non" },
-  { feature: "Mises à jour matérielles", achat: "Payantes", location: "Incluses" },
-  { feature: "Engagement", achat: "Aucun", location: "Contrat annuel" },
-]
-
-export function SectionFormules() {
-  const [activeFormule, setActiveFormule] = useState<number | null>(null)
-  const [showComparison, setShowComparison] = useState(false)
+  const comparaisonDetails = [
+    { feature: "Coût initial", achat: "Élevé", location: "Faible" },
+    { feature: "Flexibilité", achat: "Limitée", location: "Élevée" },
+    { feature: "Propriété de l'appareil", achat: "Oui", location: "Non" },
+    { feature: "Mises à jour matérielles", achat: "Payantes", location: "Incluses" },
+    { feature: "Engagement", achat: "Aucun", location: "Contrat annuel" },
+  ]
 
   return (
-    <section id="formules" className="py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="text-center mx-auto mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-4xl font-bold mb-4 text-[#0b89c0]">
-            Choisissez la formule <span className="text-[#a4c41d]">adaptée à vos besoins</span>
+    <section className="w-full py-16 md:py-24 flex justify-center">
+      <div className="container px-4 md:px-6 mx-auto max-w-7xl">
+        <div className="mb-12 text-center">
+          <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-2">Tarification</div>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            Choisissez la Formule Adaptée à Vos Besoins
           </h2>
-          <p className="text-gray-600 text-lg mb-8">
-            Que vous préfériez acheter ou louer, PharmaSensor s'adapte à votre stratégie d'investissement et à vos exigences opérationnelles.
+          <p className="mx-auto mt-4 max-w-[700px] text-lg text-muted-foreground">
+            Des solutions flexibles pour toutes les pharmacies, quelle que soit leur taille
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-8">
+        {/* Formules de prix */}
+        <div className="grid gap-8 md:grid-cols-2">
           {formules.map((formule, index) => (
-            <motion.div
-              key={formule.titre}
-              className={`bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 ${
-                activeFormule === index ? 'ring-2 ring-[#0b89c0] shadow-xl' : ''
-              }`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              onMouseEnter={() => setActiveFormule(index)}
-              onMouseLeave={() => setActiveFormule(null)}
+            <div
+              key={index}
+              className="flex flex-col rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-md"
             >
-              <div className={`${formule.couleur} p-6 text-white`}>
-                <h3 className="text-2xl font-bold mb-2">{formule.titre}</h3>
-                <p className="text-4xl font-bold mb-4">{formule.prix}</p>
-                <p>{formule.description}</p>
+              <div className="mb-4">
+                <div
+                  className={`inline-block rounded-full ${index === 0 ? "bg-green-100 text-green-800" : "bg-emerald-100 text-emerald-800"} px-3 py-1 text-sm font-medium mb-2`}
+                >
+                  {formule.titre}
+                </div>
+                <div className="mt-2 flex items-baseline">
+                  <span className="text-3xl font-bold">{formule.prix}</span>
+                  {formule.titre === "Location" && <span className="ml-1 text-lg text-muted-foreground">/mois</span>}
+                </div>
+                <p className="mt-2 text-muted-foreground">{formule.description}</p>
               </div>
-              <div className="p-6">
-                <ul className="space-y-4">
-                  {formule.avantages.map((avantage, idx) => (
-                    <li key={idx} className="flex items-center">
-                      <Check className="w-5 h-5 text-[#a4c41d] mr-2" />
-                      <span>{avantage}</span>
+              <div className="mt-4 flex-grow">
+                <ul className="space-y-3">
+                  {formule.avantages.map((avantage, i) => (
+                    <li key={i} className="flex items-start">
+                      <Check className={`mr-2 h-5 w-5 ${index === 0 ? "text-green-600" : "text-emerald-600"}`} />
+                      <span className="text-sm">{avantage}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6 space-y-4">
-                  <Button className={`w-full text-white hover:opacity-90 ${formule.couleur}`}>
-                    Choisir cette formule
-                  </Button>
-                  <p className="text-sm text-gray-600 text-center">
-                    {formule.titre === "Achat" ? 
-                      "Idéal pour les pharmacies cherchant un investissement à long terme" :
-                      "Parfait pour ceux qui veulent rester à la pointe de la technologie"}
-                  </p>
-                </div>
               </div>
-            </motion.div>
+              <div className="mt-6">
+                <Link
+                  href="#contact"
+                  className={`inline-flex h-10 w-full items-center justify-center rounded-md ${
+                    index === 0
+                      ? "bg-green-600 text-white hover:bg-green-700"
+                      : "bg-emerald-600 text-white hover:bg-emerald-700"
+                  } px-4 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring`}
+                >
+                  Choisir cette formule
+                </Link>
+              </div>
+            </div>
           ))}
         </div>
 
-        <motion.div 
-          className="flex justify-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <Button 
-            onClick={() => setShowComparison(!showComparison)}
-            className="bg-[#0b89c0] text-white hover:bg-[#096d99] transition-colors duration-300 text-lg font-semibold px-8 py-3 flex items-center space-x-2"
-          >
-            <span>{showComparison ? "Masquer la comparaison détaillée" : "Voir la comparaison détaillée"}</span>
-            <ArrowRight className={`w-5 h-5 transition-transform duration-300 ${showComparison ? 'rotate-90' : ''}`} />
-          </Button>
-        </motion.div>
+        {/* Tableau comparatif */}
+        <div className="mt-12 rounded-lg border bg-white p-6 shadow-sm">
+          <h3 className="text-xl font-bold mb-4">Comparaison des Formules</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="border-b">
+                  <th className="py-3 px-4 text-left font-medium text-muted-foreground">Caractéristique</th>
+                  <th className="py-3 px-4 text-center font-medium text-green-600">Achat</th>
+                  <th className="py-3 px-4 text-center font-medium text-emerald-600">Location</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparaisonDetails.map((item, index) => (
+                  <tr key={index} className="border-b last:border-0">
+                    <td className="py-3 px-4 font-medium">{item.feature}</td>
+                    <td className="py-3 px-4 text-center">{item.achat}</td>
+                    <td className="py-3 px-4 text-center">{item.location}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-        <AnimatePresence>
-          {showComparison && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="mb-16"
-            >
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <table className="w-full">
-                  <thead>
-                    <tr className="bg-[#0b89c0] text-white">
-                      <th className="py-3 px-4 text-left">Caractéristique</th>
-                      <th className="py-3 px-4 text-center">Achat</th>
-                      <th className="py-3 px-4 text-center">Location</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {comparaisonDetails.map((item, index) => (
-                      <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}>
-                        <td className="py-3 px-4">{item.feature}</td>
-                        <td className="py-3 px-4 text-center">{item.achat}</td>
-                        <td className="py-3 px-4 text-center">{item.location}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+        {/* FAQ et Devis */}
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="rounded-lg border bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold mb-4">Questions Fréquentes</h3>
+            <div className="space-y-4">
+              <div className="border-b pb-4">
+                <h4 className="font-medium mb-2">Y a-t-il des frais supplémentaires ?</h4>
+                <p className="text-sm text-muted-foreground">
+                  Non, nos tarifs sont tout compris. Il n'y a pas de frais cachés ou de coûts supplémentaires pour
+                  l'accès au cloud, les mises à jour logicielles ou le support technique.
+                </p>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              <div className="border-b pb-4">
+                <h4 className="font-medium mb-2">Puis-je ajouter des capteurs supplémentaires ?</h4>
+                <p className="text-sm text-muted-foreground">
+                  Oui, vous pouvez ajouter des capteurs supplémentaires à tout moment. Chaque capteur additionnel coûte
+                  149€ à l'achat ou 12€/mois en location.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-medium mb-2">Quelle est la durée minimale d'engagement ?</h4>
+                <p className="text-sm text-muted-foreground">
+                  La durée minimale d'engagement pour la formule location est de 12 mois. Après cette période, le
+                  contrat est renouvelable mensuellement.
+                </p>
+              </div>
+            </div>
+          </div>
 
-        <motion.div
-          className="mt-16 bg-[#f4f8e8] border-l-4 border-[#a4c41d] p-6 rounded-r-lg"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <h3 className="text-xl font-semibold text-[#0b89c0] mb-4 flex items-center">
-            <Info className="w-6 h-6 mr-2" />
-            Conseil pour choisir votre formule
-          </h3>
-          <p className="text-gray-700">
-            La formule d'achat est idéale si vous avez un budget d'investissement disponible et souhaitez une solution à long terme. 
-            Optez pour la location si vous préférez une plus grande flexibilité financière et des mises à jour régulières du matériel. 
-            Dans les deux cas, vous bénéficiez de la même qualité de service et de support. 
-            N'hésitez pas à contacter notre équipe pour une consultation personnalisée qui vous aidera à faire le meilleur choix pour votre pharmacie.
-          </p>
-        </motion.div>
+          <div className="rounded-lg border bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold mb-4">Besoin d'une Solution Personnalisée ?</h3>
+            <p className="mb-4 text-muted-foreground">
+              Nous proposons également des solutions sur mesure pour les groupements de pharmacies ou les établissements
+              avec des besoins spécifiques.
+            </p>
+            <ul className="mb-6 space-y-2">
+              <li className="flex items-center">
+                <div className="mr-2 flex h-5 w-5 items-center justify-center rounded-full bg-green-100">
+                  <span className="text-xs font-medium text-green-800">1</span>
+                </div>
+                <span className="text-sm">Tarifs dégressifs pour les commandes multiples</span>
+              </li>
+              <li className="flex items-center">
+                <div className="mr-2 flex h-5 w-5 items-center justify-center rounded-full bg-green-100">
+                  <span className="text-xs font-medium text-green-800">2</span>
+                </div>
+                <span className="text-sm">Intégration avec vos systèmes existants</span>
+              </li>
+              <li className="flex items-center">
+                <div className="mr-2 flex h-5 w-5 items-center justify-center rounded-full bg-green-100">
+                  <span className="text-xs font-medium text-green-800">3</span>
+                </div>
+                <span className="text-sm">Formation personnalisée pour votre équipe</span>
+              </li>
+            </ul>
+            <button className="inline-flex h-10 w-full items-center justify-center rounded-md bg-green-600 px-4 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              Demander un devis personnalisé
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   )

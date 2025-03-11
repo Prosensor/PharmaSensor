@@ -1,108 +1,222 @@
-"use client"
+import { CheckCircle } from "lucide-react"
+import Image from "next/image"
 
-import { useState } from 'react'
-import { Card, CardContent } from "@/components/ui/card"
-import { Thermometer, Wifi, Cloud, Bell, BarChart, ShieldCheck } from 'lucide-react'
-import { motion, AnimatePresence } from "framer-motion"
-
-const fonctionnalites = [
-  {
-    icon: Thermometer,
-    titre: "Mesure Précise",
-    description: "Surveillance continue de la température avec une précision de ±0.1°C, idéale pour les vaccins et médicaments sensibles.",
-    details: "Notre technologie de pointe assure une mesure constante et fiable, essentielle pour maintenir l'efficacité des produits pharmaceutiques. Le capteur PharmaSensor est calibré pour répondre aux normes les plus strictes de l'industrie."
-  },
-  {
-    icon: Wifi,
-    titre: "Connectivité Wi-Fi",
-    description: "Transmission automatique des données via votre réseau Wi-Fi existant pour une surveillance sans interruption.",
-    details: "Le PharmaSensor s'intègre facilement à votre infrastructure réseau existante. Une fois configuré, il transmet automatiquement les données, éliminant le besoin de relevés manuels et réduisant les risques d'erreur humaine."
-  },
-  {
-    icon: Cloud,
-    titre: "Stockage Cloud",
-    description: "Accès sécurisé à vos données de température depuis n'importe où, à tout moment, sur tous vos appareils.",
-    details: "Nos serveurs cloud sécurisés stockent vos données de température avec un chiffrement de bout en bout. Accédez à l'historique complet, générez des rapports personnalisés et partagez les informations avec les autorités réglementaires en quelques clics."
-  },
-  {
-    icon: Bell,
-    titre: "Alertes Instantanées",
-    description: "Notifications immédiates en cas d'écart de température pour une action rapide et la préservation de vos produits.",
-    details: "Configurez des seuils d'alerte personnalisés. En cas de dépassement, recevez instantanément des notifications par SMS, email ou push sur votre smartphone. Cette réactivité peut sauver des stocks entiers de produits sensibles."
-  },
-  {
-    icon: BarChart,
-    titre: "Rapports Détaillés",
-    description: "Génération automatique de rapports mensuels pour un suivi précis et une conformité réglementaire simplifiée.",
-    details: "Nos rapports mensuels offrent une vue d'ensemble claire de vos données de température. Ils incluent des graphiques, des statistiques et des analyses de tendances, vous aidant à identifier les problèmes potentiels avant qu'ils ne deviennent critiques."
-  },
-  {
-    icon: ShieldCheck,
-    titre: "Conformité Réglementaire",
-    description: "Assurance de conformité aux normes pharmaceutiques et réglementations en vigueur.",
-    details: "PharmaSensor est conçu pour répondre aux exigences strictes des organismes de réglementation tels que la FDA et l'EMA. Notre système aide à maintenir la conformité aux BPD (Bonnes Pratiques de Distribution) et facilite les audits avec des enregistrements précis et inaltérables."
-  }
-]
-
-export function SectionFonctionnalites() {
-  const [activeFeature, setActiveFeature] = useState<number | null>(null)
-
+export default function FeaturesSection() {
   return (
-    <section className="py-24" id="fonctionnalites">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="text-center max-w-3xl mx-auto mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-4xl font-bold mb-4 text-[#0b89c0]">
-            Fonctionnalités Clés de <span className="text-[#a4c41d]">PharmaSensor</span>
+    <section className="w-full  py-16 md:py-24 flex justify-center">
+      <div className="container px-4 md:px-6 mx-auto max-w-7xl">
+        <div className="mb-12 text-center">
+          <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-2">
+            Fonctionnalités Avancées
+          </div>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            Pourquoi Choisir PharmaSensor?
           </h2>
-          <p className="text-gray-600 text-lg">
-            Découvrez comment PharmaSensor révolutionne la surveillance de la température pour vos produits pharmaceutiques
+          <p className="mx-auto mt-4 max-w-[700px] text-lg text-muted-foreground">
+            Notre solution offre une surveillance complète qui répond aux exigences strictes du secteur pharmaceutique
           </p>
-        </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {fonctionnalites.map((fonctionnalite, index) => (
-            <motion.div
-              key={fonctionnalite.titre}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Card 
-                className={`border-2 ${activeFeature === index ? 'border-[#0b89c0]' : 'border-transparent'} shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-full`}
-                onClick={() => setActiveFeature(activeFeature === index ? null : index)}
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {/* Feature Card 1 */}
+          <div className="flex flex-col rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-md">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+              <svg
+                className="h-6 w-6 text-green-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
               >
-                <CardContent className="p-6 flex flex-col h-full">
-                  <div className="mb-4 flex items-center">
-                    <div className="w-12 h-12 rounded-full bg-[#e6f3f9] flex items-center justify-center mr-4">
-                      <fonctionnalite.icon className="w-6 h-6 text-[#0b89c0]" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-[#0b89c0]">{fonctionnalite.titre}</h3>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                />
+              </svg>
+            </div>
+            <h3 className="mb-2 text-xl font-bold">Précision Garantie</h3>
+            <p className="mb-4 flex-grow text-muted-foreground">
+              Capteurs de haute précision avec une marge d'erreur de ±0.1°C, conformes aux normes pharmaceutiques les
+              plus strictes.
+            </p>
+            <ul className="space-y-2">
+              <li className="flex items-start">
+                <CheckCircle className="mr-2 h-5 w-5 text-green-500" />
+                <span className="text-sm">Précision de ±0.1°C</span>
+              </li>
+              <li className="flex items-start">
+                <CheckCircle className="mr-2 h-5 w-5 text-green-500" />
+                <span className="text-sm">Étalonnage certifié COFRAC</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Feature Card 2 */}
+          <div className="flex flex-col rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-md">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+              <svg
+                className="h-6 w-6 text-green-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 className="mb-2 text-xl font-bold">Alertes en Temps Réel</h3>
+            <p className="mb-4 flex-grow text-muted-foreground">
+              Recevez des notifications instantanées par SMS, email ou appel en cas de dépassement des seuils de
+              température.
+            </p>
+            <ul className="space-y-2">
+              <li className="flex items-start">
+                <CheckCircle className="mr-2 h-5 w-5 text-green-500" />
+                <span className="text-sm">Alertes multicanaux configurables</span>
+              </li>
+              <li className="flex items-start">
+                <CheckCircle className="mr-2 h-5 w-5 text-green-500" />
+                <span className="text-sm">Délais d'alerte personnalisables</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Feature Card 3 */}
+          <div className="flex flex-col rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-md">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+              <svg
+                className="h-6 w-6 text-green-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+            </div>
+            <h3 className="mb-2 text-xl font-bold">Rapports Automatisés</h3>
+            <p className="mb-4 flex-grow text-muted-foreground">
+              Générez des rapports conformes aux exigences réglementaires pour vos audits et inspections.
+            </p>
+            <ul className="space-y-2">
+              <li className="flex items-start">
+                <CheckCircle className="mr-2 h-5 w-5 text-green-500" />
+                <span className="text-sm">Formats PDF, Excel et CSV</span>
+              </li>
+              <li className="flex items-start">
+                <CheckCircle className="mr-2 h-5 w-5 text-green-500" />
+                <span className="text-sm">Archivage sécurisé pendant 5 ans</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-16 rounded-xl bg-white p-8 shadow-lg">
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="flex flex-col justify-center space-y-4">
+              <h3 className="text-2xl font-bold">Tableau de Bord Intuitif</h3>
+              <p className="text-muted-foreground">
+                Visualisez toutes vos données de température en un coup d'œil. Notre interface conviviale vous permet de
+                surveiller plusieurs équipements simultanément et d'accéder à l'historique complet.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center">
+                  <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-green-100">
+                    <span className="text-xs font-medium text-green-800">1</span>
                   </div>
-                  <p className="text-gray-600 mb-4 flex-grow">{fonctionnalite.description}</p>
-                  <AnimatePresence>
-                    {activeFeature === index && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <p className="text-sm text-gray-500 mt-4 bg-[#f4f8e8] p-4 rounded-md">
-                          {fonctionnalite.details}
-                        </p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                  <span>Vue d'ensemble de tous vos équipements</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-green-100">
+                    <span className="text-xs font-medium text-green-800">2</span>
+                  </div>
+                  <span>Graphiques détaillés et personnalisables</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-green-100">
+                    <span className="text-xs font-medium text-green-800">3</span>
+                  </div>
+                  <span>Accès sécurisé multi-utilisateurs</span>
+                </li>
+              </ul>
+              <div className="pt-4">
+                <button className="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-green-500 focus:ring-offset-2">
+                  Voir une démonstration
+                </button>
+              </div>
+            </div>
+            <div className="relative flex items-center justify-center rounded-lg bg-gray-100 p-4">
+              <div className="relative h-[300px] w-full overflow-hidden rounded-lg border shadow-md">
+                <Image
+                  src="/image.png"
+                  alt="Tableau de bord PharmaSensor"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 to-transparent"></div>
+                <div className="absolute bottom-4 right-4 rounded-lg bg-white p-2 shadow-lg">
+                  <div className="text-xs font-medium text-gray-500">Température Moyenne</div>
+                  <div className="text-lg font-bold text-green-600">2.6°C</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-bold">Ils Nous Font Confiance</h3>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-8 grayscale opacity-70">
+            <div className="h-12 w-32">
+              <Image
+                src="/logo1.png"
+                alt="Logo client 1"
+                width={128}
+                height={48}
+                className="h-full w-full object-contain"
+              />
+            </div>
+            <div className="h-12 w-32">
+              <Image
+                src="/logo2.png"
+                alt="Logo client 2"
+                width={128}
+                height={48}
+                className="h-full w-full object-contain"
+              />
+            </div>
+            <div className="h-12 w-32">
+              <Image
+                src="/logo3.png"
+                alt="Logo client 3"
+                width={128}
+                height={48}
+                className="h-full w-full object-contain"
+              />
+            </div>
+            <div className="h-12 w-32">
+              <Image
+                src="/logo4.png"
+                alt="Logo client 4"
+                width={128}
+                height={48}
+                className="h-full w-full object-contain"
+              />
+            </div>
+            <div className="h-12 w-32">
+              <Image
+                src="/logo5.png"
+                alt="Logo client 5"
+                width={128}
+                height={48}
+                className="h-full w-full object-contain"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

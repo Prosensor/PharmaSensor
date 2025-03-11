@@ -1,133 +1,183 @@
-"use client"
-
-import { useState } from 'react'
 import Image from "next/image"
-import { Check, ChevronDown, ChevronUp } from 'lucide-react'
-import { motion, AnimatePresence } from "framer-motion"
+import { Quote } from "lucide-react"
 
-const specifications = [
-  {
-    title: "Plage de mesure étendue",
-    description: "De -40°C à +85°C avec une précision de ±0.1°C",
-    details: "Idéal pour surveiller une large gamme de produits pharmaceutiques, des vaccins ultra-froids aux médicaments à température ambiante."
-  },
-  {
-    title: "Batterie longue durée",
-    description: "Autonomie jusqu'à 2 ans",
-    details: "Réduit les interventions de maintenance et assure une surveillance continue sans interruption."
-  },
-  {
-    title: "Conformité réglementaire",
-    description: "Conforme aux normes FDA 21 CFR Part 11 et GDP",
-    details: "Garantit que vos pratiques de surveillance de la température répondent aux exigences réglementaires les plus strictes."
-  },
-  {
-    title: "Rapports personnalisables",
-    description: "Rapports mensuels détaillés et adaptables",
-    details: "Générez des rapports sur mesure pour répondre à vos besoins spécifiques et faciliter les audits."
-  },
-  {
-    title: "Support technique premium",
-    description: "Assistance 24/7 et remplacement rapide",
-    details: "Notre équipe d'experts est toujours disponible pour vous aider, avec un service de remplacement express en cas de besoin."
-  }
-]
-
-export function SectionSpecifications() {
-  const [expandedSpec, setExpandedSpec] = useState<number | null>(null)
-
+export default function TestimonialsSection() {
   return (
-    <section id="specifications" className="py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <motion.h2 
-              className="text-4xl font-bold tracking-tight text-[#0b89c0]"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              Spécifications <span className="text-[#a4c41d]">techniques</span>
-              <br />
-              de pointe pour vos vaccins
-            </motion.h2>
-            <motion.p 
-              className="text-gray-600 text-lg max-w-xl"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              PharmaSensor allie technologie de pointe et facilité d'utilisation pour une surveillance optimale de vos produits pharmaceutiques sensibles.
-            </motion.p>
-            <motion.div 
-              className="space-y-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              {specifications.map((spec, index) => (
-                <motion.div 
-                  key={index}
-                  className="bg-white rounded-lg shadow-md overflow-hidden"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                >
-                  <div 
-                    className="flex items-center justify-between p-4 cursor-pointer"
-                    onClick={() => setExpandedSpec(expandedSpec === index ? null : index)}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#a4c41d] flex items-center justify-center">
-                        <Check className="w-4 h-4 text-white" />
+    <section className="w-full bg-white py-16 md:py-24 flex justify-center">
+      <div className="container px-4 md:px-6 mx-auto max-w-7xl">
+        <div className="mb-12 text-center">
+          <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-2">Témoignages</div>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Ce Que Nos Clients Disent</h2>
+          <p className="mx-auto mt-4 max-w-[700px] text-lg text-muted-foreground">
+            Découvrez comment PharmaSensor a transformé la surveillance de température dans les pharmacies à travers la
+            France
+          </p>
+        </div>
+
+        {/* Études de cas */}
+        <div className="mb-16 rounded-xl bg-gradient-to-br from-green-50 to-green-100 p-8 shadow-lg">
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="flex flex-col justify-center space-y-4">
+              <div className="inline-block rounded-lg bg-green-600 px-3 py-1 text-sm text-white mb-2 w-fit">
+                Étude de Cas
+              </div>
+              <h3 className="text-2xl font-bold">Pharmacie Centrale de Lyon</h3>
+              <p className="text-muted-foreground">
+                Avant PharmaSensor, nous perdions en moyenne 3 800€ de produits par an à cause de variations de
+                température non détectées. Depuis l'installation, nous n'avons eu aucune perte et nos inspections
+                réglementaires se déroulent sans accroc.
+              </p>
+
+              <div className="grid grid-cols-3 gap-4 pt-4">
+                <div className="rounded-lg bg-white p-4 text-center shadow">
+                  <div className="text-2xl font-bold text-green-600">100%</div>
+                  <div className="text-sm text-muted-foreground">Conformité</div>
+                </div>
+                <div className="rounded-lg bg-white p-4 text-center shadow">
+                  <div className="text-2xl font-bold text-green-600">0€</div>
+                  <div className="text-sm text-muted-foreground">Pertes annuelles</div>
+                </div>
+                <div className="rounded-lg bg-white p-4 text-center shadow">
+                  <div className="text-2xl font-bold text-green-600">-4h</div>
+                  <div className="text-sm text-muted-foreground">Temps d'audit</div>
+                </div>
+              </div>
+
+              <div className="flex items-center pt-4">
+                <Image
+                  src="/docteur1.jpg"
+                  alt="Dr. Martin Dupont"
+                  width={50}
+                  height={50}
+                  className="rounded-full mr-3"
+                />
+                <div>
+                  <div className="font-medium">Dr. Martin Dupont</div>
+                  <div className="text-sm text-muted-foreground">Pharmacien Titulaire</div>
+                </div>
+              </div>
+            </div>
+            <div className="relative flex items-center justify-center">
+              <div className="relative h-[350px] w-full overflow-hidden rounded-lg shadow-md">
+                <Image
+                  src="/pharmacie.jpg"
+                  alt="Pharmacie Centrale de Lyon utilisant PharmaSensor"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-green-900/30 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 right-4 rounded-lg bg-white/90 p-4 shadow-lg">
+                  <div className="flex items-center space-x-2">
+                    <div className="flex -space-x-2">
+                      <div className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-green-100">
+                        <span className="text-xs font-medium text-green-800">FDA</span>
                       </div>
-                      <span className="font-medium text-[#0b89c0]">{spec.title}</span>
+                      <div className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-green-100">
+                        <span className="text-xs font-medium text-green-800">GMP</span>
+                      </div>
                     </div>
-                    {expandedSpec === index ? (
-                      <ChevronUp className="w-5 h-5 text-[#0b89c0]" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-[#0b89c0]" />
-                    )}
+                    <span className="text-sm font-medium">Conforme à toutes les normes</span>
                   </div>
-                  <AnimatePresence>
-                    {expandedSpec === index && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="px-4 pb-4"
-                      >
-                        <p className="text-gray-600 mb-2">{spec.description}</p>
-                        <p className="text-sm text-gray-500">{spec.details}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              ))}
-            </motion.div>
+                </div>
+              </div>
+            </div>
           </div>
-          <motion.div 
-            className="relative h-[600px]"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <Image
-              src="/capteur1.webp"
-              alt="Spécifications techniques de PharmaSensor"
-              fill
-              className="rounded-lg shadow-xl object-cover"
-            />
-          </motion.div>
+        </div>
+
+        {/* Témoignages */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {/* Témoignage 1 */}
+          <div className="flex flex-col rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-md">
+            <div className="mb-4 text-green-600">
+              <Quote size={32} />
+            </div>
+            <p className="mb-4 flex-grow italic text-muted-foreground">
+              "PharmaSensor nous a permis de passer nos audits avec une tranquillité d'esprit totale. Les rapports
+              automatisés ont impressionné les inspecteurs et nous ont fait gagner un temps précieux."
+            </p>
+            <div className="mt-auto flex items-center pt-4 border-t">
+              <Image
+                src="/docteur1.jpg"
+                alt="Sophie Laurent"
+                width={40}
+                height={40}
+                className="rounded-full mr-3"
+              />
+              <div>
+                <div className="font-medium">Sophie Laurent</div>
+                <div className="text-sm text-muted-foreground">Pharmacie du Marché, Paris</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Témoignage 2 */}
+          <div className="flex flex-col rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-md">
+            <div className="mb-4 text-green-600">
+              <Quote size={32} />
+            </div>
+            <p className="mb-4 flex-grow italic text-muted-foreground">
+              "Les alertes en temps réel nous ont sauvés plusieurs fois lors de pannes de courant nocturnes. Nous avons
+              pu intervenir rapidement et sauver des milliers d'euros de vaccins et médicaments sensibles."
+            </p>
+            <div className="mt-auto flex items-center pt-4 border-t">
+              <Image
+                src="/docteur1.jpg"
+                alt="Jean Moreau"
+                width={40}
+                height={40}
+                className="rounded-full mr-3"
+              />
+              <div>
+                <div className="font-medium">Jean Moreau</div>
+                <div className="text-sm text-muted-foreground">Pharmacie Saint-Michel, Bordeaux</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Témoignage 3 */}
+          <div className="flex flex-col rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-md">
+            <div className="mb-4 text-green-600">
+              <Quote size={32} />
+            </div>
+            <p className="mb-4 flex-grow italic text-muted-foreground">
+              "L'installation a été d'une simplicité remarquable et le support client est exceptionnel. Toute notre
+              équipe a pu prendre en main le système en moins d'une heure."
+            </p>
+            <div className="mt-auto flex items-center pt-4 border-t">
+              <Image
+                src="/docteur1.jpg"
+                alt="Claire Dubois"
+                width={40}
+                height={40}
+                className="rounded-full mr-3"
+              />
+              <div>
+                <div className="font-medium">Claire Dubois</div>
+                <div className="text-sm text-muted-foreground">Pharmacie des Alpes, Grenoble</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-16 rounded-xl bg-green-600 p-8 text-center text-white shadow-lg">
+          <h3 className="text-2xl font-bold mb-4">Prêt à Sécuriser Votre Inventaire Pharmaceutique?</h3>
+          <p className="mx-auto mb-6 max-w-[600px]">
+            Rejoignez plus de 500 pharmacies qui font confiance à PharmaSensor pour la surveillance de leurs équipements
+            critiques.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <button className="rounded-md bg-white px-6 py-3 font-medium text-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-600">
+              Demander une Démo
+            </button>
+            <button className="rounded-md border border-white bg-transparent px-6 py-3 font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-600">
+              Télécharger la Brochure
+            </button>
+          </div>
         </div>
       </div>
     </section>
   )
 }
 
+  

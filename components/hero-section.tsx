@@ -1,117 +1,78 @@
-"use client"
-
-import { useState } from 'react'
 import Image from "next/image"
-import { Thermometer, Wifi, CloudIcon as CloudCheck, FileText } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { motion, AnimatePresence } from "framer-motion"
+import Link from "next/link"
 
-const features = [
-  { icon: Thermometer, title: "Précision ±0.1°C" },
-  { icon: Wifi, title: "Connexion Wi-Fi" },
-  { icon: CloudCheck, title: "Stockage cloud" },
-  { icon: FileText, title: "Rapports mensuels" },
-]
-
-export function HeroSection() {
-  const [activeFeature, setActiveFeature] = useState(0)
-
+export default function HeroSection() {
   return (
-    <section className="relative py-20 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center text-center mb-12">
-          <motion.h1 
-            className="text-4xl md:text-6xl font-bold text-[#0b89c0] mb-4"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            PharmaSensor
-          </motion.h1>
-          <motion.p
-            className="text-xl md:text-2xl text-gray-700 max-w-3xl"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Surveillance de température intelligente pour vos vaccins et produits pharmaceutiques
-          </motion.p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <motion.div 
-              className="bg-white p-6 rounded-lg shadow-lg"
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <h2 className="text-2xl font-semibold text-[#0b89c0] mb-4">Fonctionnalités clés</h2>
-              <ul className="space-y-4">
-                {features.map((feature, index) => (
-                  <motion.li
-                    key={feature.title}
-                    className={`flex items-center space-x-3 p-2 rounded-md cursor-pointer transition-colors ${
-                      index === activeFeature ? 'bg-[#e8f0d9]' : 'hover:bg-[#e6f3f9]'
-                    }`}
-                    onClick={() => setActiveFeature(index)}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <feature.icon className="w-6 h-6 text-[#0b89c0]" />
-                    <span className="text-gray-700">{feature.title}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <Button 
-                size="lg" 
-                className="bg-[#0b89c0] text-white hover:bg-[#096d99]"
+    <section className="w-full py-12 md:py-24 lg:py-32 flex justify-center">
+      <div className="container px-4 md:px-6 mx-auto max-w-7xl">
+        <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_500px]">
+          <div className="flex flex-col justify-center space-y-4">
+            <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-2">
+              Surveillance Précise de la Température
+            </div>
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl flex items-center">
+              <span className="inline-flex items-center justify-center mr-2 bg-green-600 text-white rounded-full p-1 h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7"
+                >
+                  <path d="M9 3v6H3v6h6v6h6v-6h6V9h-6V3H9z" />
+                </svg>
+              </span>
+              PharmaSensor
+            </h1>
+            <p className="text-xl text-muted-foreground md:text-2xl/relaxed lg:text-xl/relaxed xl:text-2xl/relaxed">
+              Surveillance avancée de la température pour le stockage pharmaceutique. Protégez votre inventaire grâce à
+              des alertes en temps réel et des rapports de conformité.
+            </p>
+            <div className="flex flex-col gap-2 min-[400px]:flex-row">
+              <Link
+                href="#request-demo"
+                className="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
               >
-                Demander une démo
-              </Button>
-            </motion.div>
+                Demander une Démo
+              </Link>
+              <Link
+                href="#learn-more"
+                className="inline-flex h-10 items-center justify-center rounded-md border border-green-200 bg-white px-8 text-sm font-medium text-green-700 shadow-sm transition-colors hover:bg-green-50 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              >
+                En Savoir Plus
+              </Link>
+            </div>
+            <div className="flex items-center gap-4 pt-4">
+              <div className="flex -space-x-2">
+                <div className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-green-100">
+                  <span className="text-xs font-medium text-green-800">FDA</span>
+                </div>
+                <div className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-green-100">
+                  <span className="text-xs font-medium text-green-800">GMP</span>
+                </div>
+                <div className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-green-100">
+                  <span className="text-xs font-medium text-green-800">USP</span>
+                </div>
+              </div>
+              <div className="text-sm text-muted-foreground">Conforme à toutes les normes pharmaceutiques majeures</div>
+            </div>
           </div>
-          
-          <motion.div 
-            className="relative h-[400px] md:h-[500px]"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeFeature}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.5 }}
-                className="absolute inset-0"
-              >
-                <Image
-                  src={`/bg${activeFeature + 1}.jpg`}
-                  alt={`Illustration de ${features[activeFeature].title}`}
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </motion.div>
-            </AnimatePresence>
-          </motion.div>
+          <div className="flex items-center justify-center">
+            <div className="relative h-[350px] w-[350px] sm:h-[400px] sm:w-[400px] lg:h-[500px] lg:w-[500px]">
+              <Image
+                src="/sonde123.webp"
+                alt="Dispositif de surveillance de température PharmaSensor pour stockage pharmaceutique"
+                fill
+                className="object-contain"
+                priority
+              />
+              <div className="absolute -right-4 top-4 rounded-lg bg-green-600 px-4 py-2 text-white shadow-lg">
+                <div className="text-sm font-medium">Température Actuelle</div>
+                <div className="text-2xl font-bold">2.8°C</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      
-      <motion.div 
-        className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.8 }}
-      />
     </section>
   )
 }

@@ -1,150 +1,194 @@
 "use client"
 
-import { useState } from 'react'
-import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChevronRight, ChevronLeft, Star } from 'lucide-react'
+import { useState } from "react"
+import { ChevronDown, MessageSquareText, Phone, Mail } from "lucide-react"
+import Link from "next/link"
 
-const temoignages = [
-  {
-    nom: "Dr. Sophie Martin",
-    role: "Pharmacienne, Paris",
-    photo: "/sophie-martin.jpg",
-    texte: "Grâce à PharmaSensor, nous avons pu réduire nos pertes de vaccins de 15% en seulement trois mois. La tranquillité d'esprit que cela nous apporte est inestimable.",
-  },
-  {
-    nom: "Jean Dupont",
-    role: "Gérant de pharmacie, Lyon",
-    photo: "/jean-dupont.jpg",
-    texte: "Les rapports automatisés de PharmaSensor nous ont fait gagner un temps précieux lors de notre dernier audit. C'est un outil indispensable pour notre conformité.",
-  },
-  {
-    nom: "Marie Lefevre",
-    role: "Responsable qualité, Pharmacie centrale de Marseille",
-    photo: "/marie-lefevre.jpg",
-    texte: "La précision de PharmaSensor nous permet d'optimiser notre gestion des stocks. Nous sommes maintenant capables de prévoir et prévenir les problèmes avant qu'ils ne surviennent.",
-  },
-]
+export default function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0)
 
-const avantages = [
-  {
-    titre: "Réduction des pertes",
-    description: "Minimisez les pertes de produits dues aux variations de température grâce à une surveillance précise et des alertes en temps réel.",
-  },
-  {
-    titre: "Conformité simplifiée",
-    description: "Générez automatiquement des rapports conformes aux normes réglementaires, facilitant les audits et inspections.",
-  },
-  {
-    titre: "Optimisation des stocks",
-    description: "Améliorez votre gestion des stocks en comprenant mieux les conditions de stockage et les cycles de température.",
-  },
-  {
-    titre: "Économies d'énergie",
-    description: "Identifiez les inefficacités énergétiques de vos équipements de réfrigération pour réduire votre consommation.",
-  },
-]
-
-export function SectionAvantagesConcrets() {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0)
-
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % temoignages.length)
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index)
   }
 
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + temoignages.length) % temoignages.length)
-  }
+  const faqs = [
+    {
+      question: "Comment fonctionne l'installation des capteurs PharmaSensor ?",
+      answer:
+        "L'installation est simple et non-invasive. Nos capteurs sans fil se placent directement dans vos réfrigérateurs et congélateurs. Un technicien certifié installe le routeur central et configure l'ensemble du système en moins de 2 heures, sans perturber votre activité. Tous les capteurs sont pré-étalonnés et prêts à l'emploi dès l'installation.",
+    },
+    {
+      question: "Quelle est la durée de vie des batteries des capteurs ?",
+      answer:
+        "Nos capteurs sont équipés de batteries longue durée qui fonctionnent pendant 3 à 5 ans en utilisation normale. Le système vous alerte automatiquement lorsqu'une batterie atteint un niveau faible, vous laissant amplement le temps de la remplacer. Le remplacement est simple et peut être effectué par votre personnel sans intervention technique.",
+    },
+    {
+      question: "Le système PharmaSensor est-il conforme aux réglementations pharmaceutiques ?",
+      answer:
+        "Absolument. Notre système est entièrement conforme aux exigences de la FDA, des BPD (Bonnes Pratiques de Distribution), des BPF (Bonnes Pratiques de Fabrication) et des normes USP. Nos capteurs sont étalonnés selon les normes COFRAC et nous fournissons toute la documentation nécessaire pour vos audits et inspections réglementaires.",
+    },
+    {
+      question: "Que se passe-t-il en cas de coupure d'Internet ou de courant ?",
+      answer:
+        "Notre système est conçu pour fonctionner même en cas de panne. Les capteurs continuent d'enregistrer les données localement pendant une coupure d'Internet. Le routeur central dispose d'une batterie de secours qui lui permet de fonctionner jusqu'à 24 heures sans alimentation externe. Dès que la connexion est rétablie, toutes les données sont automatiquement synchronisées avec le cloud.",
+    },
+    {
+      question: "Comment sont gérées les alertes en cas de dépassement de température ?",
+      answer:
+        "Vous pouvez configurer plusieurs niveaux d'alerte et plusieurs destinataires. Les notifications peuvent être envoyées par SMS, email ou appel téléphonique. Vous définissez les seuils de température, les délais avant déclenchement d'alerte, et les procédures d'escalade. Le système permet également de confirmer la réception des alertes et de documenter les actions correctives prises.",
+    },
+    {
+      question: "Proposez-vous un contrat de maintenance et de support ?",
+      answer:
+        "Oui, tous nos systèmes sont accompagnés d'un contrat de service qui inclut la maintenance préventive, les mises à jour logicielles, l'étalonnage annuel des capteurs, et un support technique disponible 7j/7. Nous proposons différents niveaux de service selon vos besoins, avec des options de support prioritaire et d'intervention sur site sous 24h.",
+    },
+  ]
 
   return (
-    <section className="py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2 
-          className="text-4xl font-bold text-center mb-16 text-[#0b89c0]"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          Les Avantages Concrets de <span className="text-[#a4c41d]">PharmaSensor</span>
-        </motion.h2>
+    <section className="w-full  py-16 md:py-24 flex justify-center">
+      <div className="container px-4 md:px-6 mx-auto max-w-7xl">
+        <div className="mb-12 text-center">
+          <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-2">
+            Questions Fréquentes
+          </div>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Tout Ce Que Vous Devez Savoir</h2>
+          <p className="mx-auto mt-4 max-w-[700px] text-lg text-muted-foreground">
+            Réponses aux questions les plus fréquemment posées sur notre solution de surveillance de température
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-          <div>
-            <motion.h3 
-              className="text-2xl font-semibold mb-6 text-[#0b89c0]"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              Bénéfices pour votre pharmacie
-            </motion.h3>
-            <div className="space-y-6">
-              {avantages.map((avantage, index) => (
-                <motion.div 
-                  key={avantage.titre}
-                  className="bg-white p-6 rounded-lg shadow-md"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+        <div className="grid gap-8 md:grid-cols-2">
+          {/* FAQ Section */}
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="rounded-lg border bg-white shadow-sm transition-all hover:shadow-md overflow-hidden"
+              >
+                <button
+                  className="flex w-full items-center justify-between p-4 text-left font-medium"
+                  onClick={() => toggleFAQ(index)}
                 >
-                  <h4 className="text-lg font-medium text-[#0b89c0] mb-2">{avantage.titre}</h4>
-                  <p className="text-gray-600">{avantage.description}</p>
-                </motion.div>
-              ))}
-            </div>
+                  {faq.question}
+                  <ChevronDown
+                    className={`h-5 w-5 text-green-600 transition-transform ${openIndex === index ? "rotate-180" : ""}`}
+                  />
+                </button>
+                <div
+                  className={`px-4 overflow-hidden transition-all ${openIndex === index ? "pb-4 max-h-96" : "max-h-0"}`}
+                >
+                  <p className="text-muted-foreground">{faq.answer}</p>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <motion.div 
-            className="relative h-[500px] bg-white rounded-xl shadow-xl overflow-hidden"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentTestimonial}
-                className="absolute inset-0 flex flex-col justify-between p-8"
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="flex items-center space-x-4 mb-6">
-                  <Image
-                    src={"/user.png"}
-                    alt={temoignages[currentTestimonial].nom}
-                    width={60}
-                    height={60}
-                    className="rounded-full"
-                  />
+          {/* Contact Section */}
+          <div className="flex flex-col space-y-8">
+            <div className="rounded-lg border bg-white p-6 shadow-sm">
+              <h3 className="text-xl font-bold mb-4">Vous avez d'autres questions ?</h3>
+              <p className="mb-6 text-muted-foreground">
+                Notre équipe d'experts est disponible pour répondre à toutes vos questions et vous aider à trouver la
+                solution adaptée à vos besoins spécifiques.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-green-100">
+                    <Phone className="h-5 w-5 text-green-600" />
+                  </div>
                   <div>
-                    <h4 className="font-semibold text-[#0b89c0]">{temoignages[currentTestimonial].nom}</h4>
-                    <p className="text-sm text-gray-500">{temoignages[currentTestimonial].role}</p>
+                    <h4 className="font-medium">Par téléphone</h4>
+                    <p className="text-sm text-muted-foreground">Lun-Ven, 9h-18h</p>
+                    <Link href="tel:+33123456789" className="text-green-600 hover:underline">
+                      +33 1 23 45 67 89
+                    </Link>
                   </div>
                 </div>
-                <p className="text-gray-600 italic mb-6">"{temoignages[currentTestimonial].texte}"</p>
-                <div className="flex justify-between items-center">
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-[#a4c41d] fill-current" />
-                    ))}
+                <div className="flex items-start">
+                  <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-green-100">
+                    <Mail className="h-5 w-5 text-green-600" />
                   </div>
-                  <div className="flex space-x-2">
-                    <button onClick={prevTestimonial} className="p-2 rounded-full bg-[#e6f3f9] text-[#0b89c0] hover:bg-[#d1e9f5]">
-                      <ChevronLeft className="w-6 h-6" />
-                    </button>
-                    <button onClick={nextTestimonial} className="p-2 rounded-full bg-[#e6f3f9] text-[#0b89c0] hover:bg-[#d1e9f5]">
-                      <ChevronRight className="w-6 h-6" />
-                    </button>
+                  <div>
+                    <h4 className="font-medium">Par email</h4>
+                    <p className="text-sm text-muted-foreground">Réponse sous 24h</p>
+                    <Link href="mailto:contact@pharmasensor.com" className="text-green-600 hover:underline">
+                      contact@pharmasensor.com
+                    </Link>
                   </div>
                 </div>
-              </motion.div>
-            </AnimatePresence>
-          </motion.div>
+                <div className="flex items-start">
+                  <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-green-100">
+                    <MessageSquareText className="h-5 w-5 text-green-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium">Chat en direct</h4>
+                    <p className="text-sm text-muted-foreground">Support immédiat</p>
+                    <button className="text-green-600 hover:underline">Démarrer une conversation</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Formulaire de démo - Pleine largeur */}
+        <div className="mt-8 rounded-lg border bg-white p-6 shadow-sm w-full">
+          <h3 className="text-xl font-bold mb-4">Demandez une démo personnalisée</h3>
+          <p className="mb-6 text-muted-foreground">
+            Voyez PharmaSensor en action avec une démonstration adaptée à votre pharmacie et à vos besoins spécifiques.
+          </p>
+          <form className="space-y-4">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label htmlFor="name" className="mb-2 block text-sm font-medium">
+                  Nom
+                </label>
+                <input
+                  id="name"
+                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  placeholder="Jean Dupont"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="mb-2 block text-sm font-medium">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  placeholder="jean@pharmacie.fr"
+                />
+              </div>
+            </div>
+            <div>
+              <label htmlFor="message" className="mb-2 block text-sm font-medium">
+                Message
+              </label>
+              <textarea
+                id="message"
+                className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                rows={3}
+                placeholder="Décrivez brièvement vos besoins..."
+              ></textarea>
+            </div>
+            <div className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                id="consent"
+                className="h-4 w-4 rounded border-gray-300 text-green-600 focus:ring-green-500"
+              />
+              <label htmlFor="consent" className="text-sm text-muted-foreground">
+                J'accepte de recevoir des informations de PharmaSensor
+              </label>
+            </div>
+            <button
+              type="submit"
+              className="w-full rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+            >
+              Demander une démo
+            </button>
+          </form>
         </div>
       </div>
     </section>
