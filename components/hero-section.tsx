@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export default function HeroSection() {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 flex justify-center">
+    <section className="w-full py-28 md:py-24 lg:py-32 flex justify-center">
       <div className="container px-4 md:px-6 mx-auto max-w-7xl">
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_500px]">
           <div className="flex flex-col justify-center space-y-4">

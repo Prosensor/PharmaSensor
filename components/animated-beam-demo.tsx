@@ -1,15 +1,48 @@
 "use client"
 
 import type React from "react"
+
 import { forwardRef, useRef, useCallback, useEffect, useState } from "react"
 
 import { cn } from "@/lib/utils"
 
+// Importez le composant WifiIcon
+import { WifiIcon } from "@/components/wifi-icon"
+
+// Hook personnalisé pour remplacer useWindowSize
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: typeof window !== "undefined" ? window.innerWidth : 0,
+    height: typeof window !== "undefined" ? window.innerHeight : 0,
+  })
+
+  useEffect(() => {
+    // Handler pour mettre à jour l'état
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      })
+    }
+
+    // Ajouter l'écouteur d'événement
+    window.addEventListener("resize", handleResize)
+
+    // Appeler le handler immédiatement pour que l'état reflète les dimensions initiales
+    handleResize()
+
+    // Nettoyer l'écouteur d'événement
+    return () => window.removeEventListener("resize", handleResize)
+  }, []) // Tableau vide signifie que cet effet s'exécute une seule fois au montage
+
+  return windowSize
+}
+
 // AnimatedBeam Component
 interface AnimatedBeamProps {
-  fromRef: React.RefObject<HTMLElement>
-  toRef: React.RefObject<HTMLElement>
-  containerRef: React.RefObject<HTMLElement>
+  fromRef: React.RefObject<HTMLElement | null>
+  toRef: React.RefObject<HTMLElement | null>
+  containerRef: React.RefObject<HTMLElement | null>
   gradientStartColor?: string
   gradientStopColor?: string
   pathColor?: string
@@ -39,6 +72,7 @@ function AnimatedBeam({
   const [gradientId] = useState(`gradient-${Math.random().toString(36).substring(2, 9)}`)
   const [pathLength, setPathLength] = useState(0)
   const pathRef = useRef<SVGPathElement>(null)
+  const windowSize = useWindowSize()
 
   const calculatePath = useCallback(() => {
     if (!fromRef.current || !toRef.current || !containerRef.current) return ""
@@ -74,11 +108,9 @@ function AnimatedBeam({
     }
 
     updatePath()
-    window.addEventListener("resize", updatePath)
-    return () => window.removeEventListener("resize", updatePath)
-  }, [calculatePath])
+  }, [calculatePath, windowSize])
 
-  // Calculer la longueur du dash pour l'animation de données Bluetooth
+  // Calculer la longueur du dash pour l'animation de données
   const dataPacketLength = isDotted ? 8 : pathLength / 5
   const dataGapLength = isDotted ? 12 : pathLength / 5
 
@@ -91,15 +123,15 @@ function AnimatedBeam({
         </linearGradient>
       </defs>
 
-      {/* Chemin de référence invisible pour calculer la longueur */}
+      {/* Chemin de base invisible pour référence */}
       <path ref={pathRef} d={path} fill="none" stroke="transparent" strokeWidth={0} />
 
-      {/* Paquets de données animés */}
+      {/* Animation des données */}
       <path
         d={path}
         fill="none"
-        stroke={pathColor}
-        strokeWidth={pathWidth}
+        stroke={`url(#${gradientId})`}
+        strokeWidth={pathWidth * 1.5}
         strokeDasharray={`${dataPacketLength}, ${dataGapLength}`}
         strokeDashoffset={pathLength}
         style={{
@@ -125,6 +157,54 @@ function AnimatedBeam({
           }
         }
       `}</style>
+    </svg>
+  )
+}
+
+// WifiSignal Component - Version statique
+interface WifiSignalProps {
+  containerRef: React.RefObject<HTMLElement | null>
+  sourceRef: React.RefObject<HTMLElement | null>
+  color?: string
+}
+
+function WifiSignal({ containerRef, sourceRef, color = "#4ade80" }: WifiSignalProps) {
+  const [position, setPosition] = useState({ x: 0, y: 0 })
+  const windowSize = useWindowSize()
+
+  useEffect(() => {
+    const updatePosition = () => {
+      if (!sourceRef.current || !containerRef.current) return
+
+      const sourceRect = sourceRef.current.getBoundingClientRect()
+      const containerRect = containerRef.current.getBoundingClientRect()
+
+      setPosition({
+        x: sourceRect.left + sourceRect.width / 2 - containerRect.left,
+        y: sourceRect.top + sourceRect.height / 2 - containerRect.top,
+      })
+    }
+
+    updatePosition()
+  }, [sourceRef, containerRef, windowSize])
+
+  return (
+    <svg className="pointer-events-none absolute inset-0 h-full w-full overflow-visible" style={{ zIndex: 1 }}>
+      {/* Point central */}
+      <circle cx={position.x} cy={position.y - 20} r={3} fill={color} />
+
+      {/* Arcs de signal - statiques */}
+      {[15, 25, 35].map((radius) => (
+        <path
+          key={radius}
+          d={`M ${position.x - radius},${position.y - 20} 
+              a ${radius},${radius} 0 0 1 ${radius * 2},0`}
+          fill="none"
+          stroke={color}
+          strokeWidth={2}
+          opacity={0.7}
+        />
+      ))}
     </svg>
   )
 }
@@ -188,7 +268,7 @@ export default function AnimatedBeamSection() {
   const cloudRef = useRef<HTMLDivElement>(null)
 
   return (
-    <section className="w-full  py-16 md:py-24 flex justify-center">
+    <section className="w-full py-16 md:py-24 flex justify-center">
       <div className="container px-4 md:px-6 mx-auto max-w-7xl">
         <div className="flex w-full flex-col items-center justify-between gap-8 lg:flex-row">
           {/* Left side: Explanatory content */}
@@ -296,7 +376,7 @@ export default function AnimatedBeamSection() {
               </div>
             </div>
 
-            {/* Beams from sensors to router - with dotted lines */}
+            {/* Beams from sensors to router */}
             <AnimatedBeam
               containerRef={containerRef}
               fromRef={div1Ref}
@@ -340,7 +420,6 @@ export default function AnimatedBeamSection() {
               toRef={div4Ref}
               curvature={-70}
               endYOffset={-15}
-              reverse
               pathWidth={2}
               gradientStartColor="#4ade80"
               gradientStopColor="#16a34a"
@@ -352,7 +431,6 @@ export default function AnimatedBeamSection() {
               containerRef={containerRef}
               fromRef={div6Ref}
               toRef={div4Ref}
-              reverse
               pathWidth={2}
               gradientStartColor="#4ade80"
               gradientStopColor="#16a34a"
@@ -366,7 +444,6 @@ export default function AnimatedBeamSection() {
               toRef={div4Ref}
               curvature={70}
               endYOffset={15}
-              reverse
               pathWidth={2}
               gradientStartColor="#4ade80"
               gradientStopColor="#16a34a"
@@ -375,17 +452,26 @@ export default function AnimatedBeamSection() {
               isDotted={true}
             />
 
-            {/* Beam from router to cloud - solid line */}
+            {/* Beam from router to cloud - avec animation plus visible */}
             <AnimatedBeam
               containerRef={containerRef}
               fromRef={div4Ref}
               toRef={cloudRef}
-              pathWidth={2.5}
+              pathWidth={3}
               gradientStartColor="#4ade80"
               gradientStopColor="#16a34a"
               pathColor="#4ade80"
-              duration={1}
+              duration={1.5}
+              isDotted={false}
             />
+
+            {/* Wifi Icons */}
+            <WifiIcon containerRef={containerRef} sourceRef={div1Ref} color="#4ade80" />
+            <WifiIcon containerRef={containerRef} sourceRef={div2Ref} color="#4ade80" />
+            <WifiIcon containerRef={containerRef} sourceRef={div3Ref} color="#4ade80" />
+            <WifiIcon containerRef={containerRef} sourceRef={div5Ref} color="#4ade80" />
+            <WifiIcon containerRef={containerRef} sourceRef={div6Ref} color="#4ade80" />
+            <WifiIcon containerRef={containerRef} sourceRef={div7Ref} color="#4ade80" />
           </div>
         </div>
       </div>
