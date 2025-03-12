@@ -1,14 +1,52 @@
 "use client"
 
+import type React from "react"
+
 import { useState } from "react"
 import { ChevronDown, MessageSquareText, Phone, Mail } from "lucide-react"
 import Link from "next/link"
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
+  const [errorMessage, setErrorMessage] = useState<string>("")
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setFormStatus("submitting")
+    setErrorMessage("")
+
+    const formData = new FormData(e.currentTarget)
+    const formValues = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    }
+
+    try {
+      const response = await fetch("/api/demo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValues),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || "Une erreur s'est produite")
+      }
+
+      setFormStatus("success")
+    } catch (error) {
+      setFormStatus("error")
+      setErrorMessage(error instanceof Error ? error.message : "Une erreur s'est produite")
+    }
   }
 
   const faqs = [
@@ -45,7 +83,7 @@ export default function FAQSection() {
   ]
 
   return (
-    <section className="w-full  py-16 md:py-24 flex justify-center">
+    <section className="w-full bg-gradient-to-b from-white to-green-50 py-16 md:py-24 flex justify-center">
       <div className="container px-4 md:px-6 mx-auto max-w-7xl">
         <div className="mb-12 text-center">
           <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-2">
@@ -135,60 +173,95 @@ export default function FAQSection() {
         <div className="mt-8 rounded-lg border bg-white p-6 shadow-sm w-full">
           <h3 className="text-xl font-bold mb-4">Demandez une démo personnalisée</h3>
           <p className="mb-6 text-muted-foreground">
-            Voyez PharmaSensor en action avec une démonstration adaptée à votre pharmacie et à vos besoins spécifiques.
+            Voyez PharmaSensor en action avec une démonstration adaptée à vos besoins spécifiques.
           </p>
-          <form className="space-y-4">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label htmlFor="name" className="mb-2 block text-sm font-medium">
-                  Nom
-                </label>
-                <input
-                  id="name"
-                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  placeholder="Jean Dupont"
-                />
+          {formStatus === "success" ? (
+            <div className="flex flex-col items-center justify-center py-8 text-center">
+              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+                <MessageSquareText className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Demande envoyée avec succès !</h3>
+              <p className="text-muted-foreground mb-6 max-w-md">
+                Merci pour votre intérêt. Notre équipe vous contactera très prochainement pour organiser votre
+                démonstration personnalisée.
+              </p>
+              <button
+                onClick={() => setFormStatus("idle")}
+                className="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-4 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500 disabled:opacity-50"
+              >
+                Envoyer une autre demande
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {formStatus === "error" && (
+                <div className="rounded-md bg-red-50 p-4 text-sm text-red-700">
+                  {errorMessage || "Une erreur s'est produite. Veuillez réessayer."}
+                </div>
+              )}
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="name" className="mb-2 block text-sm font-medium">
+                    Nom <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    required
+                    className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    placeholder="Jean Dupont"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="mb-2 block text-sm font-medium">
+                    Email <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    required
+                    className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    placeholder="jean@pharmacie.fr"
+                  />
+                </div>
               </div>
               <div>
-                <label htmlFor="email" className="mb-2 block text-sm font-medium">
-                  Email
+                <label htmlFor="message" className="mb-2 block text-sm font-medium">
+                  Message (facultatif)
                 </label>
-                <input
-                  id="email"
-                  type="email"
+                <textarea
+                  id="message"
+                  name="message"
                   className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  placeholder="jean@pharmacie.fr"
-                />
+                  rows={3}
+                  placeholder="Décrivez brièvement vos besoins ou posez-nous vos questions..."
+                ></textarea>
               </div>
-            </div>
-            <div>
-              <label htmlFor="message" className="mb-2 block text-sm font-medium">
-                Message
-              </label>
-              <textarea
-                id="message"
-                className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                rows={3}
-                placeholder="Décrivez brièvement vos besoins..."
-              ></textarea>
-            </div>
-            <div className="flex items-center space-x-2">
-              <input
-                type="checkbox"
-                id="consent"
-                className="h-4 w-4 rounded border-gray-300 text-green-600 focus:ring-green-500"
-              />
-              <label htmlFor="consent" className="text-sm text-muted-foreground">
-                J'accepte de recevoir des informations de PharmaSensor
-              </label>
-            </div>
-            <button
-              type="submit"
-              className="w-full rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-            >
-              Demander une démo
-            </button>
-          </form>
+              <div className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  id="consent"
+                  name="consent"
+                  required
+                  className="h-4 w-4 rounded border-gray-300 text-green-600 focus:ring-green-500"
+                />
+                <label htmlFor="consent" className="text-sm text-muted-foreground">
+                  J'accepte de recevoir des informations de PharmaSensor <span className="text-red-500">*</span>
+                </label>
+              </div>
+              <button
+                type="submit"
+                disabled={formStatus === "submitting"}
+                className="w-full rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50"
+              >
+                {formStatus === "submitting" ? "Envoi en cours..." : "Demander une démo"}
+              </button>
+              <p className="text-xs text-muted-foreground text-center">
+                Les champs marqués d'un <span className="text-red-500">*</span> sont obligatoires
+              </p>
+            </form>
+          )}
         </div>
       </div>
     </section>

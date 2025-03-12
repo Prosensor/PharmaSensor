@@ -9,15 +9,43 @@ import Image from "next/image"
 
 export default function ContactSection() {
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
+  const [errorMessage, setErrorMessage] = useState<string>("")
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setFormStatus("submitting")
+    setErrorMessage("")
 
-    // Simuler l'envoi du formulaire
-    setTimeout(() => {
+    const formData = new FormData(e.currentTarget)
+    const formValues = {
+      name: formData.get("nom") as string,
+      email: formData.get("email") as string,
+      pharmacyName: formData.get("pharmacie") as string,
+      phone: formData.get("telephone") as string,
+      equipment: formData.get("equipements") as string,
+      message: formData.get("message") as string,
+    }
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValues),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || "Une erreur s'est produite")
+      }
+
       setFormStatus("success")
-    }, 1500)
+    } catch (error) {
+      setFormStatus("error")
+      setErrorMessage(error instanceof Error ? error.message : "Une erreur s'est produite")
+    }
   }
 
   return (
@@ -48,13 +76,18 @@ export default function ContactSection() {
                 </p>
                 <button
                   onClick={() => setFormStatus("idle")}
-                  className="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-4 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-4 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500 disabled:opacity-50"
                 >
                   Envoyer une autre demande
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {formStatus === "error" && (
+                  <div className="rounded-md bg-red-50 p-4 text-sm text-red-700">
+                    {errorMessage || "Une erreur s'est produite. Veuillez réessayer."}
+                  </div>
+                )}
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <label htmlFor="nom" className="mb-2 block text-sm font-medium">
@@ -258,7 +291,7 @@ export default function ContactSection() {
           <div className="flex flex-col md:flex-row md:items-center gap-6">
             <div className="flex-shrink-0">
               <div className="relative h-16 w-16 overflow-hidden rounded-full border-2 border-white shadow-sm">
-                <Image src="/docteur1.jpg" alt="Photo de client" fill className="object-cover" />
+                <Image src="/placeholder.svg?height=64&width=64" alt="Photo de client" fill className="object-cover" />
               </div>
             </div>
             <div>

@@ -8,7 +8,7 @@ export default function HeroSection() {
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_500px]">
           <div className="flex flex-col justify-center space-y-4">
             <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-2">
-              Surveillance Précise de la Température
+              Surveillance Précise de la Température pour Officines
             </div>
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl flex items-center">
               <span className="inline-flex items-center justify-center mr-2 bg-green-600 text-white rounded-full p-1 h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12">
@@ -24,8 +24,8 @@ export default function HeroSection() {
               PharmaSensor
             </h1>
             <p className="text-xl text-muted-foreground md:text-2xl/relaxed lg:text-xl/relaxed xl:text-2xl/relaxed">
-              Surveillance avancée de la température pour le stockage pharmaceutique. Protégez votre inventaire grâce à
-              des alertes en temps réel et des rapports de conformité.
+              Surveillance avancée de la température pour les officines de pharmacie. Protégez votre inventaire grâce à
+              des alertes en temps réel et des rapports de conformité adaptés aux exigences des pharmacies.
             </p>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link
@@ -53,14 +53,14 @@ export default function HeroSection() {
                   <span className="text-xs font-medium text-green-800">USP</span>
                 </div>
               </div>
-              <div className="text-sm text-muted-foreground">Conforme à toutes les normes pharmaceutiques majeures</div>
+              <div className="text-sm text-muted-foreground">Conforme à toutes les normes exigées pour les officines</div>
             </div>
           </div>
           <div className="flex items-center justify-center">
             <div className="relative h-[350px] w-[350px] sm:h-[400px] sm:w-[400px] lg:h-[500px] lg:w-[500px]">
               <Image
                 src="/sonde123.webp"
-                alt="Dispositif de surveillance de température PharmaSensor pour stockage pharmaceutique"
+                alt="Dispositif de surveillance de température PharmaSensor pour officines de pharmacie"
                 fill
                 className="object-contain"
                 priority
@@ -76,4 +76,3 @@ export default function HeroSection() {
     </section>
   )
 }
-
