@@ -209,6 +209,107 @@ function WifiSignal({ containerRef, sourceRef, color = "#4ade80" }: WifiSignalPr
   )
 }
 
+// Animation de transfert de données
+interface DataTransferAnimationProps {
+  containerRef: React.RefObject<HTMLElement | null>
+  fromRef: React.RefObject<HTMLElement | null>
+  toRef: React.RefObject<HTMLElement | null>
+}
+function DataTransferAnimation({ containerRef, fromRef, toRef }: DataTransferAnimationProps) {
+  const [positions, setPositions] = useState({ from: { x: 0, y: 0 }, to: { x: 0, y: 0 } })
+  const windowSize = useWindowSize()
+
+  useEffect(() => {
+    const updatePositions = () => {
+      if (!fromRef.current || !toRef.current || !containerRef.current) return
+
+      const fromRect = fromRef.current.getBoundingClientRect()
+      const toRect = toRef.current.getBoundingClientRect()
+      const containerRect = containerRef.current.getBoundingClientRect()
+
+      setPositions({
+        from: {
+          x: fromRect.left + fromRect.width / 2 - containerRect.left,
+          y: fromRect.top - containerRect.top, // Modifier cette ligne pour partir du haut (-20 pour décaler légèrement)
+        },
+        to: {
+          x: toRect.left + toRect.width / 2 - containerRect.left,
+          y: toRect.top + toRect.height / 2 - containerRect.top,
+        },
+      })
+    }
+
+    updatePositions()
+  }, [fromRef, toRef, containerRef, windowSize])
+
+  return (
+    <svg className="pointer-events-none absolute inset-0 h-full w-full overflow-visible" style={{ zIndex: 0 }}>
+      {[0, 1, 2].map((index) => (
+        <g
+          key={index}
+          className="data-packet"
+          style={{
+            animation: `movePacketUp${index} 2s infinite ${index * 0.6}s`,
+            transformOrigin: `${positions.from.x}px ${positions.from.y}px`,
+          }}
+        >
+          <rect
+            x={positions.from.x - 8}
+            y={positions.from.y - 8}
+            width={16}
+            height={16}
+            rx={4}
+            fill="#4ade80"
+            opacity={0.8}
+          />
+        </g>
+      ))}
+
+      <style jsx>{`
+        @keyframes movePacketUp0 {
+          0% {
+            transform: translate(0, 0) scale(0.8);
+            opacity: 0;
+          }
+          20% {
+            opacity: 1;
+          }
+          100% {
+            transform: translate(0, ${positions.to.y - positions.from.y}px) scale(1);
+            opacity: 0;
+          }
+        }
+        @keyframes movePacketUp1 {
+          0% {
+            transform: translate(0, 0) scale(0.8);
+            opacity: 0;
+          }
+          20% {
+            opacity: 1;
+          }
+          100% {
+            transform: translate(0, ${positions.to.y - positions.from.y}px) scale(1);
+            opacity: 0;
+          }
+        }
+        @keyframes movePacketUp2 {
+          0% {
+            transform: translate(0, 0) scale(0.8);
+            opacity: 0;
+          }
+          20% {
+            opacity: 1;
+          }
+          100% {
+            transform: translate(0, ${positions.to.y - positions.from.y}px) scale(1);
+            opacity: 0;
+          }
+        }
+      `}</style>
+    </svg>
+  )
+}
+
 // Circle Component
 const Circle = forwardRef<HTMLDivElement, { className?: string; children?: React.ReactNode; imageUrl?: string }>(
   ({ className, children, imageUrl }, ref) => {
@@ -316,7 +417,7 @@ export default function AnimatedBeamSection() {
           >
             <div className="flex size-full flex-col items-center justify-between">
               {/* Cloud Platform */}
-              <div className="flex w-full justify-center pt-8">
+              <div className="flex w-full justify-center pt-0">
                 <CloudPlatform
                   ref={cloudRef}
                   className="border-green-200"
@@ -452,18 +553,8 @@ export default function AnimatedBeamSection() {
               isDotted={true}
             />
 
-            {/* Beam from router to cloud - avec animation plus visible */}
-            <AnimatedBeam
-              containerRef={containerRef}
-              fromRef={div4Ref}
-              toRef={cloudRef}
-              pathWidth={3}
-              gradientStartColor="#4ade80"
-              gradientStopColor="#16a34a"
-              pathColor="#4ade80"
-              duration={1.5}
-              isDotted={false}
-            />
+            {/* Animation de transfert de données du routeur vers le cloud */}
+            <DataTransferAnimation containerRef={containerRef} fromRef={div4Ref} toRef={cloudRef} />
 
             {/* Wifi Icons */}
             <WifiIcon containerRef={containerRef} sourceRef={div1Ref} color="#4ade80" />
