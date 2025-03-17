@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Menu, X, ChevronDown } from "lucide-react"
@@ -8,6 +8,10 @@ import { Menu, X, ChevronDown } from "lucide-react"
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+
+  const solutionsRef = useRef<HTMLDivElement>(null)
+  const resourcesRef = useRef<HTMLDivElement>(null)
 
   // Gérer le changement de style du header lors du défilement
   useEffect(() => {
@@ -25,8 +29,38 @@ export default function Header() {
     }
   }, [])
 
+  // Gérer les clics en dehors des dropdowns pour les fermer
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        openDropdown === "solutions" &&
+        solutionsRef.current &&
+        !solutionsRef.current.contains(event.target as Node)
+      ) {
+        setOpenDropdown(null)
+      }
+
+      if (
+        openDropdown === "resources" &&
+        resourcesRef.current &&
+        !resourcesRef.current.contains(event.target as Node)
+      ) {
+        setOpenDropdown(null)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [openDropdown])
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
+  }
+
+  const toggleDropdown = (dropdown: string) => {
+    setOpenDropdown(openDropdown === dropdown ? null : dropdown)
   }
 
   return (
@@ -59,31 +93,8 @@ export default function Header() {
               Accueil
             </Link>
 
-            {/* Dropdown Solutions */}
-            <div className="group relative">
-              <button
-                className={`flex items-center px-3 py-2 text-sm font-medium relative ${
-                  isScrolled ? "text-gray-700 hover:text-green-600" : "text-gray-700 hover:text-green-600"
-                } transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-600 after:transition-all after:duration-300 group-hover:after:w-full`}
-              >
-                Solutions
-                <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
-              </button>
-              <div className="absolute left-0 top-full mt-1 hidden w-48 rounded-md bg-white py-2 shadow-lg group-hover:block">
-                <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">
-                  PharmaSensor Pro
-                </Link>
-                <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">
-                  PharmaSensor Cloud
-                </Link>
-                <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">
-                  Capteurs spécialisés
-                </Link>
-              </div>
-            </div>
-
             <Link
-              href="#features"
+              href="/fonctionnalites"
               className={`px-3 py-2 text-sm font-medium relative ${
                 isScrolled ? "text-gray-700 hover:text-green-600" : "text-gray-700 hover:text-green-600"
               } transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full`}
@@ -91,17 +102,10 @@ export default function Header() {
               Fonctionnalités
             </Link>
 
-            <Link
-              href="#testimonials"
-              className={`px-3 py-2 text-sm font-medium relative ${
-                isScrolled ? "text-gray-700 hover:text-green-600" : "text-gray-700 hover:text-green-600"
-              } transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full`}
-            >
-              Témoignages
-            </Link>
+           
 
             <Link
-              href="#pricing"
+              href="/tarification"
               className={`px-3 py-2 text-sm font-medium relative ${
                 isScrolled ? "text-gray-700 hover:text-green-600" : "text-gray-700 hover:text-green-600"
               } transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full`}
@@ -110,30 +114,34 @@ export default function Header() {
             </Link>
 
             {/* Dropdown Ressources */}
-            <div className="group relative">
+            <div ref={resourcesRef} className="relative">
               <button
+                onClick={() => toggleDropdown("resources")}
                 className={`flex items-center px-3 py-2 text-sm font-medium relative ${
                   isScrolled ? "text-gray-700 hover:text-green-600" : "text-gray-700 hover:text-green-600"
-                } transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-600 after:transition-all after:duration-300 group-hover:after:w-full`}
+                } transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full`}
               >
                 Ressources
-                <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
+                <ChevronDown
+                  className={`ml-1 h-4 w-4 transition-transform duration-300 ${openDropdown === "resources" ? "rotate-180" : ""}`}
+                />
               </button>
-              <div className="absolute left-0 top-full mt-1 hidden w-48 rounded-md bg-white py-2 shadow-lg group-hover:block">
-                <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">
-                  Blog
-                </Link>
-                <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">
-                  Guides techniques
-                </Link>
-                <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">
-                  Webinaires
-                </Link>
-              </div>
+              {openDropdown === "resources" && (
+                <div className="absolute left-0 top-full mt-1 w-48 rounded-md bg-white py-2 shadow-lg z-50">
+                 
+                  <Link
+                    href="/guides-techniques"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                  >
+                    Guides techniques
+                  </Link>
+                 
+                </div>
+              )}
             </div>
 
             <Link
-              href="#contact"
+              href="/contact"
               className={`px-3 py-2 text-sm font-medium relative ${
                 isScrolled ? "text-gray-700 hover:text-green-600" : "text-gray-700 hover:text-green-600"
               } transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full`}
@@ -182,39 +190,44 @@ export default function Header() {
 
               {/* Dropdown Solutions Mobile */}
               <div className="group">
-                <button className="flex w-full items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 hover:text-green-600">
+                <button
+                  onClick={() => toggleDropdown("solutions-mobile")}
+                  className="flex w-full items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 hover:text-green-600"
+                >
                   Solutions
-                  <ChevronDown className="h-4 w-4" />
+                  <ChevronDown className={`h-4 w-4 ${openDropdown === "solutions-mobile" ? "rotate-180" : ""}`} />
                 </button>
-                <div className="ml-4 hidden group-hover:block">
-                  <div className="mt-1 flex flex-col space-y-1 border-l-2 border-green-100 pl-4">
-                    <Link
-                      href="#"
-                      className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
-                      onClick={toggleMenu}
-                    >
-                      PharmaSensor Pro
-                    </Link>
-                    <Link
-                      href="#"
-                      className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
-                      onClick={toggleMenu}
-                    >
-                      PharmaSensor Cloud
-                    </Link>
-                    <Link
-                      href="#"
-                      className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
-                      onClick={toggleMenu}
-                    >
-                      Capteurs spécialisés
-                    </Link>
+                {openDropdown === "solutions-mobile" && (
+                  <div className="ml-4">
+                    <div className="mt-1 flex flex-col space-y-1 border-l-2 border-green-100 pl-4">
+                      <Link
+                        href="/solutions/pharmasensor-pro"
+                        className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
+                        onClick={toggleMenu}
+                      >
+                        PharmaSensor Pro
+                      </Link>
+                      <Link
+                        href="/solutions/pharmasensor-cloud"
+                        className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
+                        onClick={toggleMenu}
+                      >
+                        PharmaSensor Cloud
+                      </Link>
+                      <Link
+                        href="/solutions/capteurs-specialises"
+                        className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
+                        onClick={toggleMenu}
+                      >
+                        Capteurs spécialisés
+                      </Link>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
 
               <Link
-                href="#features"
+                href="/fonctionnalites"
                 className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-green-600"
                 onClick={toggleMenu}
               >
@@ -230,7 +243,7 @@ export default function Header() {
               </Link>
 
               <Link
-                href="#pricing"
+                href="/tarification"
                 className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-green-600"
                 onClick={toggleMenu}
               >
@@ -239,39 +252,44 @@ export default function Header() {
 
               {/* Dropdown Ressources Mobile */}
               <div className="group">
-                <button className="flex w-full items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 hover:text-green-600">
+                <button
+                  onClick={() => toggleDropdown("resources-mobile")}
+                  className="flex w-full items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 hover:text-green-600"
+                >
                   Ressources
-                  <ChevronDown className="h-4 w-4" />
+                  <ChevronDown className={`h-4 w-4 ${openDropdown === "resources-mobile" ? "rotate-180" : ""}`} />
                 </button>
-                <div className="ml-4 hidden group-hover:block">
-                  <div className="mt-1 flex flex-col space-y-1 border-l-2 border-green-100 pl-4">
-                    <Link
-                      href="#"
-                      className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
-                      onClick={toggleMenu}
-                    >
-                      Blog
-                    </Link>
-                    <Link
-                      href="#"
-                      className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
-                      onClick={toggleMenu}
-                    >
-                      Guides techniques
-                    </Link>
-                    <Link
-                      href="#"
-                      className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
-                      onClick={toggleMenu}
-                    >
-                      Webinaires
-                    </Link>
+                {openDropdown === "resources-mobile" && (
+                  <div className="ml-4">
+                    <div className="mt-1 flex flex-col space-y-1 border-l-2 border-green-100 pl-4">
+                      <Link
+                        href="#"
+                        className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
+                        onClick={toggleMenu}
+                      >
+                        Blog
+                      </Link>
+                      <Link
+                        href="/guides-techniques"
+                        className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
+                        onClick={toggleMenu}
+                      >
+                        Guides techniques
+                      </Link>
+                      <Link
+                        href="#"
+                        className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
+                        onClick={toggleMenu}
+                      >
+                        Webinaires
+                      </Link>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
 
               <Link
-                href="#contact"
+                href="/contact"
                 className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-green-600"
                 onClick={toggleMenu}
               >

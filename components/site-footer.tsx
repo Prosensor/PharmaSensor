@@ -28,37 +28,22 @@ export default function Footer() {
             <h3 className="text-lg font-bold">Liens Rapides</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#" className="text-green-100 hover:text-white transition-colors">
+                <Link href="/" className="text-green-100 hover:text-white transition-colors">
                   Accueil
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-green-100 hover:text-white transition-colors">
-                  Nos Solutions
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-green-100 hover:text-white transition-colors">
+                <Link href="/fonctionnalites" className="text-green-100 hover:text-white transition-colors">
                   Fonctionnalités
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-green-100 hover:text-white transition-colors">
-                  Témoignages
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-green-100 hover:text-white transition-colors">
+                <Link href="/tarification" className="text-green-100 hover:text-white transition-colors">
                   Tarifs
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-green-100 hover:text-white transition-colors">
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-green-100 hover:text-white transition-colors">
+                <Link href="/contact" className="text-green-100 hover:text-white transition-colors">
                   Contact
                 </Link>
               </li>
@@ -69,11 +54,6 @@ export default function Footer() {
           <div className="flex flex-col space-y-4">
             <h3 className="text-lg font-bold">Ressources</h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="#" className="text-green-100 hover:text-white transition-colors">
-                  Blog
-                </Link>
-              </li>
               <li>
                 <Link href="#" className="text-green-100 hover:text-white transition-colors">
                   Guides Techniques
@@ -87,16 +67,6 @@ export default function Footer() {
               <li>
                 <Link href="#" className="text-green-100 hover:text-white transition-colors">
                   Centre d'Aide
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-green-100 hover:text-white transition-colors">
-                  Webinaires
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-green-100 hover:text-white transition-colors">
-                  Téléchargements
                 </Link>
               </li>
             </ul>
@@ -148,16 +118,19 @@ export default function Footer() {
         {/* Section inférieure du footer */}
         <div className="flex flex-col py-6 md:flex-row md:items-center md:justify-between">
           <div className="mb-4 flex flex-wrap gap-4 md:mb-0">
-            <Link href="#" className="text-xs text-green-100 hover:text-white transition-colors">
+            <Link
+              href="/politique-de-confidentialite"
+              className="text-xs text-green-100 hover:text-white transition-colors"
+            >
               Politique de Confidentialité
             </Link>
-            <Link href="#" className="text-xs text-green-100 hover:text-white transition-colors">
+            <Link href="/conditions-utilisation" className="text-xs text-green-100 hover:text-white transition-colors">
               Conditions d'Utilisation
             </Link>
-            <Link href="#" className="text-xs text-green-100 hover:text-white transition-colors">
+            <Link href="/mentions-legales" className="text-xs text-green-100 hover:text-white transition-colors">
               Mentions Légales
             </Link>
-            <Link href="#" className="text-xs text-green-100 hover:text-white transition-colors">
+            <Link href="/cookies" className="text-xs text-green-100 hover:text-white transition-colors">
               Cookies
             </Link>
           </div>

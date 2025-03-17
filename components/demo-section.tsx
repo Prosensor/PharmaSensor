@@ -291,7 +291,7 @@ export default function ContactSection() {
           <div className="flex flex-col md:flex-row md:items-center gap-6">
             <div className="flex-shrink-0">
               <div className="relative h-16 w-16 overflow-hidden rounded-full border-2 border-white shadow-sm">
-                <Image src="/placeholder.svg?height=64&width=64" alt="Photo de client" fill className="object-cover" />
+                <Image src="/docteur1.jpg" alt="Photo de client" fill className="object-cover" />
               </div>
             </div>
             <div>
