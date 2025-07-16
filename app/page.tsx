@@ -7,6 +7,7 @@ import ContactSection from "@/components/demo-section"
 import { JsonLd } from "@/components/json-ld"
 import type { Metadata } from "next"
 import AnimatedBeamSection from "@/components/animated-beam-demo"
+import HowItWorksSection from "@/components/how-it-works-section"
 
 
 export const metadata: Metadata = {
@@ -75,10 +76,8 @@ export default function Home() {
         }}
       />
       <HeroSection />
-      <AnimatedBeamSection />
+      <HowItWorksSection />
       <FeaturesSection />
-      <TestimonialsSection />
-      <FAQSection />
       <PricingSection />
       <ContactSection />
     </>

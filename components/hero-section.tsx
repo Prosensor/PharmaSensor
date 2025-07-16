@@ -32,7 +32,7 @@ export default function HeroSection() {
                 href="#request-demo"
                 className="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
               >
-                Demander une Démo
+                Demander un Devis
               </Link>
               <Link
                 href="#learn-more"

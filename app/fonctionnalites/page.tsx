@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { CheckCircle, ArrowRight } from 'lucide-react'
+import AnimatedBeamSection from "@/components/animated-beam-demo"
 
 export const metadata: Metadata = {
   title: "Fonctionnalités | PharmaSensor",
@@ -60,6 +61,8 @@ export default function FonctionnalitesPage() {
             </div>
           </div>
         </div>
+
+        <AnimatedBeamSection />
 
         {/* Core Features Section */}
         <div className="mb-16">

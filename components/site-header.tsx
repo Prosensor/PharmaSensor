@@ -99,7 +99,7 @@ export default function Header() {
                 isScrolled ? "text-gray-700 hover:text-green-600" : "text-gray-700 hover:text-green-600"
               } transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full`}
             >
-              Fonctionnalités
+              Notre produit
             </Link>
 
            
@@ -121,7 +121,7 @@ export default function Header() {
                   isScrolled ? "text-gray-700 hover:text-green-600" : "text-gray-700 hover:text-green-600"
                 } transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full`}
               >
-                Ressources
+                Informations
                 <ChevronDown
                   className={`ml-1 h-4 w-4 transition-transform duration-300 ${openDropdown === "resources" ? "rotate-180" : ""}`}
                 />
@@ -133,9 +133,20 @@ export default function Header() {
                     href="/guides-techniques"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
                   >
-                    Guides techniques
+                    Comment ça marche ?
                   </Link>
-                 
+                  <Link
+                    href="/guides-techniques"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                  >
+                    FAQ
+                  </Link>
+                  <Link
+                    href="/avis"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                  >
+                   Avis clients
+                  </Link>
                 </div>
               )}
             </div>
@@ -146,7 +157,7 @@ export default function Header() {
                 isScrolled ? "text-gray-700 hover:text-green-600" : "text-gray-700 hover:text-green-600"
               } transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full`}
             >
-              Contact
+              Nous contacter
             </Link>
           </nav>
 
@@ -156,7 +167,7 @@ export default function Header() {
               href="#contact"
               className="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 transition-all duration-300"
             >
-              Demander une démo
+              Demander un devis
             </Link>
           </div>
 
@@ -231,7 +242,7 @@ export default function Header() {
                 className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-green-600"
                 onClick={toggleMenu}
               >
-                Fonctionnalités
+                Notre produit
               </Link>
 
               <Link
@@ -256,33 +267,30 @@ export default function Header() {
                   onClick={() => toggleDropdown("resources-mobile")}
                   className="flex w-full items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 hover:text-green-600"
                 >
-                  Ressources
+                  Informations
                   <ChevronDown className={`h-4 w-4 ${openDropdown === "resources-mobile" ? "rotate-180" : ""}`} />
                 </button>
                 {openDropdown === "resources-mobile" && (
                   <div className="ml-4">
                     <div className="mt-1 flex flex-col space-y-1 border-l-2 border-green-100 pl-4">
-                      <Link
-                        href="#"
-                        className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
-                        onClick={toggleMenu}
-                      >
-                        Blog
-                      </Link>
-                      <Link
-                        href="/guides-techniques"
-                        className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
-                        onClick={toggleMenu}
-                      >
-                        Guides techniques
-                      </Link>
-                      <Link
-                        href="#"
-                        className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
-                        onClick={toggleMenu}
-                      >
-                        Webinaires
-                      </Link>
+                    <Link
+                    href="/guides-techniques"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                  >
+                    Comment ça marche ?
+                  </Link>
+                  <Link
+                    href="/guides-techniques"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                  >
+                    FAQ
+                  </Link>
+                  <Link
+                    href="/avis"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
+                  >
+                   Avis clients
+                  </Link>
                     </div>
                   </div>
                 )}
@@ -293,7 +301,7 @@ export default function Header() {
                 className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-green-600"
                 onClick={toggleMenu}
               >
-                Contact
+                 Nous contacter
               </Link>
             </nav>
 
