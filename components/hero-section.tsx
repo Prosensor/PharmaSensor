@@ -8,7 +8,7 @@ export default function HeroSection() {
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_500px]">
           <div className="flex flex-col justify-center space-y-4">
             <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-2">
-              Surveillance Précise de la Température pour Officines
+            Surveillez la température de vos frigos pharmaceutiques, en toute simplicité
             </div>
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl flex items-center">
               <span className="inline-flex items-center justify-center mr-2 bg-green-600 text-white rounded-full p-1 h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12">
@@ -24,8 +24,7 @@ export default function HeroSection() {
               PharmaSensor
             </h1>
             <p className="text-xl text-muted-foreground md:text-2xl/relaxed lg:text-xl/relaxed xl:text-2xl/relaxed">
-              Surveillance avancée de la température pour les officines de pharmacie. Protégez votre inventaire grâce à
-              des alertes en temps réel et des rapports de conformité adaptés aux exigences des pharmacies.
+            Des sondes de température connectées à une interface web pour les pharmacies. Alertes instantanées. Médicaments protégés.
             </p>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link
@@ -38,7 +37,7 @@ export default function HeroSection() {
                 href="#learn-more"
                 className="inline-flex h-10 items-center justify-center rounded-md border border-green-200 bg-white px-8 text-sm font-medium text-green-700 shadow-sm transition-colors hover:bg-green-50 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
               >
-                En Savoir Plus
+                Nos formules
               </Link>
             </div>
             <div className="flex items-center gap-4 pt-4">

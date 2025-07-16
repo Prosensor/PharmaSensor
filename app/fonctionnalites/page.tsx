@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { CheckCircle, ArrowRight } from 'lucide-react'
 import AnimatedBeamSection from "@/components/animated-beam-demo"
+import HeroSection from "@/components/hero-section"
 
 export const metadata: Metadata = {
   title: "Fonctionnalités | PharmaSensor",
@@ -11,56 +12,9 @@ export const metadata: Metadata = {
 
 export default function FonctionnalitesPage() {
   return (
-    <div className="w-full pt-24 pb-16 flex justify-center">
+    <div className="w-full pb-16 flex justify-center">
       <div className="container px-4 md:px-6 mx-auto max-w-7xl">
-        {/* Hero Section */}
-        <div className="flex flex-col md:flex-row gap-12 items-center mb-16">
-          <div className="md:w-1/2 space-y-6">
-            <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-2">
-              Fonctionnalités Avancées
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Fonctionnalités PharmaSensor</h1>
-            <p className="text-xl text-gray-600">
-              Découvrez comment notre solution complète répond aux exigences strictes du secteur pharmaceutique avec des fonctionnalités innovantes.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link
-                href="#contact"
-                className="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1"
-              >
-                Demander une démo
-              </Link>
-              <Link
-                href="/tarification"
-                className="inline-flex h-10 items-center justify-center rounded-md border border-green-200 bg-white px-8 text-sm font-medium text-green-700 shadow-sm transition-colors hover:bg-green-50 focus-visible:outline-none focus-visible:ring-1"
-              >
-                Voir les tarifs
-              </Link>
-            </div>
-          </div>
-          <div className="md:w-1/2">
-            <div className="relative h-[350px] w-full rounded-xl overflow-hidden shadow-xl">
-              <Image
-                src="/image.png"
-                alt="Fonctionnalités PharmaSensor"
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-green-900/30 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 right-4 rounded-lg bg-white/90 p-4 shadow-lg">
-                <div className="flex items-center space-x-2">
-                  <div className="flex -space-x-2">
-                    <div className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-green-100">
-                      <span className="text-xs font-medium text-green-800">Pro</span>
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium">Solution complète de surveillance</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <HeroSection />
 
         <AnimatedBeamSection />
 
@@ -193,221 +147,9 @@ export default function FonctionnalitesPage() {
           </div>
         </div>
 
-        {/* Advanced Features Section */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Fonctionnalités Avancées</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              PharmaSensor va au-delà de la simple surveillance de température avec des fonctionnalités avancées pour optimiser votre conformité.
-            </p>
-          </div>
+        
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Advanced Feature 1 */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-4">Cartographie Thermique</h3>
-                <p className="text-gray-600 mb-4">
-                  Identifiez les zones à risque dans vos espaces de stockage grâce à notre technologie de cartographie thermique.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Visualisation en 3D des gradients de température</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Identification des points chauds et froids</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Optimisation du placement des produits</span>
-                  </li>
-                </ul>
-                <div className="relative h-[200px] w-full rounded-lg overflow-hidden">
-                  <Image
-                    src="/image.png"
-                    alt="Cartographie thermique"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Advanced Feature 2 */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-4">Analyse Prédictive</h3>
-                <p className="text-gray-600 mb-4">
-                  Anticipez les problèmes avant qu'ils ne surviennent grâce à notre technologie d'analyse prédictive basée sur l'IA.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Détection précoce des anomalies</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Prévision des tendances de température</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Recommandations d'actions préventives</span>
-                  </li>
-                </ul>
-                <div className="relative h-[200px] w-full rounded-lg overflow-hidden">
-                  <Image
-                    src="/image.png"
-                    alt="Analyse prédictive"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Advanced Feature 3 */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-4">Gestion des Stocks Intégrée</h3>
-                <p className="text-gray-600 mb-4">
-                  Associez vos données de température à votre inventaire pour une gestion optimale de vos produits sensibles.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Suivi des dates de péremption</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Historique des conditions de stockage</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Intégration avec votre logiciel de gestion</span>
-                  </li>
-                </ul>
-                <div className="relative h-[200px] w-full rounded-lg overflow-hidden">
-                  <Image
-                    src="/image.png"
-                    alt="Gestion des stocks intégrée"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Advanced Feature 4 */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-4">Conformité Réglementaire</h3>
-                <p className="text-gray-600 mb-4">
-                  Assurez votre conformité aux normes pharmaceutiques avec nos outils dédiés.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Rapports conformes BPD, BPF, FDA</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Traçabilité complète des données</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Signatures électroniques conformes</span>
-                  </li>
-                </ul>
-                <div className="relative h-[200px] w-full rounded-lg overflow-hidden">
-                  <Image
-                    src="/image.png"
-                    alt="Conformité réglementaire"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile App Section */}
-        <div className="mb-16">
-          <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h2 className="text-2xl font-bold mb-4">Application Mobile</h2>
-                <p className="text-gray-600 mb-4">
-                  Surveillez vos équipements où que vous soyez grâce à notre application mobile intuitive et puissante.
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-green-100">
-                      <span className="text-xs font-medium text-green-800">1</span>
-                    </div>
-                    <div>
-                      <span className="font-medium">Notifications push en temps réel</span>
-                      <p className="text-sm text-gray-600">Recevez des alertes instantanées sur votre smartphone</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-green-100">
-                      <span className="text-xs font-medium text-green-800">2</span>
-                    </div>
-                    <div>
-                      <span className="font-medium">Tableau de bord complet</span>
-                      <p className="text-sm text-gray-600">Accédez à toutes vos données depuis votre mobile</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-green-100">
-                      <span className="text-xs font-medium text-green-800">3</span>
-                    </div>
-                    <div>
-                      <span className="font-medium">Gestion des alertes</span>
-                      <p className="text-sm text-gray-600">Accusez réception et gérez les incidents en déplacement</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-green-100">
-                      <span className="text-xs font-medium text-green-800">4</span>
-                    </div>
-                    <div>
-                      <span className="font-medium">Mode hors ligne</span>
-                      <p className="text-sm text-gray-600">Consultez les données même sans connexion internet</p>
-                    </div>
-                  </li>
-                </ul>
-                <div className="mt-6">
-                  <div className="flex space-x-4">
-                    <Link href="#" className="flex items-center justify-center rounded-md bg-black px-4 py-2 text-white hover:bg-gray-800 transition-colors">
-                      <svg className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M10.9,2.1c-4.6,0.5-8.3,4.2-8.8,8.7c-0.5,4.7,2.2,8.9,6.3,10.5C8.7,21.4,9,21.2,9,20.8v-1.6c0,0-0.4,0.1-0.9,0.1 c-1.4,0-2-1.2-2.1-1.9c-0.1-0.4-0.3-0.7-0.6-1C5.1,16.3,5,16.3,5,16.2C5,16,5.3,16,5.4,16c0.6,0,1.1,0.7,1.3,1c0.5,0.8,1.1,1,1.4,1 c0.4,0,0.7-0.1,0.9-0.2c0.1-0.7,0.4-1.4,1-1.8c-2.3-0.5-4-1.8-4-4c0-1.1,0.5-2.2,1.2-3C7.1,8.8,7,8.3,7,7.6C7,7.2,7,6.6,7.3,6 c0,0,1.4,0,2.8,1.3C10.6,7.1,11.3,7,12,7s1.4,0.1,2,0.3C15.3,6,16.8,6,16.8,6C17,6.6,17,7.2,17,7.6c0,0.8-0.1,1.2-0.2,1.4 c0.7,0.8,1.2,1.8,1.2,3c0,2.2-1.7,3.5-4,4c0.6,0.5,1,1.4,1,2.3v2.6c0,0.3,0.3,0.6,0.7,0.5c3.7-1.5,6.3-5.1,6.3-9.3 C22,6.1,16.9,1.4,10.9,2.1z"></path>
-                      </svg>
-                      App Store
-                    </Link>
-                    <Link href="#" className="flex items-center justify-center rounded-md bg-green-600 px-4 py-2 text-white hover:bg-green-700 transition-colors">
-                      <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-                      </svg>
-                      Google Play
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="relative h-[500px] w-full">
-                <Image
-                  src="/image.png"
-                  alt="Application mobile PharmaSensor"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
         {/* Comparison Table */}
         <div className="mb-16">
@@ -612,7 +354,7 @@ export default function FonctionnalitesPage() {
                   type="submit"
                   className="w-full bg-white text-green-600 font-medium py-2 px-4 rounded-md hover:bg-gray-100 transition-colors"
                 >
-                  Demander une démo
+                  Demander un devis
                 </button>
               </form>
             </div>

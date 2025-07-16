@@ -16,7 +16,7 @@ export default function PricingSection() {
       ],
     },
     {
-      titre: "Location",
+      titre: "Sérénité",
       prix: "49€",
       description: "Optez pour la flexibilité avec notre formule location",
       avantages: [
@@ -28,15 +28,6 @@ export default function PricingSection() {
       ],
     },
   ]
-
-  const comparaisonDetails = [
-    { feature: "Coût initial", achat: "Élevé", location: "Faible" },
-    { feature: "Flexibilité", achat: "Limitée", location: "Élevée" },
-    { feature: "Propriété de l'appareil", achat: "Oui", location: "Non" },
-    { feature: "Mises à jour matérielles", achat: "Payantes", location: "Incluses" },
-    { feature: "Engagement", achat: "Aucun", location: "Contrat annuel" },
-  ]
-
   return (
     <section className="w-full py-16 md:py-24 flex justify-center">
       <div className="container px-4 md:px-6 mx-auto max-w-7xl">
@@ -95,30 +86,7 @@ export default function PricingSection() {
           ))}
         </div>
 
-        {/* Tableau comparatif */}
-        <div className="mt-12 rounded-lg border bg-white p-6 shadow-sm">
-          <h3 className="text-xl font-bold mb-4">Comparaison des Formules</h3>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b">
-                  <th className="py-3 px-4 text-left font-medium text-muted-foreground">Caractéristique</th>
-                  <th className="py-3 px-4 text-center font-medium text-green-600">Achat</th>
-                  <th className="py-3 px-4 text-center font-medium text-emerald-600">Location</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparaisonDetails.map((item, index) => (
-                  <tr key={index} className="border-b last:border-0">
-                    <td className="py-3 px-4 font-medium">{item.feature}</td>
-                    <td className="py-3 px-4 text-center">{item.achat}</td>
-                    <td className="py-3 px-4 text-center">{item.location}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+        
 
         {/* FAQ et Devis */}
         <div className="mt-12 grid gap-6 md:grid-cols-2">

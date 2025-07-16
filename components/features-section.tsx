@@ -35,7 +35,7 @@ export default function FeaturesSection() {
                 />
               </svg>
             </div>
-            <h3 className="mb-2 text-xl font-bold">Précision Garantie</h3>
+            <h3 className="mb-2 text-xl font-bold">Facilité d’utilisation</h3>
             <p className="mb-4 flex-grow text-muted-foreground">
               Capteurs de haute précision avec une marge d'erreur de ±0.1°C, conformes aux normes pharmaceutiques les
               plus strictes.
@@ -67,7 +67,7 @@ export default function FeaturesSection() {
             </div>
             <h3 className="mb-2 text-xl font-bold">Alertes en Temps Réel</h3>
             <p className="mb-4 flex-grow text-muted-foreground">
-              Recevez des notifications instantanées par SMS, email ou appel en cas de dépassement des seuils de
+              Recevez des notifications instantanées par SMS, email en cas de dépassement des seuils de
               température.
             </p>
             <ul className="space-y-2">

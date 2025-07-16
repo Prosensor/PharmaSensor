@@ -13,53 +13,34 @@ export default function TarificationPage() {
     <div className="w-full pt-24 pb-16 flex justify-center">
       <div className="container px-4 md:px-6 mx-auto max-w-7xl">
         {/* Hero Section */}
-        <div className="flex flex-col md:flex-row gap-12 items-center mb-16">
-          <div className="md:w-1/2 space-y-6">
-            <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-2">
-              Tarification Transparente
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Nos Formules Tarifaires</h1>
-            <p className="text-xl text-gray-600">
-              Des solutions flexibles pour toutes les pharmacies, quelle que soit leur taille. Choisissez la formule qui correspond le mieux à vos besoins.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link
-                href="#contact"
-                className="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1"
-              >
-                Demander un devis
-              </Link>
-              <Link
-                href="/fonctionnalites"
-                className="inline-flex h-10 items-center justify-center rounded-md border border-green-200 bg-white px-8 text-sm font-medium text-green-700 shadow-sm transition-colors hover:bg-green-50 focus-visible:outline-none focus-visible:ring-1"
-              >
-                Voir les fonctionnalités
-              </Link>
-            </div>
+        <section className="w-full mb-16 pt-8 pb-8  rounded-xl shadow-sm flex flex-col items-center text-center">
+          <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-4 mt-2">
+            Tarification Transparente
           </div>
-          <div className="md:w-1/2">
-            <div className="relative h-[350px] w-full rounded-xl overflow-hidden shadow-xl">
-              <Image
-                src="/image.png"
-                alt="Tarification PharmaSensor"
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-green-900/30 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 right-4 rounded-lg bg-white/90 p-4 shadow-lg">
-                <div className="flex items-center space-x-2">
-                  <div className="flex -space-x-2">
-                    <div className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-green-100">
-                      <span className="text-xs font-medium text-green-800">€</span>
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium">Solutions adaptées à votre budget</span>
-                </div>
-              </div>
-            </div>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Nos Formules Tarifaires</h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
+            Des solutions flexibles et sans surprise, adaptées à toutes les pharmacies. Comparez nos offres et choisissez la formule qui vous correspond.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
+            <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-4 py-1 text-sm font-medium">Sans engagement caché</span>
+            <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-4 py-1 text-sm font-medium">Support 24/7 inclus</span>
+            <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-4 py-1 text-sm font-medium">Essai gratuit 30 jours</span>
           </div>
-        </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="#contact"
+              className="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1"
+            >
+              Demander un devis
+            </Link>
+            <Link
+              href="/fonctionnalites"
+              className="inline-flex h-10 items-center justify-center rounded-md border border-green-200 bg-white px-8 text-sm font-medium text-green-700 shadow-sm transition-colors hover:bg-green-50 focus-visible:outline-none focus-visible:ring-1"
+            >
+              Voir les fonctionnalités
+            </Link>
+          </div>
+        </section>
 
         {/* Pricing Plans Section */}
         <div className="mb-16">
@@ -74,9 +55,9 @@ export default function TarificationPage() {
             {/* Plan 1 */}
             <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
               <div className="mb-4">
-                <h3 className="text-xl font-bold">Essentiel</h3>
+                <h3 className="text-xl font-bold">Solo</h3>
                 <div className="mt-2 flex items-baseline">
-                  <span className="text-3xl font-bold">29€</span>
+                  <span className="text-3xl font-bold">35€</span>
                   <span className="ml-1 text-lg text-gray-500">/mois</span>
                 </div>
                 <p className="mt-2 text-gray-600">Pour les petites pharmacies</p>
@@ -84,7 +65,7 @@ export default function TarificationPage() {
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start">
                   <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Jusqu'à 5 capteurs</span>
+                  <span className="text-sm font-bold">1 routeur + 1 sonde</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
@@ -117,9 +98,9 @@ export default function TarificationPage() {
                 Populaire
               </div>
               <div className="mb-4">
-                <h3 className="text-xl font-bold">Professionnel</h3>
+                <h3 className="text-xl font-bold">Dual</h3>
                 <div className="mt-2 flex items-baseline">
-                  <span className="text-3xl font-bold">79€</span>
+                  <span className="text-3xl font-bold">38€</span>
                   <span className="ml-1 text-lg text-gray-500">/mois</span>
                 </div>
                 <p className="mt-2 text-gray-600">Pour les pharmacies moyennes</p>
@@ -127,7 +108,7 @@ export default function TarificationPage() {
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start">
                   <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Jusqu'à 15 capteurs</span>
+                  <span className="text-sm font-bold">1 routeur + 2 sonde</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
@@ -161,9 +142,9 @@ export default function TarificationPage() {
             {/* Plan 3 */}
             <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
               <div className="mb-4">
-                <h3 className="text-xl font-bold">Entreprise</h3>
+                <h3 className="text-xl font-bold">Supplémentaire</h3>
                 <div className="mt-2 flex items-baseline">
-                  <span className="text-3xl font-bold">199€</span>
+                  <span className="text-3xl font-bold">3€</span>
                   <span className="ml-1 text-lg text-gray-500">/mois</span>
                 </div>
                 <p className="mt-2 text-gray-600">Pour les grandes pharmacies et groupements</p>
@@ -171,7 +152,7 @@ export default function TarificationPage() {
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start">
                   <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Capteurs illimités</span>
+                  <span className="text-sm font-bold">Sonde supplémentaire</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
@@ -261,7 +242,7 @@ export default function TarificationPage() {
             {/* Option 2 */}
             <div className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Location</h3>
+                <h3 className="text-xl font-bold mb-2">Sérénité</h3>
                 <div className="mt-2 flex items-baseline mb-4">
                   <span className="text-3xl font-bold">49€</span>
                   <span className="ml-1 text-lg text-gray-500">/capteur/mois</span>
@@ -301,70 +282,7 @@ export default function TarificationPage() {
         </div>
 
         {/* Comparison Table */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Comparaison Achat vs Location</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Découvrez quelle option correspond le mieux à vos besoins et à votre budget.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="bg-green-50">
-                    <th className="py-4 px-6 text-left font-bold text-gray-700">Caractéristique</th>
-                    <th className="py-4 px-6 text-center font-bold text-gray-700">Achat</th>
-                    <th className="py-4 px-6 text-center font-bold text-gray-700">Location</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-t border-gray-200">
-                    <td className="py-4 px-6 font-medium">Coût initial</td>
-                    <td className="py-4 px-6 text-center">Élevé</td>
-                    <td className="py-4 px-6 text-center">Faible</td>
-                  </tr>
-                  <tr className="border-t border-gray-200">
-                    <td className="py-4 px-6 font-medium">Coût à long terme</td>
-                    <td className="py-4 px-6 text-center">Plus économique</td>
-                    <td className="py-4 px-6 text-center">Plus élevé</td>
-                  </tr>
-                  <tr className="border-t border-gray-200">
-                    <td className="py-4 px-6 font-medium">Flexibilité</td>
-                    <td className="py-4 px-6 text-center">Limitée</td>
-                    <td className="py-4 px-6 text-center">Élevée</td>
-                  </tr>
-                  <tr className="border-t border-gray-200">
-                    <td className="py-4 px-6 font-medium">Propriété de l'appareil</td>
-                    <td className="py-4 px-6 text-center">Oui</td>
-                    <td className="py-4 px-6 text-center">Non</td>
-                  </tr>
-                  <tr className="border-t border-gray-200">
-                    <td className="py-4 px-6 font-medium">Mises à jour matérielles</td>
-                    <td className="py-4 px-6 text-center">Payantes</td>
-                    <td className="py-4 px-6 text-center">Incluses</td>
-                  </tr>
-                  <tr className="border-t border-gray-200">
-                    <td className="py-4 px-6 font-medium">Engagement</td>
-                    <td className="py-4 px-6 text-center">Aucun</td>
-                    <td className="py-4 px-6 text-center">Contrat annuel</td>
-                  </tr>
-                  <tr className="border-t border-gray-200">
-                    <td className="py-4 px-6 font-medium">Maintenance</td>
-                    <td className="py-4 px-6 text-center">En option</td>
-                    <td className="py-4 px-6 text-center">Incluse</td>
-                  </tr>
-                  <tr className="border-t border-gray-200">
-                    <td className="py-4 px-6 font-medium">Étalonnage annuel</td>
-                    <td className="py-4 px-6 text-center">Payant</td>
-                    <td className="py-4 px-6 text-center">Inclus</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+        
 
         {/* FAQ Section */}
         <div className="mb-16">

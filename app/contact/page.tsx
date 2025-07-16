@@ -14,40 +14,34 @@ export default function ContactPage() {
     <div className="w-full pt-24 pb-16 flex justify-center">
       <div className="container px-4 md:px-6 mx-auto max-w-7xl">
         {/* Hero Section */}
-        <div className="flex flex-col md:flex-row gap-12 items-center mb-16">
-          <div className="md:w-1/2 space-y-6">
-            <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-2">
-              Contactez-nous
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Nous Sommes à Votre Écoute</h1>
-            <p className="text-xl text-gray-600">
-              Notre équipe est disponible pour répondre à toutes vos questions et vous aider à trouver la solution
-              adaptée à vos besoins.
-            </p>
+        <section className="w-full mb-16 pt-8 pb-8  rounded-xl shadow-sm flex flex-col items-center text-center">
+          <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-4 mt-2">
+            Contactez-nous
           </div>
-          <div className="md:w-1/2">
-            <div className="relative h-[350px] w-full rounded-xl overflow-hidden shadow-xl">
-              <Image
-                src="/image.png"
-                alt="Contact PharmaSensor"
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-green-900/30 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 right-4 rounded-lg bg-white/90 p-4 shadow-lg">
-                <div className="flex items-center space-x-2">
-                  <div className="flex -space-x-2">
-                    <div className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-green-100">
-                      <Phone className="h-4 w-4 text-green-800" />
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium">Nous sommes là pour vous aider</span>
-                </div>
-              </div>
-            </div>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Nous Sommes à Votre Écoute</h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
+            Notre équipe est disponible pour répondre à toutes vos questions et vous aider à trouver la solution adaptée à vos besoins.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
+            <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-4 py-1 text-sm font-medium">Réponse sous 24h</span>
+            <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-4 py-1 text-sm font-medium">Support technique & commercial</span>
+            <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-4 py-1 text-sm font-medium">Accompagnement personnalisé</span>
           </div>
-        </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#formulaire"
+              className="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1"
+            >
+              Envoyer un message
+            </a>
+            <a
+              href="tel:+33123456789"
+              className="inline-flex h-10 items-center justify-center rounded-md border border-green-200 bg-white px-8 text-sm font-medium text-green-700 shadow-sm transition-colors hover:bg-green-50 focus-visible:outline-none focus-visible:ring-1"
+            >
+              Appeler le support
+            </a>
+          </div>
+        </section>
 
         {/* Contact Information Section */}
         <div className="mb-16">
@@ -321,94 +315,6 @@ export default function ContactPage() {
                   Démarrer un chat
                 </button>
               </div>
-            </div>
-          </div>
-        </div>
-
-        
-
-        {/* FAQ Section */}
-        <div>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Questions Fréquentes</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Trouvez rapidement des réponses aux questions les plus fréquemment posées.
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <div className="space-y-4">
-              <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
-                <button className="flex w-full items-center justify-between p-4 text-left font-medium">
-                  <span>Quel est le délai de réponse à une demande de contact ?</span>
-                  <svg className="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div className="px-4 pb-4">
-                  <p className="text-gray-600">
-                    Nous nous engageons à répondre à toutes les demandes de contact dans un délai de 24 heures ouvrées.
-                    Pour les demandes urgentes, nous vous recommandons de nous contacter par téléphone.
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
-                <button className="flex w-full items-center justify-between p-4 text-left font-medium">
-                  <span>Comment puis-je organiser une démonstration de vos produits ?</span>
-                  <svg className="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div className="px-4 pb-4">
-                  <p className="text-gray-600">
-                    Vous pouvez demander une démonstration en remplissant notre formulaire de contact, en précisant
-                    "Demande de démonstration" comme sujet. Notre équipe commerciale vous contactera pour organiser une
-                    démonstration personnalisée, soit en ligne, soit dans vos locaux.
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
-                <button className="flex w-full items-center justify-between p-4 text-left font-medium">
-                  <span>Comment puis-je obtenir un devis personnalisé ?</span>
-                  <svg className="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div className="px-4 pb-4">
-                  <p className="text-gray-600">
-                    Pour obtenir un devis personnalisé, vous pouvez remplir notre formulaire de contact en sélectionnant
-                    "Demande de devis" comme sujet. N'hésitez pas à préciser vos besoins spécifiques pour que nous
-                    puissions vous proposer la solution la plus adaptée.
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
-                <button className="flex w-full items-center justify-between p-4 text-left font-medium">
-                  <span>Proposez-vous des formations pour l'utilisation de vos produits ?</span>
-                  <svg className="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div className="px-4 pb-4">
-                  <p className="text-gray-600">
-                    Oui, nous proposons des sessions de formation pour tous nos clients. Une formation initiale est
-                    incluse dans l'installation de votre système. Des formations complémentaires peuvent être organisées
-                    sur demande, en ligne ou dans vos locaux.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 text-center">
-              <Link
-                href="/guides-techniques"
-                className="inline-flex items-center justify-center rounded-md bg-green-600 px-6 py-3 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1"
-              >
-                Consulter notre centre d'aide
-              </Link>
             </div>
           </div>
         </div>
