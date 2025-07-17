@@ -3,18 +3,18 @@ import Image from "next/image"
 import Link from "next/link"
 import { CheckCircle, ArrowRight } from 'lucide-react'
 import AnimatedBeamSection from "@/components/animated-beam-demo"
-import HeroSection from "@/components/hero-section"
+import ProductHeroSection from "@/components/product-hero-section"
 
 export const metadata: Metadata = {
-  title: "Fonctionnalités | PharmaSensor",
-  description: "Découvrez toutes les fonctionnalités de PharmaSensor, notre solution complète de surveillance de température pour le secteur pharmaceutique.",
+  title: "Notre produit | PharmaSensor",
+  description: "Découvrez PharmaSensor Pro, la solution complète de surveillance de température pour le secteur pharmaceutique.",
 }
 
 export default function FonctionnalitesPage() {
   return (
     <div className="w-full pb-16 flex justify-center">
       <div className="container px-4 md:px-6 mx-auto max-w-7xl">
-        <HeroSection />
+        <ProductHeroSection />
 
         <AnimatedBeamSection />
 

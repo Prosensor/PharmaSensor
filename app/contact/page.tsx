@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { Mail, Phone, MapPin, Clock, MessageSquare } from "lucide-react"
+import ContactHeroSection from "@/components/contact-hero-section"
 
 export const metadata: Metadata = {
   title: "Contact | PharmaSensor",
@@ -11,37 +12,10 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="w-full pt-24 pb-16 flex justify-center">
-      <div className="container px-4 md:px-6 mx-auto max-w-7xl">
-        {/* Hero Section */}
-        <section className="w-full mb-16 pt-8 pb-8  rounded-xl shadow-sm flex flex-col items-center text-center">
-          <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-4 mt-2">
-            Contactez-nous
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Nous Sommes à Votre Écoute</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
-            Notre équipe est disponible pour répondre à toutes vos questions et vous aider à trouver la solution adaptée à vos besoins.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3 mb-6">
-            <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-4 py-1 text-sm font-medium">Réponse sous 24h</span>
-            <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-4 py-1 text-sm font-medium">Support technique & commercial</span>
-            <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-4 py-1 text-sm font-medium">Accompagnement personnalisé</span>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#formulaire"
-              className="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1"
-            >
-              Envoyer un message
-            </a>
-            <a
-              href="tel:+33123456789"
-              className="inline-flex h-10 items-center justify-center rounded-md border border-green-200 bg-white px-8 text-sm font-medium text-green-700 shadow-sm transition-colors hover:bg-green-50 focus-visible:outline-none focus-visible:ring-1"
-            >
-              Appeler le support
-            </a>
-          </div>
-        </section>
+    <div className="w-full">
+      <ContactHeroSection />
+      
+      <div className="container px-4 md:px-6 mx-auto max-w-7xl py-16">
 
         {/* Contact Information Section */}
         <div className="mb-16">

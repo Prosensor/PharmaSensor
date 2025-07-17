@@ -3,71 +3,134 @@ import Link from "next/link"
 
 export default function HeroSection() {
   return (
-    <section className="w-full py-28 md:py-24 lg:py-32 flex justify-center">
-      <div className="container px-4 md:px-6 mx-auto max-w-7xl">
-        <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_500px]">
-          <div className="flex flex-col justify-center space-y-4">
-            <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-2">
-            Surveillez la température de vos frigos pharmaceutiques, en toute simplicité
+    <section className="relative w-full py-20 md:py-32 overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-white to-blue-50 opacity-50" />
+      <div className="absolute top-20 left-10 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-pulse" />
+      <div className="absolute top-40 right-20 w-24 h-24 bg-blue-200 rounded-full opacity-30 animate-pulse delay-1000" />
+      <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-green-200 rounded-full opacity-25 animate-pulse delay-500" />
+      
+      <div className="container px-4 md:px-6 mx-auto max-w-7xl relative z-10">
+        <div className="grid gap-12 lg:grid-cols-2 items-center">
+          {/* Left side - Content */}
+          <div className="space-y-8">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full bg-green-600 px-4 py-2 text-white text-sm font-medium shadow-lg">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              Solution Certifiée
             </div>
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl flex items-center">
-              <span className="inline-flex items-center justify-center mr-2 bg-green-600 text-white rounded-full p-1 h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7"
-                >
-                  <path d="M9 3v6H3v6h6v6h6v-6h6V9h-6V3H9z" />
-                </svg>
-              </span>
-              PharmaSensor
-            </h1>
-            <p className="text-xl text-muted-foreground md:text-2xl/relaxed lg:text-xl/relaxed xl:text-2xl/relaxed">
-            Des sondes de température connectées à une interface web pour les pharmacies. Alertes instantanées. Médicaments protégés.
-            </p>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row">
+            
+            {/* Main heading */}
+            <div className="space-y-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                La surveillance de température
+                <br />
+                <span className="text-green-600">réinventée</span>
+              </h1>
+              <p className="text-xl text-gray-600 leading-relaxed">
+                PharmaSensor révolutionne la surveillance de température dans les pharmacies. 
+                Alertes instantanées, conformité garantie, tranquillité assurée.
+              </p>
+            </div>
+            
+            {/* Key benefits */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
+                <div className="text-2xl font-bold text-green-600">24/7</div>
+                <div className="text-sm text-gray-600">Surveillance continue</div>
+              </div>
+              <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
+                <div className="text-2xl font-bold text-green-600">±0.1°C</div>
+                <div className="text-sm text-gray-600">Précision extrême</div>
+              </div>
+              <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
+                <div className="text-2xl font-bold text-green-600">500+</div>
+                <div className="text-sm text-gray-600">Pharmacies équipées</div>
+              </div>
+            </div>
+            
+            {/* CTA buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="#request-demo"
-                className="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                href="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 bg-green-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:bg-green-700"
               >
                 Demander un Devis
+                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </Link>
               <Link
-                href="#learn-more"
-                className="inline-flex h-10 items-center justify-center rounded-md border border-green-200 bg-white px-8 text-sm font-medium text-green-700 shadow-sm transition-colors hover:bg-green-50 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                href="/fonctionnalites"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-green-200 text-green-700 font-semibold rounded-lg hover:border-green-300 hover:bg-green-50 transition-colors"
               >
-                Nos formules
+                Découvrir les Fonctionnalités
               </Link>
             </div>
-            <div className="flex items-center gap-4 pt-4">
-              <div className="flex -space-x-2">
-                <div className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-green-100">
-                  <span className="text-xs font-medium text-green-800">FDA</span>
-                </div>
-                <div className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-green-100">
-                  <span className="text-xs font-medium text-green-800">GMP</span>
-                </div>
-                <div className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-green-100">
-                  <span className="text-xs font-medium text-green-800">USP</span>
-                </div>
+            
+            {/* Trust indicators */}
+            <div className="flex items-center gap-6 pt-4">
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm text-gray-600">Conforme aux normes</span>
               </div>
-              <div className="text-sm text-muted-foreground">Conforme à toutes les normes exigées pour les officines</div>
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-sm text-gray-600">Installation gratuite</span>
+              </div>
             </div>
           </div>
-          <div className="flex items-center justify-center">
-            <div className="relative h-[350px] w-[350px] sm:h-[400px] sm:w-[400px] lg:h-[500px] lg:w-[500px]">
-              <Image
-                src="/sonde123.webp"
-                alt="Dispositif de surveillance de température PharmaSensor pour officines de pharmacie"
-                fill
-                className="object-contain"
-                priority
-              />
-              <div className="absolute -right-4 top-4 rounded-lg bg-green-600 px-4 py-2 text-white shadow-lg">
-                <div className="text-sm font-medium">Température Actuelle</div>
-                <div className="text-2xl font-bold">2.8°C</div>
+          
+          {/* Right side - Product showcase */}
+          <div className="relative">
+            <div className="relative h-[600px] w-full max-w-lg mx-auto">
+              {/* Main product image */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="relative w-96 h-96">
+                  <Image
+                    src="/sonde123.webp"
+                    alt="Sonde de température PharmaSensor"
+                    fill
+                    className="object-contain drop-shadow-2xl"
+                    priority
+                  />
+                </div>
               </div>
+              
+              {/* Floating status cards */}
+              <div className="absolute top-8 right-0 bg-white rounded-xl shadow-xl p-4 border border-gray-100">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                  <div>
+                    <div className="text-sm text-gray-500">Statut</div>
+                    <div className="font-semibold text-green-600">Connecté</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="absolute bottom-8 left-0 bg-white rounded-xl shadow-xl p-4 border border-gray-100">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-600">2.8°C</div>
+                  <div className="text-sm text-gray-500">Température actuelle</div>
+                </div>
+              </div>
+              
+              <div className="absolute top-1/2 -left-4 bg-white rounded-xl shadow-xl p-4 border border-gray-100">
+                <div className="text-center">
+                  <div className="text-lg font-bold text-green-600">±0.1°C</div>
+                  <div className="text-xs text-gray-500">Précision</div>
+                </div>
+              </div>
+              
+              {/* Connection lines */}
+              <div className="absolute top-1/2 left-1/2 w-1 h-24 bg-gradient-to-b from-green-400 to-green-600 opacity-30 transform -translate-x-1/2 -translate-y-1/2" />
+              <div className="absolute top-1/2 left-1/2 w-24 h-1 bg-gradient-to-r from-green-400 to-green-600 opacity-30 transform -translate-x-1/2 -translate-y-1/2" />
             </div>
           </div>
         </div>

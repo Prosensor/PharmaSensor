@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { CheckCircle, ArrowRight } from 'lucide-react'
+import PricingHeroSection from "@/components/pricing-hero-section"
 
 export const metadata: Metadata = {
   title: "Tarification | PharmaSensor",
@@ -10,37 +11,10 @@ export const metadata: Metadata = {
 
 export default function TarificationPage() {
   return (
-    <div className="w-full pt-24 pb-16 flex justify-center">
-      <div className="container px-4 md:px-6 mx-auto max-w-7xl">
-        {/* Hero Section */}
-        <section className="w-full mb-16 pt-8 pb-8  rounded-xl shadow-sm flex flex-col items-center text-center">
-          <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-4 mt-2">
-            Tarification Transparente
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Nos Formules Tarifaires</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
-            Des solutions flexibles et sans surprise, adaptées à toutes les pharmacies. Comparez nos offres et choisissez la formule qui vous correspond.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3 mb-6">
-            <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-4 py-1 text-sm font-medium">Sans engagement caché</span>
-            <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-4 py-1 text-sm font-medium">Support 24/7 inclus</span>
-            <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-4 py-1 text-sm font-medium">Essai gratuit 30 jours</span>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="#contact"
-              className="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1"
-            >
-              Demander un devis
-            </Link>
-            <Link
-              href="/fonctionnalites"
-              className="inline-flex h-10 items-center justify-center rounded-md border border-green-200 bg-white px-8 text-sm font-medium text-green-700 shadow-sm transition-colors hover:bg-green-50 focus-visible:outline-none focus-visible:ring-1"
-            >
-              Voir les fonctionnalités
-            </Link>
-          </div>
-        </section>
+    <div className="w-full">
+      <PricingHeroSection />
+      
+      <div className="container px-4 md:px-6 mx-auto max-w-7xl py-16">
 
         {/* Pricing Plans Section */}
         <div className="mb-16">

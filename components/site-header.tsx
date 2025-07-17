@@ -130,13 +130,13 @@ export default function Header() {
                 <div className="absolute left-0 top-full mt-1 w-48 rounded-md bg-white py-2 shadow-lg z-50">
                  
                   <Link
-                    href="/guides-techniques"
+                    href="/comment-ca-marche"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
                   >
                     Comment ça marche ?
                   </Link>
                   <Link
-                    href="/guides-techniques"
+                    href="/faq"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
                   >
                     FAQ
@@ -274,13 +274,13 @@ export default function Header() {
                   <div className="ml-4">
                     <div className="mt-1 flex flex-col space-y-1 border-l-2 border-green-100 pl-4">
                     <Link
-                    href="/guides-techniques"
+                    href="/comment-ca-marche"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
                   >
                     Comment ça marche ?
                   </Link>
                   <Link
-                    href="/guides-techniques"
+                    href="/faq"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
                   >
                     FAQ

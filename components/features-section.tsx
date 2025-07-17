@@ -77,7 +77,7 @@ export default function FeaturesSection() {
               </li>
               <li className="flex items-start">
                 <CheckCircle className="mr-2 h-5 w-5 text-green-500" />
-                <span className="text-sm">Délais d'alerte personnalisables</span>
+                <span className="text-sm">Délais d'alerte personnalisables</span> 
               </li>
             </ul>
           </div>
