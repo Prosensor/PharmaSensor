@@ -55,7 +55,7 @@ export default function ContactSection() {
           <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-2">
             Contactez-nous
           </div>
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Demandez une Démonstration</h2>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Demandez un devis</h2>
           <p className="mx-auto mt-4 max-w-[700px] text-lg text-muted-foreground">
             Découvrez comment PharmaSensor peut transformer la surveillance de température dans votre pharmacie
           </p>
@@ -210,7 +210,7 @@ export default function ContactSection() {
                   <div>
                     <h4 className="font-medium">Téléphone</h4>
                     <Link href="tel:+33123456789" className="text-muted-foreground hover:text-green-600">
-                      +33 1 23 45 67 89
+                    +33 3 87 53 53 53
                     </Link>
                   </div>
                 </div>
@@ -218,8 +218,8 @@ export default function ContactSection() {
                   <Mail className="mr-3 h-5 w-5 text-green-600" />
                   <div>
                     <h4 className="font-medium">Email</h4>
-                    <Link href="mailto:contact@pharmasensor.com" className="text-muted-foreground hover:text-green-600">
-                      contact@pharmasensor.com
+                    <Link href="mailto:info@prosensor.com" className="text-muted-foreground hover:text-green-600">
+                    info@prosensor.com
                     </Link>
                   </div>
                 </div>
@@ -228,9 +228,9 @@ export default function ContactSection() {
                   <div>
                     <h4 className="font-medium">Adresse</h4>
                     <p className="text-muted-foreground">
-                      123 Avenue de la Santé
+                    EcoParc, 5 rue Maud Fontenoy, 
                       <br />
-                      75001 Paris, France
+                      57140 Norroy-le-Veneur
                     </p>
                   </div>
                 </div>
@@ -274,7 +274,7 @@ export default function ContactSection() {
 
             <div className="w-full h-[200px] overflow-hidden rounded-lg border shadow-sm">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1321.4236985876257!2d6.137738561781498!3d49.1823345793769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sfr!4v1741598524199!5m2!1sen!2sfr"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5215.859031992509!2d6.134358176606335!3d49.18292407781314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4794d7a134460503%3A0xa4523eaf4322f259!2sProsensor%20SAS!5e0!3m2!1sfr!2sfr!4v1752830164290!5m2!1sfr!2sfr"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

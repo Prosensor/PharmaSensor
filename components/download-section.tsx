@@ -5,10 +5,10 @@ export default function PricingSection() {
   const formules = [
     {
       titre: "Achat",
-      prix: "599€",
+      prix: "420€",
       description: "Achetez votre PharmaSensor et profitez d'un service complet",
       avantages: [
-        "Appareil PharmaSensor",
+        "1 routeur + 1 sonde",
         "Accès illimité au cloud",
         "Rapports mensuels",
         "Support technique 24/7",
@@ -17,10 +17,10 @@ export default function PricingSection() {
     },
     {
       titre: "Sérénité",
-      prix: "49€",
+      prix: "35€",
       description: "Optez pour la flexibilité avec notre formule location",
       avantages: [
-        "Appareil PharmaSensor",
+        "1 routeur + 1 sonde",
         "Accès illimité au cloud",
         "Rapports mensuels",
         "Support technique 24/7",
@@ -104,7 +104,7 @@ export default function PricingSection() {
                 <h4 className="font-medium mb-2">Puis-je ajouter des capteurs supplémentaires ?</h4>
                 <p className="text-sm text-muted-foreground">
                   Oui, vous pouvez ajouter des capteurs supplémentaires à tout moment. Chaque capteur additionnel coûte
-                  149€ à l'achat ou 12€/mois en location.
+                  105€ à l'achat ou 3€/mois en location.
                 </p>
               </div>
               <div>

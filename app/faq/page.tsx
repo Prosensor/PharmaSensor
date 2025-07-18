@@ -255,18 +255,7 @@ export default function FAQPage() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <div className="bg-white rounded-lg p-6 border border-gray-200 text-center">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MessageCircle className="h-6 w-6 text-green-600" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Chat en ligne</h3>
-                <p className="text-sm text-gray-600 mb-4">Réponse immédiate</p>
-                <Link href="/contact" className="text-green-600 hover:text-green-800 font-medium">
-                  Démarrer le chat
-                </Link>
-              </div>
-              
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               <div className="bg-white rounded-lg p-6 border border-gray-200 text-center">
                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Phone className="h-6 w-6 text-green-600" />
@@ -274,7 +263,7 @@ export default function FAQPage() {
                 <h3 className="text-lg font-semibold mb-2">Téléphone</h3>
                 <p className="text-sm text-gray-600 mb-4">Lun-Ven 9h-18h</p>
                 <Link href="tel:+33123456789" className="text-green-600 hover:text-green-800 font-medium">
-                  01 23 45 67 89
+                +33 3 87 53 53 53
                 </Link>
               </div>
               
@@ -284,8 +273,8 @@ export default function FAQPage() {
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Email</h3>
                 <p className="text-sm text-gray-600 mb-4">Réponse sous 24h</p>
-                <Link href="mailto:contact@pharmasensor.fr" className="text-green-600 hover:text-green-800 font-medium">
-                  contact@pharmasensor.fr
+                <Link href="mailto:info@prosensor.com" className="text-green-600 hover:text-green-800 font-medium">
+                   info@prosensor.com
                 </Link>
               </div>
             </div>

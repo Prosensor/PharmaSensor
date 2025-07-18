@@ -94,7 +94,7 @@ export default function Header() {
             </Link>
 
             <Link
-              href="/fonctionnalites"
+              href="/notre-produit"
               className={`px-3 py-2 text-sm font-medium relative ${
                 isScrolled ? "text-gray-700 hover:text-green-600" : "text-gray-700 hover:text-green-600"
               } transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full`}
@@ -238,7 +238,7 @@ export default function Header() {
               </div>
 
               <Link
-                href="/fonctionnalites"
+                href="/notre-produit"
                 className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-green-600"
                 onClick={toggleMenu}
               >

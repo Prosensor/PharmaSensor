@@ -56,7 +56,7 @@ export default function HowItWorksSection() {
             Comment ça marche ?
           </div>
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            3 Étapes Simples pour Sécuriser Votre Pharmacie
+            3 Étapes Simples
           </h2>
           <p className="mx-auto mt-4 max-w-[700px] text-lg text-muted-foreground">
             De l'installation à la conformité, PharmaSensor vous accompagne à chaque étape.

@@ -147,7 +147,7 @@ export default function AvisPage() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button className="rounded-md bg-white px-6 py-3 font-medium text-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-600">
-              Demander une Démo
+              Demander un devis
             </button>
             <button className="rounded-md border border-white bg-transparent px-6 py-3 font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-600">
               Télécharger la Brochure

@@ -277,7 +277,7 @@ export default function TarificationPage() {
             <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
               <h3 className="text-xl font-bold mb-4">Puis-je ajouter des capteurs supplémentaires ?</h3>
               <p className="text-gray-600">
-                Oui, vous pouvez ajouter des capteurs supplémentaires à tout moment. Chaque capteur additionnel coûte 149€ à l'achat ou 12€/mois en location.
+                Oui, vous pouvez ajouter des capteurs supplémentaires à tout moment. Chaque capteur additionnel coûte 105€ à l'achat ou 3€/mois en location.
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">

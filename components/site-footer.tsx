@@ -79,24 +79,24 @@ export default function Footer() {
               <li className="flex items-start">
                 <MapPin className="mr-2 h-5 w-5 text-green-100" />
                 <span className="text-green-100">
-                  123 Avenue de la Santé
+                EcoParc, 5 rue Maud Fontenoy, 
                   <br />
-                  75001 Paris, France
+                  57140 Norroy-le-Veneur
                 </span>
               </li>
               <li className="flex items-center">
                 <Phone className="mr-2 h-5 w-5 text-green-100" />
                 <Link href="tel:+33123456789" className="text-green-100 hover:text-white transition-colors">
-                  +33 1 23 45 67 89
+                +33 3 87 53 53 53
                 </Link>
               </li>
               <li className="flex items-center">
                 <Mail className="mr-2 h-5 w-5 text-green-100" />
                 <Link
-                  href="mailto:contact@pharmasensor.com"
+                  href="mailto:info@prosensor.com"
                   className="text-green-100 hover:text-white transition-colors"
                 >
-                  contact@pharmasensor.com
+                  info@prosensor.com
                 </Link>
               </li>
             </ul>

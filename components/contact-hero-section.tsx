@@ -41,7 +41,7 @@ export default function ContactHeroSection() {
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">Email</div>
-                    <div className="text-sm text-gray-600">contact@pharmasensor.fr</div>
+                    <div className="text-sm text-gray-600">info@prosensor.com</div>
                   </div>
                 </div>
               </div>
@@ -54,7 +54,7 @@ export default function ContactHeroSection() {
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">Téléphone</div>
-                    <div className="text-sm text-gray-600">01 23 45 67 89</div>
+                    <div className="text-sm text-gray-600">+33 3 87 53 53 53</div>
                   </div>
                 </div>
               </div>
@@ -75,7 +75,7 @@ export default function ContactHeroSection() {
                 href="/demo"
                 className="inline-flex items-center justify-center px-8 py-4 border-2 border-green-200 text-green-700 font-semibold rounded-lg hover:border-green-300 hover:bg-green-50 transition-colors"
               >
-                Demander une Démo
+                Demander un Devis
               </Link>
             </div>
           </div>

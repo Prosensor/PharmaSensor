@@ -69,7 +69,7 @@ export default function FonctionnalitesPage() {
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Alertes par SMS, email et appels</span>
+                  <span className="text-sm">Alertes par SMS, email</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
@@ -147,161 +147,13 @@ export default function FonctionnalitesPage() {
           </div>
         </div>
 
-        
-
-        
-
-        {/* Comparison Table */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Comparaison des Fonctionnalités</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Découvrez les fonctionnalités disponibles dans chaque formule PharmaSensor.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="bg-green-50">
-                    <th className="py-4 px-6 text-left font-bold text-gray-700">Fonctionnalité</th>
-                    <th className="py-4 px-6 text-center font-bold text-gray-700">Essentiel</th>
-                    <th className="py-4 px-6 text-center font-bold text-gray-700">Professionnel</th>
-                    <th className="py-4 px-6 text-center font-bold text-gray-700">Entreprise</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-t border-gray-200">
-                    <td className="py-4 px-6 font-medium">Surveillance en temps réel</td>
-                    <td className="py-4 px-6 text-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
-                    </td>
-                  </tr>
-                  <tr className="border-t border-gray-200">
-                    <td className="py-4 px-6 font-medium">Alertes par email</td>
-                    <td className="py-4 px-6 text-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
-                    </td>
-                  </tr>
-                  <tr className="border-t border-gray-200">
-                    <td className="py-4 px-6 font-medium">Alertes par SMS</td>
-                    <td className="py-4 px-6 text-center">
-                      <svg className="h-5 w-5 text-gray-300 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
-                    </td>
-                  </tr>
-                  <tr className="border-t border-gray-200">
-                    <td className="py-4 px-6 font-medium">Alertes par appel téléphonique</td>
-                    <td className="py-4 px-6 text-center">
-                      <svg className="h-5 w-5 text-gray-300 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <svg className="h-5 w-5 text-gray-300 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
-                    </td>
-                  </tr>
-                  <tr className="border-t border-gray-200">
-                    <td className="py-4 px-6 font-medium">Rapports automatisés</td>
-                    <td className="py-4 px-6 text-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
-                    </td>
-                  </tr>
-                  <tr className="border-t border-gray-200">
-                    <td className="py-4 px-6 font-medium">Cartographie thermique</td>
-                    <td className="py-4 px-6 text-center">
-                      <svg className="h-5 w-5 text-gray-300 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
-                    </td>
-                  </tr>
-                  <tr className="border-t border-gray-200">
-                    <td className="py-4 px-6 font-medium">Analyse prédictive</td>
-                    <td className="py-4 px-6 text-center">
-                      <svg className="h-5 w-5 text-gray-300 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <svg className="h-5 w-5 text-gray-300 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
-                    </td>
-                  </tr>
-                  <tr className="border-t border-gray-200">
-                    <td className="py-4 px-6 font-medium">Intégration logiciel de gestion</td>
-                    <td className="py-4 px-6 text-center">
-                      <svg className="h-5 w-5 text-gray-300 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <svg className="h-5 w-5 text-gray-300 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className="p-6 bg-gray-50 border-t border-gray-200 text-center">
-              <Link href="/tarification" className="inline-flex items-center justify-center rounded-md bg-green-600 px-6 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1">
-                Voir tous les détails de tarification
-              </Link>
-            </div>
-          </div>
-        </div>
-
         {/* CTA Section */}
         <div id="contact" className="scroll-mt-24">
           <div className="bg-green-600 rounded-xl p-8 text-white shadow-xl">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold mb-4">Prêt à découvrir PharmaSensor ?</h2>
               <p className="text-lg max-w-3xl mx-auto">
-                Contactez-nous dès aujourd'hui pour une démonstration personnalisée et découvrez comment nos fonctionnalités peuvent répondre à vos besoins spécifiques.
+                Contactez-nous dès aujourd'hui pour un devis personnalisée et découvrez comment nos fonctionnalités peuvent répondre à vos besoins spécifiques.
               </p>
             </div>
             <div className="max-w-md mx-auto">

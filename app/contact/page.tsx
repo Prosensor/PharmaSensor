@@ -36,7 +36,7 @@ export default function ContactPage() {
                 Appelez-nous pour une assistance immédiate pendant nos heures d'ouverture.
               </p>
               <Link href="tel:+33123456789" className="text-green-600 hover:text-green-800 font-medium">
-                +33 1 23 45 67 89
+              +33 3 87 53 53 53
               </Link>
             </div>
 
@@ -46,8 +46,8 @@ export default function ContactPage() {
               </div>
               <h3 className="text-xl font-bold mb-2">Email</h3>
               <p className="text-gray-600 mb-4">Envoyez-nous un email et nous vous répondrons dans les 24 heures.</p>
-              <Link href="mailto:contact@pharmasensor.com" className="text-green-600 hover:text-green-800 font-medium">
-                contact@pharmasensor.com
+              <Link href="mailto:info@prosensor.com" className="text-green-600 hover:text-green-800 font-medium">
+                info@prosensor.com
               </Link>
             </div>
 
@@ -58,9 +58,9 @@ export default function ContactPage() {
               <h3 className="text-xl font-bold mb-2">Adresse</h3>
               <p className="text-gray-600 mb-4">Venez nous rencontrer dans nos bureaux à Paris.</p>
               <address className="not-italic text-green-600">
-                123 Avenue de la Santé
+              EcoParc, 5 rue Maud Fontenoy, 
                 <br />
-                75001 Paris, France
+                57140 Norroy-le-Veneur
               </address>
             </div>
 
@@ -227,7 +227,7 @@ export default function ContactPage() {
                   <div>
                     <p className="text-sm text-gray-500">Hotline technique</p>
                     <Link href="tel:+33123456789" className="text-green-600 hover:text-green-800 font-medium">
-                      +33 1 23 45 67 89
+                      +33 3 87 53 53 53
                     </Link>
                   </div>
                 </div>
@@ -238,10 +238,10 @@ export default function ContactPage() {
                   <div>
                     <p className="text-sm text-gray-500">Email support</p>
                     <Link
-                      href="mailto:support@pharmasensor.com"
+                      href="mailto:info@prosensor.com"
                       className="text-green-600 hover:text-green-800 font-medium"
                     >
-                      support@pharmasensor.com
+                      info@prosensor.com
                     </Link>
                   </div>
                 </div>
@@ -259,7 +259,7 @@ export default function ContactPage() {
                   <div>
                     <p className="text-sm text-gray-500">Service commercial</p>
                     <Link href="tel:+33123456789" className="text-green-600 hover:text-green-800 font-medium">
-                      +33 1 23 45 67 89
+                      +33 3 87 53 53 53
                     </Link>
                   </div>
                 </div>
@@ -270,24 +270,13 @@ export default function ContactPage() {
                   <div>
                     <p className="text-sm text-gray-500">Email commercial</p>
                     <Link
-                      href="mailto:commercial@pharmasensor.com"
+                      href="mailto:info@prosensor.com"
                       className="text-green-600 hover:text-green-800 font-medium"
                     >
-                      commercial@pharmasensor.com
+                      info@prosensor.com
                     </Link>
                   </div>
                 </div>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
-                <h3 className="text-xl font-bold mb-4">Chat en direct</h3>
-                <p className="text-gray-600 mb-4">
-                  Discutez en direct avec un membre de notre équipe pendant les heures d'ouverture.
-                </p>
-                <button className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors flex items-center justify-center">
-                  <MessageSquare className="h-5 w-5 mr-2" />
-                  Démarrer un chat
-                </button>
               </div>
             </div>
           </div>
