@@ -442,36 +442,36 @@ export default function AnimatedBeamSection() {
                   <Circle
                     ref={div1Ref}
                     className="border-green-200"
-                    imageUrl="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-removebg-preview%283%29-EnrjFFHS6wRSYCCGsteIfEtQBTxy3R.png"
+                    imageUrl="/sondenew.png"
                   />
                   <Circle
                     ref={div5Ref}
                     className="border-green-200"
-                    imageUrl="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-removebg-preview%283%29-EnrjFFHS6wRSYCCGsteIfEtQBTxy3R.png"
+                    imageUrl="/sondenew.png"
                   />
                 </div>
                 <div className="flex flex-row items-center justify-between">
                   <Circle
                     ref={div2Ref}
                     className="border-green-200"
-                    imageUrl="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-removebg-preview%283%29-EnrjFFHS6wRSYCCGsteIfEtQBTxy3R.png"
+                    imageUrl="/sondenew.png"
                   />
                   <Circle
                     ref={div6Ref}
                     className="border-green-200"
-                    imageUrl="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-removebg-preview%283%29-EnrjFFHS6wRSYCCGsteIfEtQBTxy3R.png"
+                    imageUrl="/sondenew.png"
                   />
                 </div>
                 <div className="flex flex-row items-center justify-between">
                   <Circle
                     ref={div3Ref}
                     className="border-green-200"
-                    imageUrl="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-removebg-preview%283%29-EnrjFFHS6wRSYCCGsteIfEtQBTxy3R.png"
+                    imageUrl="/sondenew.png"
                   />
                   <Circle
                     ref={div7Ref}
                     className="border-green-200"
-                    imageUrl="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-removebg-preview%283%29-EnrjFFHS6wRSYCCGsteIfEtQBTxy3R.png"
+                    imageUrl="/sondenew.png"
                   />
                 </div>
               </div>

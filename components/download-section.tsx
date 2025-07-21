@@ -34,7 +34,7 @@ export default function PricingSection() {
         <div className="mb-12 text-center">
           <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm text-green-800 mb-2">Tarification</div>
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Choisissez la Formule Adaptée à Vos Besoins
+            Choisissez la Formule Adaptée 
           </h2>
           <p className="mx-auto mt-4 max-w-[700px] text-lg text-muted-foreground">
             Des solutions flexibles pour toutes les pharmacies, quelle que soit leur taille

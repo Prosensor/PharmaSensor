@@ -79,7 +79,7 @@ export default function ProductHeroSection() {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative w-80 h-80">
                   <Image
-                    src="/sonde123.webp"
+                    src="/sondenew.png"
                     alt="Sonde de température PharmaSensor"
                     fill
                     className="object-contain drop-shadow-2xl"
