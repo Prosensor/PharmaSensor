@@ -42,12 +42,12 @@ export default function HeroSection() {
                 <div className="text-sm text-gray-600">Surveillance continue</div>
               </div>
               <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
-                <div className="text-2xl font-bold text-green-600">±0.1°C</div>
+                <div className="text-2xl font-bold text-green-600">±0.3°C</div>
                 <div className="text-sm text-gray-600">Précision extrême</div>
               </div>
               <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
-                <div className="text-2xl font-bold text-green-600">500+</div>
-                <div className="text-sm text-gray-600">Pharmacies équipées</div>
+                <div className="text-2xl font-bold text-green-600">0,01°C</div>
+                <div className="text-sm text-gray-600">Résolution élevée</div>
               </div>
             </div>
             
@@ -123,7 +123,7 @@ export default function HeroSection() {
               
               <div className="absolute top-1/2 -left-4 bg-white rounded-xl shadow-xl p-4 border border-gray-100">
                 <div className="text-center">
-                  <div className="text-lg font-bold text-green-600">±0.1°C</div>
+                  <div className="text-lg font-bold text-green-600">±0.3°C</div>
                   <div className="text-xs text-gray-500">Précision</div>
                 </div>
               </div>

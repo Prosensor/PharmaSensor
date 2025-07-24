@@ -63,7 +63,7 @@ export default function FAQSection() {
     {
       question: "Le système PharmaSensor est-il conforme aux réglementations pharmaceutiques ?",
       answer:
-        "Absolument. Notre système est entièrement conforme aux exigences de la FDA, des BPD (Bonnes Pratiques de Distribution), des BPF (Bonnes Pratiques de Fabrication) et des normes USP. Nos capteurs sont étalonnés selon les normes COFRAC et nous fournissons toute la documentation nécessaire pour vos audits et inspections réglementaires.",
+        "Absolument. Notre système est entièrement conforme aux exigences de la FDA, des BPD (Bonnes Pratiques de Distribution), des BPF (Bonnes Pratiques de Fabrication) et des normes USP.",
     },
     {
       question: "Que se passe-t-il en cas de coupure d'Internet ou de courant ?",

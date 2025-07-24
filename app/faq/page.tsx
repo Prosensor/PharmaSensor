@@ -112,7 +112,7 @@ export default function FAQPage() {
                 </button>
                 <div className="px-6 pb-4">
                   <p className="text-gray-600">
-                    Nos capteurs offrent une précision de ±0.1°C, ce qui dépasse largement les exigences 
+                    Nos capteurs offrent une précision de ±0.3°C, ce qui dépasse largement les exigences 
                     réglementaires pour le secteur pharmaceutique. Ils sont étalonnés annuellement pour 
                     garantir cette précision.
                   </p>

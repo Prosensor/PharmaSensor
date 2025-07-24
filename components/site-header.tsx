@@ -164,7 +164,7 @@ export default function Header() {
           {/* Boutons d'action */}
           <div className="hidden items-center space-x-4 lg:flex">
             <Link
-              href="#contact"
+              href="/demande-devis"
               className="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 transition-all duration-300"
             >
               Demander un devis

@@ -1,16 +1,44 @@
+"use client"
+
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { CheckCircle, ArrowRight } from 'lucide-react'
 import AnimatedBeamSection from "@/components/animated-beam-demo"
 import ProductHeroSection from "@/components/product-hero-section"
-
-export const metadata: Metadata = {
-  title: "Notre produit | PharmaSensor",
-  description: "Découvrez PharmaSensor Pro, la solution complète de surveillance de température pour le secteur pharmaceutique.",
-}
+import { useState } from "react"
 
 export default function FonctionnalitesPage() {
+  // Ajout de l'état pour le formulaire CTA
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
+  const [errorMessage, setErrorMessage] = useState<string>("")
+
+  async function handleCtaSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setFormStatus("submitting")
+    setErrorMessage("")
+    const formData = new FormData(e.currentTarget)
+    const name = formData.get("name") as string
+    const email = formData.get("email") as string
+    const phone = formData.get("phone") as string
+    const message = formData.get("message") as string
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, pharmacyName: "Formulaire Notre Produit", equipment: "", message }),
+      })
+      const data = await response.json()
+      if (!response.ok) throw new Error(data.error || "Une erreur s'est produite")
+      setFormStatus("success")
+      ;(e.target as HTMLFormElement).reset()
+    } catch (error) {
+      setFormStatus("error")
+      setErrorMessage(error instanceof Error ? error.message : "Une erreur s'est produite")
+    }
+  }
+
   return (
     <div className="w-full pb-16 flex justify-center">
       <div className="container px-4 md:px-6 mx-auto max-w-7xl">
@@ -42,7 +70,7 @@ export default function FonctionnalitesPage() {
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Actualisation des données toutes les 5 minutes</span>
+                  <span className="text-sm">Actualisation des données toutes les 30 minutes</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
@@ -157,58 +185,89 @@ export default function FonctionnalitesPage() {
               </p>
             </div>
             <div className="max-w-md mx-auto">
-              <form className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-1">
-                    Nom complet
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                    placeholder="Votre nom"
-                  />
+              {formStatus === "success" ? (
+                <div className="flex flex-col items-center justify-center py-8 text-center">
+                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white">
+                    <CheckCircle className="h-8 w-8 text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-white">Demande envoyée avec succès !</h3>
+                  <p className="text-green-100 mb-6">
+                    Merci pour votre intérêt. Notre équipe vous contactera rapidement pour répondre à votre demande.
+                  </p>
+                  <button
+                    onClick={() => setFormStatus("idle")}
+                    className="inline-flex h-10 items-center justify-center rounded-md bg-white px-4 text-sm font-medium text-green-600 shadow transition-colors hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500 disabled:opacity-50"
+                  >
+                    Envoyer une autre demande
+                  </button>
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-1">
-                    Email professionnel
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                    placeholder="vous@entreprise.com"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium mb-1">
-                    Téléphone
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                    placeholder="Votre numéro de téléphone"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-1">
-                    Message (facultatif)
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                    placeholder="Décrivez vos besoins spécifiques..."
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-white text-green-600 font-medium py-2 px-4 rounded-md hover:bg-gray-100 transition-colors"
-                >
-                  Demander un devis
-                </button>
-              </form>
+              ) : (
+                <form className="space-y-4" onSubmit={handleCtaSubmit}>
+                  {formStatus === "error" && (
+                    <div className="rounded-md bg-red-50 p-4 text-sm text-red-700">
+                      {errorMessage || "Une erreur s'est produite. Veuillez réessayer."}
+                    </div>
+                  )}
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium mb-1">
+                      Nom complet
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                      placeholder="Votre nom"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium mb-1">
+                      Email professionnel
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                      placeholder="vous@entreprise.com"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium mb-1">
+                      Téléphone
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      required
+                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                      placeholder="Votre numéro de téléphone"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium mb-1">
+                      Message (facultatif)
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                      placeholder="Décrivez vos besoins spécifiques..."
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={formStatus === "submitting"}
+                    className="w-full bg-white text-green-600 font-medium py-2 px-4 rounded-md hover:bg-gray-100 transition-colors"
+                  >
+                    {formStatus === "submitting" ? "Envoi en cours..." : "Demander un devis"}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>

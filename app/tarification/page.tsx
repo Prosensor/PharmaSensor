@@ -1,15 +1,44 @@
+"use client"
+
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { CheckCircle, ArrowRight } from 'lucide-react'
 import PricingHeroSection from "@/components/pricing-hero-section"
-
-export const metadata: Metadata = {
-  title: "Tarification | PharmaSensor",
-  description: "Découvrez nos formules tarifaires flexibles pour la surveillance de température dans le secteur pharmaceutique.",
-}
+import { useState } from "react"
 
 export default function TarificationPage() {
+  // Ajout de l'état pour le formulaire CTA
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
+  const [errorMessage, setErrorMessage] = useState<string>("")
+
+  async function handleCtaSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setFormStatus("submitting")
+    setErrorMessage("")
+    const formData = new FormData(e.currentTarget)
+    const name = formData.get("name") as string
+    const email = formData.get("email") as string
+    const phone = formData.get("phone") as string
+    const pharmacyName = formData.get("company") as string
+    const message = formData.get("message") as string
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, pharmacyName, equipment: "", message }),
+      })
+      const data = await response.json()
+      if (!response.ok) throw new Error(data.error || "Une erreur s'est produite")
+      setFormStatus("success")
+      ;(e.target as HTMLFormElement).reset()
+    } catch (error) {
+      setFormStatus("error")
+      setErrorMessage(error instanceof Error ? error.message : "Une erreur s'est produite")
+    }
+  }
+
   return (
     <div className="w-full">
       <PricingHeroSection />
@@ -31,7 +60,7 @@ export default function TarificationPage() {
               <div className="mb-4">
                 <h3 className="text-xl font-bold">Solo</h3>
                 <div className="mt-2 flex items-baseline">
-                  <span className="text-3xl font-bold">35€</span>
+                  <span className="text-3xl font-bold">43€</span>
                   <span className="ml-1 text-lg text-gray-500">/mois</span>
                 </div>
                 <p className="mt-2 text-gray-600">Pour les petites pharmacies</p>
@@ -74,7 +103,7 @@ export default function TarificationPage() {
               <div className="mb-4">
                 <h3 className="text-xl font-bold">Dual</h3>
                 <div className="mt-2 flex items-baseline">
-                  <span className="text-3xl font-bold">38€</span>
+                  <span className="text-3xl font-bold">47€</span>
                   <span className="ml-1 text-lg text-gray-500">/mois</span>
                 </div>
                 <p className="mt-2 text-gray-600">Pour les pharmacies moyennes</p>
@@ -118,8 +147,8 @@ export default function TarificationPage() {
               <div className="mb-4">
                 <h3 className="text-xl font-bold">Supplémentaire</h3>
                 <div className="mt-2 flex items-baseline">
-                  <span className="text-3xl font-bold">3€</span>
-                  <span className="ml-1 text-lg text-gray-500">/mois</span>
+                  <span className="text-3xl font-bold">+5€</span>
+                  <span className="ml-1 text-lg text-gray-500">/par sonde/mois</span>
                 </div>
                 <p className="mt-2 text-gray-600">Pour les grandes pharmacies et groupements</p>
               </div>
@@ -178,8 +207,7 @@ export default function TarificationPage() {
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Achat</h3>
                 <div className="mt-2 flex items-baseline mb-4">
-                  <span className="text-3xl font-bold">599€</span>
-                  <span className="ml-1 text-lg text-gray-500">/capteur</span>
+                  <span className="text-3xl font-bold">525€</span>
                 </div>
                 <p className="text-gray-600 mb-4">
                   Achetez votre matériel PharmaSensor et profitez d'un service complet.
@@ -218,8 +246,8 @@ export default function TarificationPage() {
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Sérénité</h3>
                 <div className="mt-2 flex items-baseline mb-4">
-                  <span className="text-3xl font-bold">49€</span>
-                  <span className="ml-1 text-lg text-gray-500">/capteur/mois</span>
+                  <span className="text-3xl font-bold">43€</span>
+                  <span className="ml-1 text-lg text-gray-500">/mois</span>
                 </div>
                 <p className="text-gray-600 mb-4">
                   Optez pour la flexibilité avec notre formule location sans engagement à long terme.
@@ -364,69 +392,102 @@ export default function TarificationPage() {
               </p>
             </div>
             <div className="max-w-md mx-auto">
-              <form className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-1">
-                    Nom complet
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                    placeholder="Votre nom"
-                  />
+              {formStatus === "success" ? (
+                <div className="flex flex-col items-center justify-center py-8 text-center">
+                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white">
+                    <CheckCircle className="h-8 w-8 text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-white">Demande envoyée avec succès !</h3>
+                  <p className="text-green-100 mb-6">
+                    Merci pour votre intérêt. Notre équipe vous contactera rapidement pour répondre à votre demande.
+                  </p>
+                  <button
+                    onClick={() => setFormStatus("idle")}
+                    className="inline-flex h-10 items-center justify-center rounded-md bg-white px-4 text-sm font-medium text-green-600 shadow transition-colors hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-500 disabled:opacity-50"
+                  >
+                    Envoyer une autre demande
+                  </button>
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-1">
-                    Email professionnel
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                    placeholder="vous@entreprise.com"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium mb-1">
-                    Téléphone
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                    placeholder="Votre numéro de téléphone"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium mb-1">
-                    Nom de la pharmacie
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                    placeholder="Nom de votre pharmacie"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-1">
-                    Message (facultatif)
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                    placeholder="Décrivez vos besoins spécifiques..."
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-white text-green-600 font-medium py-2 px-4 rounded-md hover:bg-gray-100 transition-colors"
-                >
-                  Demander un devis
-                </button>
-              </form>
+              ) : (
+                <form className="space-y-4" onSubmit={handleCtaSubmit}>
+                  {formStatus === "error" && (
+                    <div className="rounded-md bg-red-50 p-4 text-sm text-red-700">
+                      {errorMessage || "Une erreur s'est produite. Veuillez réessayer."}
+                    </div>
+                  )}
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium mb-1">
+                      Nom complet
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                      placeholder="Votre nom"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium mb-1">
+                      Email professionnel
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                      placeholder="vous@entreprise.com"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium mb-1">
+                      Téléphone
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      required
+                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                      placeholder="Votre numéro de téléphone"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="company" className="block text-sm font-medium mb-1">
+                      Nom de la pharmacie
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      required
+                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                      placeholder="Nom de votre pharmacie"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium mb-1">
+                      Message (facultatif)
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                      placeholder="Décrivez vos besoins spécifiques..."
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={formStatus === "submitting"}
+                    className="w-full bg-white text-green-600 font-medium py-2 px-4 rounded-md hover:bg-gray-100 transition-colors"
+                  >
+                    {formStatus === "submitting" ? "Envoi en cours..." : "Demander un devis"}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>

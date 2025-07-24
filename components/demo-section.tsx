@@ -301,8 +301,8 @@ export default function ContactSection() {
                 vivement leur solution à toutes les pharmacies."
               </p>
               <div>
-                <p className="font-medium">Dr. Sophie Martin</p>
-                <p className="text-sm text-muted-foreground">Pharmacienne Titulaire, Pharmacie des Alpes</p>
+                <p className="font-medium">Dr. HOEFFLER Bérangère</p>
+                <p className="text-sm text-muted-foreground">Pharmacienne Titulaire, Pharmacie Mozart</p>
               </div>
             </div>
           </div>

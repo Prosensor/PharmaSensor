@@ -31,12 +31,12 @@ export default function PricingHeroSection() {
             {/* Key pricing info */}
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-white rounded-lg p-6 border border-gray-200">
-                <div className="text-2xl font-bold text-green-600">35€</div>
+                <div className="text-2xl font-bold text-green-600">43€</div>
                 <div className="text-sm text-gray-500">par mois</div>
                 <div className="text-xs text-gray-400 mt-1">Formule de base</div>
               </div>
               <div className="bg-white rounded-lg p-6 border border-gray-200">
-                <div className="text-2xl font-bold text-green-600">0€</div>
+                <div className="text-2xl font-bold text-green-600">Gratuit</div>
                 <div className="text-sm text-gray-500">installation</div>
                 <div className="text-xs text-gray-400 mt-1">Incluse</div>
               </div>
@@ -66,7 +66,7 @@ export default function PricingHeroSection() {
           <div className="relative">
             <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 shadow-xl">
               <div className="text-center space-y-6">
-                <div className="text-6xl font-bold text-green-600">35€</div>
+                <div className="text-6xl font-bold text-green-600">43€</div>
                 <div className="text-xl text-gray-600">par mois</div>
                 
                 <div className="space-y-4 pt-6">

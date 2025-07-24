@@ -37,17 +37,16 @@ export default function FeaturesSection() {
             </div>
             <h3 className="mb-2 text-xl font-bold">Facilité d’utilisation</h3>
             <p className="mb-4 flex-grow text-muted-foreground">
-              Capteurs de haute précision avec une marge d'erreur de ±0.1°C, conformes aux normes pharmaceutiques les
-              plus strictes.
+              Notre solution à été conçue pour être facile à utiliser et accessible à tous.
             </p>
             <ul className="space-y-2">
               <li className="flex items-start">
                 <CheckCircle className="mr-2 h-5 w-5 text-green-500" />
-                <span className="text-sm">Précision de ±0.1°C</span>
+                <span className="text-sm">Installation rapide</span>
               </li>
               <li className="flex items-start">
                 <CheckCircle className="mr-2 h-5 w-5 text-green-500" />
-                <span className="text-sm">Étalonnage certifié COFRAC</span>
+                <span className="text-sm">Interface conviviale</span>
               </li>
             </ul>
           </div>
@@ -170,8 +169,13 @@ export default function FeaturesSection() {
 
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-bold">Ils Nous Font Confiance</h3>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-8 grayscale opacity-70">
-            <div className="h-12 w-32">
+          <div className="mt-8 overflow-hidden relative">
+            <div
+              className="flex items-center gap-8 min-w-max animate-marquee whitespace-nowrap grayscale opacity-70"
+              style={{ animation: 'marquee 30s linear infinite' }}
+            >
+              {[0, 1].flatMap((repeatIdx) => [
+                <div key={`logo1-${repeatIdx}`} className="h-12 w-32 inline-block">
               <Image
                 src="/logo1.png"
                 alt="Logo client 1"
@@ -179,8 +183,8 @@ export default function FeaturesSection() {
                 height={48}
                 className="h-full w-full object-contain"
               />
-            </div>
-            <div className="h-12 w-32">
+                </div>,
+                <div key={`logo2-${repeatIdx}`} className="h-12 w-32 inline-block">
               <Image
                 src="/logo2.png"
                 alt="Logo client 2"
@@ -188,8 +192,8 @@ export default function FeaturesSection() {
                 height={48}
                 className="h-full w-full object-contain"
               />
-            </div>
-            <div className="h-12 w-32">
+                </div>,
+                <div key={`logo3-${repeatIdx}`} className="h-12 w-32 inline-block">
               <Image
                 src="/logo3.png"
                 alt="Logo client 3"
@@ -197,8 +201,8 @@ export default function FeaturesSection() {
                 height={48}
                 className="h-full w-full object-contain"
               />
-            </div>
-            <div className="h-12 w-32">
+                </div>,
+                <div key={`logo4-${repeatIdx}`} className="h-12 w-32 inline-block">
               <Image
                 src="/logo4.png"
                 alt="Logo client 4"
@@ -206,8 +210,8 @@ export default function FeaturesSection() {
                 height={48}
                 className="h-full w-full object-contain"
               />
-            </div>
-            <div className="h-12 w-32">
+                </div>,
+                <div key={`logo5-${repeatIdx}`} className="h-12 w-32 inline-block">
               <Image
                 src="/logo5.png"
                 alt="Logo client 5"
@@ -215,6 +219,8 @@ export default function FeaturesSection() {
                 height={48}
                 className="h-full w-full object-contain"
               />
+                </div>,
+              ])}
             </div>
           </div>
         </div>

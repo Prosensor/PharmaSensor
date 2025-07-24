@@ -7,7 +7,7 @@ export const metadata = {
 }
 
 const caseStudy = {
-  title: "Pharmacie du Centre, Lille",
+  title: "Pharmacie Mozart, Maizière-lès-Metz",
   description:
     "Grâce à PharmaSensor, nous avons pu anticiper une panne de réfrigérateur et éviter la perte de plus de 2 000€ de vaccins. L'installation a été rapide et l'équipe très à l'écoute.",
   stats: [
@@ -17,7 +17,7 @@ const caseStudy = {
   ],
   image: "/pharmacie.jpg",
   person: {
-    name: "Julie Petit",
+    name: "Dr. HOEFFLER Bérangère",
     role: "Pharmacienne Titulaire",
     avatar: "/docteur1.jpg",
   },

@@ -5,7 +5,7 @@ export default function PricingSection() {
   const formules = [
     {
       titre: "Achat",
-      prix: "420€",
+      prix: "525€",
       description: "Achetez votre PharmaSensor et profitez d'un service complet",
       avantages: [
         "1 routeur + 1 sonde",
@@ -17,7 +17,7 @@ export default function PricingSection() {
     },
     {
       titre: "Sérénité",
-      prix: "35€",
+      prix: "A partir de 43€/mois",
       description: "Optez pour la flexibilité avec notre formule location",
       avantages: [
         "1 routeur + 1 sonde",

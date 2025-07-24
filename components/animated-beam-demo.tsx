@@ -390,7 +390,7 @@ export default function AnimatedBeamSection() {
                 <svg className="mr-2 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                Capteurs sans fil précis à ±0.1°C
+                Capteurs sans fil précis à ±0.3°C
               </li>
               <li className="flex items-center">
                 <svg className="mr-2 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
