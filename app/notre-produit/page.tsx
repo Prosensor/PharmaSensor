@@ -175,6 +175,77 @@ export default function FonctionnalitesPage() {
           </div>
         </div>
 
+        <div className="bg-base-100 py-8 sm:py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-12 space-y-4 text-center sm:mb-16 lg:mb-24">
+              <h2 className="text-3xl font-bold tracking-tight mb-4">Gallerie de photos</h2>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <div>
+                <img
+                  src="/capteur1.webp"
+                  alt="Coastal cliffs and ocean view"
+                  className="rounded-box aspect-5/4 min-h-121.75 object-cover"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-6">
+                <img
+                  src="/capteur1.webp"
+                  alt="Silhouettes on beach"
+                  className="rounded-box aspect-5/4 min-h-57.75 object-cover"
+                />
+                <img
+                  src="/capteur1.webp"
+                  alt="Snowy mountain peaks"
+                  className="rounded-box aspect-5/4 min-h-57.75 object-cover"
+                />
+                <img
+                  src="/capteur1.webp"
+                  alt="Rolling green hills"
+                  className="rounded-box aspect-5/4 min-h-57.75 object-cover"
+                />
+                <img
+                  src="/capteur1.webp"
+                  alt="Sunset landscape"
+                  className="rounded-box aspect-5/4 min-h-57.75 object-cover"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-6">
+                <img
+                  src="/capteur1.webp"
+                  alt="Silhouettes on beach"
+                  className="rounded-box aspect-5/4 min-h-57.75 object-cover"
+                />
+                <img
+                 src="/capteur1.webp"
+                  alt="Snowy mountain peaks"
+                  className="rounded-box aspect-5/4 min-h-57.75 object-cover"
+                />
+                <img
+                 src="/capteur1.webp"
+                  alt="Rolling green hills"
+                  className="rounded-box aspect-5/4 min-h-57.75 object-cover"
+                />
+                <img
+                  src="/capteur1.webp"
+                  alt="Sunset landscape"
+                  className="rounded-box aspect-5/4 min-h-57.75 object-cover"
+                />
+              </div>
+              <div>
+                <img
+                  src="/capteur1.webp"
+                  alt="Coastal cliffs and ocean view"
+                  className="rounded-box aspect-5/4 min-h-121.75 object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* CTA Section */}
         <div id="contact" className="scroll-mt-24">
           <div className="bg-green-600 rounded-xl p-8 text-white shadow-xl">
@@ -208,65 +279,65 @@ export default function FonctionnalitesPage() {
                       {errorMessage || "Une erreur s'est produite. Veuillez réessayer."}
                     </div>
                   )}
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-1">
-                      Nom complet
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium mb-1">
+                    Nom complet
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
                       name="name"
                       required
-                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                      placeholder="Votre nom"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-1">
-                      Email professionnel
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
+                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                    placeholder="Votre nom"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-1">
+                    Email professionnel
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
                       name="email"
                       required
-                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                      placeholder="vous@entreprise.com"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium mb-1">
-                      Téléphone
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
+                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                    placeholder="vous@entreprise.com"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium mb-1">
+                    Téléphone
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
                       name="phone"
                       required
-                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                      placeholder="Votre numéro de téléphone"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-1">
-                      Message (facultatif)
-                    </label>
-                    <textarea
-                      id="message"
+                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                    placeholder="Votre numéro de téléphone"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-1">
+                    Message (facultatif)
+                  </label>
+                  <textarea
+                    id="message"
                       name="message"
-                      rows={4}
-                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                      placeholder="Décrivez vos besoins spécifiques..."
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
+                    rows={4}
+                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                    placeholder="Décrivez vos besoins spécifiques..."
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
                     disabled={formStatus === "submitting"}
-                    className="w-full bg-white text-green-600 font-medium py-2 px-4 rounded-md hover:bg-gray-100 transition-colors"
-                  >
+                  className="w-full bg-white text-green-600 font-medium py-2 px-4 rounded-md hover:bg-gray-100 transition-colors"
+                >
                     {formStatus === "submitting" ? "Envoi en cours..." : "Demander un devis"}
-                  </button>
-                </form>
+                </button>
+              </form>
               )}
             </div>
           </div>

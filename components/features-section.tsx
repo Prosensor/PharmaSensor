@@ -1,5 +1,7 @@
 import { CheckCircle } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
+import Logos07Block from "@/components/logos-07/logos-07";
 
 export default function FeaturesSection() {
   return (
@@ -144,9 +146,11 @@ export default function FeaturesSection() {
                 </li>
               </ul>
               <div className="pt-4">
-                <button className="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-green-500 focus:ring-offset-2">
-                  Voir une démonstration
-                </button>
+                <Link href="/demande-devis">
+                  <button className="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-green-500 focus:ring-offset-2">
+                    Voir une démonstration
+                  </button>
+                </Link>
               </div>
             </div>
             <div className="relative flex items-center justify-center rounded-lg bg-gray-100 p-4">
@@ -167,62 +171,9 @@ export default function FeaturesSection() {
           </div>
         </div>
 
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold">Ils Nous Font Confiance</h3>
-          <div className="mt-8 overflow-hidden relative">
-            <div
-              className="flex items-center gap-8 min-w-max animate-marquee whitespace-nowrap grayscale opacity-70"
-              style={{ animation: 'marquee 30s linear infinite' }}
-            >
-              {[0, 1].flatMap((repeatIdx) => [
-                <div key={`logo1-${repeatIdx}`} className="h-12 w-32 inline-block">
-              <Image
-                src="/logo1.png"
-                alt="Logo client 1"
-                width={128}
-                height={48}
-                className="h-full w-full object-contain"
-              />
-                </div>,
-                <div key={`logo2-${repeatIdx}`} className="h-12 w-32 inline-block">
-              <Image
-                src="/logo2.png"
-                alt="Logo client 2"
-                width={128}
-                height={48}
-                className="h-full w-full object-contain"
-              />
-                </div>,
-                <div key={`logo3-${repeatIdx}`} className="h-12 w-32 inline-block">
-              <Image
-                src="/logo3.png"
-                alt="Logo client 3"
-                width={128}
-                height={48}
-                className="h-full w-full object-contain"
-              />
-                </div>,
-                <div key={`logo4-${repeatIdx}`} className="h-12 w-32 inline-block">
-              <Image
-                src="/logo4.png"
-                alt="Logo client 4"
-                width={128}
-                height={48}
-                className="h-full w-full object-contain"
-              />
-                </div>,
-                <div key={`logo5-${repeatIdx}`} className="h-12 w-32 inline-block">
-              <Image
-                src="/logo5.png"
-                alt="Logo client 5"
-                width={128}
-                height={48}
-                className="h-full w-full object-contain"
-              />
-                </div>,
-              ])}
-            </div>
-          </div>
+        {/* Replace old logo section with new block */}
+        <div className="mt-16">
+          <Logos07Block />
         </div>
       </div>
     </section>

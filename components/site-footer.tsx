@@ -33,8 +33,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/fonctionnalites" className="text-green-100 hover:text-white transition-colors">
-                  Fonctionnalités
+                <Link href="/notre-produit" className="text-green-100 hover:text-white transition-colors">
+                  Notre produit
                 </Link>
               </li>
               <li>
@@ -55,18 +55,18 @@ export default function Footer() {
             <h3 className="text-lg font-bold">Ressources</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#" className="text-green-100 hover:text-white transition-colors">
-                  Guides Techniques
+                <Link href="/comment-ca-marche" className="text-green-100 hover:text-white transition-colors">
+                  Comment ça marche ?
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-green-100 hover:text-white transition-colors">
-                  Réglementations Pharmaceutiques
+                <Link href="/faq" className="text-green-100 hover:text-white transition-colors">
+                  FAQ
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-green-100 hover:text-white transition-colors">
-                  Centre d'Aide
+                <Link href="/avis" className="text-green-100 hover:text-white transition-colors">
+                  Témoignages
                 </Link>
               </li>
             </ul>

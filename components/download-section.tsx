@@ -17,7 +17,7 @@ export default function PricingSection() {
     },
     {
       titre: "Sérénité",
-      prix: "A partir de 43€/mois",
+      prix: "43€/mois",
       description: "Optez pour la flexibilité avec notre formule location",
       avantages: [
         "1 routeur + 1 sonde",
@@ -65,14 +65,14 @@ export default function PricingSection() {
                   {formule.avantages.map((avantage, i) => (
                     <li key={i} className="flex items-start">
                       <Check className={`mr-2 h-5 w-5 ${index === 0 ? "text-green-600" : "text-emerald-600"}`} />
-                      <span className="text-sm">{avantage}</span>
+                      <span className={`text-sm${i === 0 ? " font-bold text-base" : ""}`}>{avantage}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className="mt-6">
                 <Link
-                  href="#contact"
+                  href="/demande-devis"
                   className={`inline-flex h-10 w-full items-center justify-center rounded-md ${
                     index === 0
                       ? "bg-green-600 text-white hover:bg-green-700"
@@ -104,7 +104,7 @@ export default function PricingSection() {
                 <h4 className="font-medium mb-2">Puis-je ajouter des capteurs supplémentaires ?</h4>
                 <p className="text-sm text-muted-foreground">
                   Oui, vous pouvez ajouter des capteurs supplémentaires à tout moment. Chaque capteur additionnel coûte
-                  105€ à l'achat ou 3€/mois en location.
+                  5€/mois en location.
                 </p>
               </div>
               <div>
@@ -143,9 +143,9 @@ export default function PricingSection() {
                 <span className="text-sm">Formation personnalisée pour votre équipe</span>
               </li>
             </ul>
-            <button className="inline-flex h-10 w-full items-center justify-center rounded-md bg-green-600 px-4 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+            <Link href="/demande-devis" className="inline-flex h-10 w-full items-center justify-center rounded-md bg-green-600 px-4 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
               Demander un devis personnalisé
-            </button>
+            </Link>
           </div>
         </div>
       </div>

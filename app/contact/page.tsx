@@ -54,7 +54,7 @@ export default function ContactPage() {
       <div className="container px-4 md:px-6 mx-auto max-w-7xl py-16">
 
         {/* Contact Information Section */}
-        <div className="mb-16">
+        <div className="mb-16" id="contact">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight mb-4">Nos Coordonnées</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -142,135 +142,135 @@ export default function ContactPage() {
                       {errorMessage || "Une erreur s'est produite. Veuillez réessayer."}
                     </div>
                   )}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="nom" className="block text-sm font-medium text-gray-700 mb-1">
-                        Nom <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="nom"
-                        name="nom"
-                        required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
-                        placeholder="Votre nom"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="prenom" className="block text-sm font-medium text-gray-700 mb-1">
-                        Prénom <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="prenom"
-                        name="prenom"
-                        required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
-                        placeholder="Votre prénom"
-                      />
-                    </div>
-                  </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      Email <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
-                      placeholder="votre.email@exemple.com"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="telephone" className="block text-sm font-medium text-gray-700 mb-1">
-                      Téléphone
-                    </label>
-                    <input
-                      type="tel"
-                      id="telephone"
-                      name="telephone"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
-                      placeholder="Votre numéro de téléphone"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="entreprise" className="block text-sm font-medium text-gray-700 mb-1">
-                      Nom de la pharmacie
+                    <label htmlFor="nom" className="block text-sm font-medium text-gray-700 mb-1">
+                      Nom <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
-                      id="entreprise"
-                      name="entreprise"
+                      id="nom"
+                      name="nom"
+                      required
                       className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
-                      placeholder="Nom de votre pharmacie"
+                      placeholder="Votre nom"
                     />
                   </div>
                   <div>
-                    <label htmlFor="sujet" className="block text-sm font-medium text-gray-700 mb-1">
-                      Sujet <span className="text-red-500">*</span>
+                    <label htmlFor="prenom" className="block text-sm font-medium text-gray-700 mb-1">
+                      Prénom <span className="text-red-500">*</span>
                     </label>
-                    <select
-                      id="sujet"
-                      name="sujet"
+                    <input
+                      type="text"
+                      id="prenom"
+                      name="prenom"
                       required
                       className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
-                    >
-                      <option value="">Sélectionnez un sujet</option>
-                      <option value="information">Demande d'information</option>
-                      <option value="devis">Demande de devis</option>
-                      <option value="demo">Demande de démonstration</option>
-                      <option value="support">Support technique</option>
-                      <option value="autre">Autre</option>
-                    </select>
+                      placeholder="Votre prénom"
+                    />
                   </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                      Message <span className="text-red-500">*</span>
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={5}
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    Email <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+                    placeholder="votre.email@exemple.com"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="telephone" className="block text-sm font-medium text-gray-700 mb-1">
+                    Téléphone
+                  </label>
+                  <input
+                    type="tel"
+                    id="telephone"
+                    name="telephone"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+                    placeholder="Votre numéro de téléphone"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="entreprise" className="block text-sm font-medium text-gray-700 mb-1">
+                    Nom de la pharmacie
+                  </label>
+                  <input
+                    type="text"
+                    id="entreprise"
+                    name="entreprise"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+                    placeholder="Nom de votre pharmacie"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="sujet" className="block text-sm font-medium text-gray-700 mb-1">
+                    Sujet <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    id="sujet"
+                    name="sujet"
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+                  >
+                    <option value="">Sélectionnez un sujet</option>
+                    <option value="information">Demande d'information</option>
+                    <option value="devis">Demande de devis</option>
+                    <option value="demo">Demande de démonstration</option>
+                    <option value="support">Support technique</option>
+                    <option value="autre">Autre</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                    Message <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+                    placeholder="Votre message..."
+                  ></textarea>
+                </div>
+                <div className="flex items-start">
+                  <div className="flex items-center h-5">
+                    <input
+                      id="privacy"
+                      name="privacy"
+                      type="checkbox"
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
-                      placeholder="Votre message..."
-                    ></textarea>
+                      className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+                    />
                   </div>
-                  <div className="flex items-start">
-                    <div className="flex items-center h-5">
-                      <input
-                        id="privacy"
-                        name="privacy"
-                        type="checkbox"
-                        required
-                        className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
-                      />
-                    </div>
-                    <div className="ml-3 text-sm">
-                      <label htmlFor="privacy" className="text-gray-600">
-                        J'accepte que mes données soient traitées conformément à la{" "}
-                        <Link href="/politique-de-confidentialite" className="text-green-600 hover:underline">
-                          politique de confidentialité
-                        </Link>
-                        . <span className="text-red-500">*</span>
-                      </label>
-                    </div>
+                  <div className="ml-3 text-sm">
+                    <label htmlFor="privacy" className="text-gray-600">
+                      J'accepte que mes données soient traitées conformément à la{" "}
+                      <Link href="/politique-de-confidentialite" className="text-green-600 hover:underline">
+                        politique de confidentialité
+                      </Link>
+                      . <span className="text-red-500">*</span>
+                    </label>
                   </div>
-                  <div>
-                    <button
-                      type="submit"
+                </div>
+                <div>
+                  <button
+                    type="submit"
                       disabled={formStatus === "submitting"}
-                      className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
-                    >
+                    className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
+                  >
                       {formStatus === "submitting" ? "Envoi en cours..." : "Envoyer le message"}
-                    </button>
-                  </div>
-                  <p className="text-xs text-gray-500 text-center">
-                    Les champs marqués d'un <span className="text-red-500">*</span> sont obligatoires
-                  </p>
-                </form>
+                  </button>
+                </div>
+                <p className="text-xs text-gray-500 text-center">
+                  Les champs marqués d'un <span className="text-red-500">*</span> sont obligatoires
+                </p>
+              </form>
               )}
             </div>
 

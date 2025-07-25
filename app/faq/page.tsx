@@ -63,9 +63,8 @@ export default function FAQPage() {
                 </button>
                 <div className="px-6 pb-4">
                   <p className="text-gray-600">
-                    L'installation complète prend généralement 2 à 4 heures selon la taille de votre pharmacie. 
-                    Notre équipe technique s'occupe de tout : installation des capteurs, configuration du système 
-                    et formation de votre équipe.
+                    L'installation est réalisée par vous-même, c'est très simple et prend environ 10 minutes. 
+                    Aucun besoin d'équipe technique : tout est guidé étape par étape, sans compétence particulière requise.
                   </p>
                 </div>
               </div>
@@ -113,8 +112,7 @@ export default function FAQPage() {
                 <div className="px-6 pb-4">
                   <p className="text-gray-600">
                     Nos capteurs offrent une précision de ±0.3°C, ce qui dépasse largement les exigences 
-                    réglementaires pour le secteur pharmaceutique. Ils sont étalonnés annuellement pour 
-                    garantir cette précision.
+                    réglementaires pour le secteur pharmaceutique.
                   </p>
                 </div>
               </div>
@@ -162,7 +160,7 @@ export default function FAQPage() {
                 <div className="px-6 pb-4">
                   <p className="text-gray-600">
                     Non, notre tarification est totalement transparente. Le prix annoncé inclut tout : 
-                    installation, configuration, formation, support technique et mises à jour logicielles. 
+                    Aide à l'installation, configuration, formation, support technique et mises à jour logicielles. 
                     Aucun frais supplémentaire.
                   </p>
                 </div>

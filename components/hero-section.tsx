@@ -46,15 +46,15 @@ export default function HeroSection() {
                 <div className="text-sm text-gray-600">Précision extrême</div>
               </div>
               <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
-                <div className="text-2xl font-bold text-green-600">0,01°C</div>
-                <div className="text-sm text-gray-600">Résolution élevée</div>
+                <div className="text-2xl font-bold text-green-600">Sans fil</div>
+                <div className="text-sm text-gray-600">Connectivité</div>
               </div>
             </div>
             
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/contact"
+                href="/demande-devis"
                 className="inline-flex items-center justify-center px-8 py-4 bg-green-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:bg-green-700"
               >
                 Demander un Devis
@@ -110,6 +110,15 @@ export default function HeroSection() {
                   <div>
                     <div className="text-sm text-gray-500">Statut</div>
                     <div className="font-semibold text-green-600">Connecté</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute bottom-8 right-0 bg-white rounded-xl shadow-xl p-4 border border-gray-100">
+                <div className="flex items-center gap-3">
+                  <div>
+                    <div className="text-sm text-gray-500">Connecté</div>
+                    <div className="font-semibold text-green-600">Sans fil</div>
                   </div>
                 </div>
               </div>

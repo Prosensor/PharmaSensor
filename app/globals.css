@@ -11,6 +11,17 @@ body {
   100% { transform: translateX(-50%); }
 }
 
+.marquee {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+.marquee-content {
+  display: flex;
+  width: 200%;
+  animation: marquee 30s linear infinite;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

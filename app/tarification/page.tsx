@@ -21,13 +21,15 @@ export default function TarificationPage() {
     const email = formData.get("email") as string
     const phone = formData.get("phone") as string
     const pharmacyName = formData.get("company") as string
+    const formule = formData.get("formule") as string
+    const sondes = formData.get("sondes") as string
     const message = formData.get("message") as string
 
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, pharmacyName, equipment: "", message }),
+        body: JSON.stringify({ name, email, phone, pharmacyName, formule, sondes, equipment: sondes, message }),
       })
       const data = await response.json()
       if (!response.ok) throw new Error(data.error || "Une erreur s'est produite")
@@ -38,6 +40,61 @@ export default function TarificationPage() {
       setErrorMessage(error instanceof Error ? error.message : "Une erreur s'est produite")
     }
   }
+
+  const plans = [
+    {
+      name: "Solo",
+      price: "43€",
+      priceSuffix: "/mois",
+      badge: null,
+      for: "Petites pharmacies",
+      equip: "1 routeur + 1 sonde",
+      alertes: "Email",
+      rapports: "Mensuels",
+      data: "1 an",
+      support: "Email",
+      avancées: "-",
+      button: true,
+    },
+    {
+      name: "Dual",
+      price: "47€",
+      priceSuffix: "/mois",
+      badge: "Populaire",
+      for: "Pharmacies moyennes",
+      equip: "1 routeur + 2 sondes",
+      alertes: "Email & SMS",
+      rapports: "Hebdomadaires",
+      data: "3 ans",
+      support: "Prioritaire",
+      avancées: "Cartographie thermique",
+      button: true,
+    },
+    {
+      name: "Supplémentaire",
+      price: "+5€",
+      priceSuffix: "/sonde/mois",
+      badge: null,
+      for: "Grandes pharmacies & groupements",
+      equip: "Sonde supplémentaire",
+      alertes: "Multicanaux personnalisables",
+      rapports: "Personnalisés",
+      data: "5 ans",
+      support: "Dédié 24/7",
+      avancées: "Toutes + API intégration",
+      button: true,
+    },
+  ];
+  const [currentPlan, setCurrentPlan] = useState(1); // default to Dual
+  const planFields = [
+    { label: "Pour qui ?", key: "for" },
+    { label: "Équipement inclus", key: "equip" },
+    { label: "Alertes", key: "alertes" },
+    { label: "Rapports", key: "rapports" },
+    { label: "Conservation des données", key: "data" },
+    { label: "Support", key: "support" },
+    { label: "Fonctionnalités avancées", key: "avancées" },
+  ];
 
   return (
     <div className="w-full">
@@ -54,140 +111,79 @@ export default function TarificationPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Plan 1 */}
-            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
-              <div className="mb-4">
-                <h3 className="text-xl font-bold">Solo</h3>
-                <div className="mt-2 flex items-baseline">
-                  <span className="text-3xl font-bold">43€</span>
-                  <span className="ml-1 text-lg text-gray-500">/mois</span>
+          {/* Desktop Table */}
+          <div className="w-full overflow-x-auto hidden md:block">
+            <table className="min-w-[900px] w-full border-collapse rounded-xl overflow-hidden bg-white shadow-md">
+              <thead>
+                <tr className="bg-green-50">
+                  <th className="py-4 px-2 text-xl font-bold text-green-800 border-b align-bottom">&nbsp;</th>
+                  {plans.map((plan, idx) => (
+                    <th key={plan.name} className="py-4 px-2 text-xl font-bold border-b align-bottom text-center relative">
+                      <div className="flex flex-col items-center">
+                        <span>{plan.name}</span>
+                        <span className="text-2xl font-bold text-green-700">{plan.price}<span className="text-base font-normal">{plan.priceSuffix}</span></span>
+                        {plan.badge && <span className="mt-2 inline-block bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">{plan.badge}</span>}
+                      </div>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {planFields.map((field) => (
+                  <tr className="border-b" key={field.key}>
+                    <td className="py-3 px-2 font-medium text-gray-700">{field.label}</td>
+                    {plans.map((plan) => (
+                      <td className={`py-3 px-2 text-center${field.key === 'equip' ? ' font-bold' : ''}`}>{plan[field.key as keyof typeof plan]}</td>
+                    ))}
+                  </tr>
+                ))}
+                <tr>
+                  <td className="py-4"></td>
+                  {plans.map((plan, idx) => (
+                    <td className="py-4 text-center" key={plan.name+"btn"}>
+                      <Link href="/demande-devis" className="inline-block w-full max-w-[180px] bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
+                    </td>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
                 </div>
-                <p className="mt-2 text-gray-600">Pour les petites pharmacies</p>
-              </div>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm font-bold">1 routeur + 1 sonde</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Alertes par email</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Rapports mensuels</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Conservation des données 1 an</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Support par email</span>
-                </li>
-              </ul>
-              <Link
-                href="#contact"
-                className="block w-full text-center bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors"
-              >
-                Demander un devis
-              </Link>
-            </div>
 
-            {/* Plan 2 */}
-            <div className="bg-white rounded-xl p-6 shadow-xl border-2 border-green-500 relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-1 rounded-full text-sm font-bold">
-                Populaire
+          {/* Mobile/Tablet Cards with slider */}
+          <div className="md:hidden w-full flex flex-col items-center">
+            <div className="w-full max-w-sm bg-white rounded-xl shadow-md p-6 mb-4 relative">
+              {plans[currentPlan].badge && (
+                <span className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">{plans[currentPlan].badge}</span>
+              )}
+              <div className="text-center mb-4">
+                <h3 className="text-2xl font-bold mb-1">{plans[currentPlan].name}</h3>
+                <div className="text-green-700 text-3xl font-bold">{plans[currentPlan].price}<span className="text-base font-normal">{plans[currentPlan].priceSuffix}</span></div>
               </div>
-              <div className="mb-4">
-                <h3 className="text-xl font-bold">Dual</h3>
-                <div className="mt-2 flex items-baseline">
-                  <span className="text-3xl font-bold">47€</span>
-                  <span className="ml-1 text-lg text-gray-500">/mois</span>
-                </div>
-                <p className="mt-2 text-gray-600">Pour les pharmacies moyennes</p>
-              </div>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm font-bold">1 routeur + 2 sonde</span>
+              <ul className="mb-6">
+                {planFields.map((field) => (
+                  <li key={field.key} className="flex justify-between py-1 border-b last:border-b-0">
+                    <span className="font-medium text-gray-700">{field.label}</span>
+                    <span className={field.key === 'equip' ? 'font-bold' : ''}>{plans[currentPlan][field.key as keyof typeof plans[number]]}</span>
                 </li>
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Alertes par email et SMS</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Rapports hebdomadaires</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Conservation des données 3 ans</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Support prioritaire</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Cartographie thermique</span>
-                </li>
+                ))}
               </ul>
-              <Link
-                href="#contact"
-                className="block w-full text-center bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors"
-              >
-                Demander un devis
-              </Link>
+              <Link href="/demande-devis" className="block w-full bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors text-center">Demander un devis</Link>
             </div>
-
-            {/* Plan 3 */}
-            <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
-              <div className="mb-4">
-                <h3 className="text-xl font-bold">Supplémentaire</h3>
-                <div className="mt-2 flex items-baseline">
-                  <span className="text-3xl font-bold">+5€</span>
-                  <span className="ml-1 text-lg text-gray-500">/par sonde/mois</span>
-                </div>
-                <p className="mt-2 text-gray-600">Pour les grandes pharmacies et groupements</p>
-              </div>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm font-bold">Sonde supplémentaire</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Alertes multicanaux personnalisables</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Rapports personnalisés</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Conservation des données 5 ans</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Support dédié 24/7</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Toutes les fonctionnalités avancées</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">API pour intégration personnalisée</span>
-                </li>
-              </ul>
-              <Link
-                href="#contact"
-                className="block w-full text-center bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors"
+            <div className="flex gap-4">
+              <button
+                onClick={() => setCurrentPlan((prev) => (prev === 0 ? plans.length - 1 : prev - 1))}
+                className="rounded-full bg-green-100 text-green-700 w-10 h-10 flex items-center justify-center text-xl font-bold hover:bg-green-200 transition"
+                aria-label="Précédent"
               >
-                Demander un devis
-              </Link>
+                ←
+              </button>
+              <button
+                onClick={() => setCurrentPlan((prev) => (prev === plans.length - 1 ? 0 : prev + 1))}
+                className="rounded-full bg-green-100 text-green-700 w-10 h-10 flex items-center justify-center text-xl font-bold hover:bg-green-200 transition"
+                aria-label="Suivant"
+              >
+                →
+              </button>
             </div>
           </div>
         </div>
@@ -305,13 +301,13 @@ export default function TarificationPage() {
             <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
               <h3 className="text-xl font-bold mb-4">Puis-je ajouter des capteurs supplémentaires ?</h3>
               <p className="text-gray-600">
-                Oui, vous pouvez ajouter des capteurs supplémentaires à tout moment. Chaque capteur additionnel coûte 105€ à l'achat ou 3€/mois en location.
+                Oui, vous pouvez ajouter des capteurs supplémentaires à tout moment. Chaque capteur additionnel coûte 5€/mois en location.
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
               <h3 className="text-xl font-bold mb-4">Quelle est la durée minimale d'engagement ?</h3>
               <p className="text-gray-600">
-                La durée minimale d'engagement pour la formule location est de 12 mois. Après cette période, le contrat est renouvelable mensuellement.
+              Nos formules sont flexibles, sans durée minimale d'engagement, pour répondre aux besoins de toutes les pharmacies, des plus petites aux plus grandes.
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
@@ -363,7 +359,7 @@ export default function TarificationPage() {
                 </ul>
                 <div className="mt-6">
                   <Link
-                    href="#contact"
+                    href="/demande-devis"
                     className="inline-flex items-center justify-center rounded-md bg-green-600 px-6 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1"
                   >
                     Demander un devis personnalisé
@@ -415,78 +411,112 @@ export default function TarificationPage() {
                       {errorMessage || "Une erreur s'est produite. Veuillez réessayer."}
                     </div>
                   )}
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-1">
-                      Nom complet
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium mb-1">
+                    Nom complet
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
                       name="name"
                       required
-                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                      placeholder="Votre nom"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-1">
-                      Email professionnel
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
+                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                    placeholder="Votre nom"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-1">
+                    Email professionnel
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
                       name="email"
                       required
-                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                      placeholder="vous@entreprise.com"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium mb-1">
-                      Téléphone
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
+                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                    placeholder="vous@entreprise.com"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium mb-1">
+                    Téléphone
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
                       name="phone"
                       required
-                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                      placeholder="Votre numéro de téléphone"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-medium mb-1">
-                      Nom de la pharmacie
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
+                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                    placeholder="Votre numéro de téléphone"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="company" className="block text-sm font-medium mb-1">
+                    Nom de la pharmacie
+                  </label>
+                  <input
+                    type="text"
+                    id="company"
                       name="company"
                       required
-                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                      placeholder="Nom de votre pharmacie"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-1">
-                      Message (facultatif)
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
-                      placeholder="Décrivez vos besoins spécifiques..."
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={formStatus === "submitting"}
-                    className="w-full bg-white text-green-600 font-medium py-2 px-4 rounded-md hover:bg-gray-100 transition-colors"
+                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                    placeholder="Nom de votre pharmacie"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="formule" className="block text-sm font-medium mb-1">
+                    Quelle formule vous intéresse ?
+                  </label>
+                  <select
+                    id="formule"
+                    name="formule"
+                    required
+                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
                   >
+                    <option value="">Sélectionnez une formule</option>
+                    <option value="Achat">Achat</option>
+                    <option value="Clés en main">Clés en main</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="sondes" className="block text-sm font-medium mb-1">
+                    Combien de sondes souhaiteriez-vous ?
+                  </label>
+                  <select
+                    id="sondes"
+                    name="sondes"
+                    required
+                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                  >
+                    <option value="">Sélectionnez</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="+ de 5">+ de 5</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-1">
+                    Message (facultatif)
+                  </label>
+                  <textarea
+                    id="message"
+                      name="message"
+                    rows={4}
+                    className="w-full px-4 py-2 rounded-md border-0 text-gray-900"
+                    placeholder="Décrivez vos besoins spécifiques..."
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                    disabled={formStatus === "submitting"}
+                  className="w-full bg-white text-green-600 font-medium py-2 px-4 rounded-md hover:bg-gray-100 transition-colors"
+                >
                     {formStatus === "submitting" ? "Envoi en cours..." : "Demander un devis"}
-                  </button>
-                </form>
+                </button>
+              </form>
               )}
             </div>
           </div>

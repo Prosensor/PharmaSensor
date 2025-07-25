@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.json();
-    const { name, email, pharmacyName, phone, equipment, message } = formData;
+    const { name, email, pharmacyName, phone, equipment, message, formule } = formData;
 
     // Validation des champs requis
     if (!name || !email) {
@@ -58,6 +58,7 @@ export async function POST(request: NextRequest) {
               <tr><td style="font-weight: bold; padding: 8px 0;">Pharmacie :</td><td>${pharmacyName}</td></tr>
               <tr><td style="font-weight: bold; padding: 8px 0;">Email :</td><td><a href="mailto:${email}" style="color: #3eab35; text-decoration: underline;">${email}</a></td></tr>
               <tr><td style="font-weight: bold; padding: 8px 0;">Téléphone :</td><td><a href="tel:${phone}" style="color: #3eab35; text-decoration: underline;">${phone}</a></td></tr>
+              ${formule ? `<tr><td style="font-weight: bold; padding: 8px 0;">Formule choisie :</td><td>${formule}</td></tr>` : ""}
               <tr><td style="font-weight: bold; padding: 8px 0;">Nombre d'équipements :</td><td>${equipment || "Non spécifié"}</td></tr>
               <tr><td style="font-weight: bold; padding: 8px 0; vertical-align: top;">Message :</td><td style="white-space: pre-line;">${message || "(aucun message)"}</td></tr>
             </table>
@@ -74,7 +75,7 @@ export async function POST(request: NextRequest) {
       from: '"Site PharmaSensor" <contact@greensensor.fr>',
       to: "corentinadlpro@gmail.com",
       subject: message && message.startsWith("Sujet : ") ? `Nouveau message de contact PharmaSensor` : `Nouvelle demande de contact PharmaSensor`,
-      text: `Nom: ${name}\nPharmacie: ${pharmacyName}\nEmail: ${email}\nTéléphone: ${phone}\nMessage: ${message || "(aucun message)"}\n`,
+      text: `Nom: ${name}\nPharmacie: ${pharmacyName}\nEmail: ${email}\nTéléphone: ${phone}\nFormule: ${formule || "Non spécifiée"}\nNombre d'équipements: ${equipment || "Non spécifié"}\nMessage: ${message || "(aucun message)"}\n`,
       html,
     };
 

@@ -63,7 +63,7 @@ export default function ContactHeroSection() {
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="#contact-form"
+                href="#contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-green-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:bg-green-700"
               >
                 Envoyer un Message
@@ -72,7 +72,7 @@ export default function ContactHeroSection() {
                 </svg>
               </Link>
               <Link
-                href="/demo"
+                href="/demande-devis"
                 className="inline-flex items-center justify-center px-8 py-4 border-2 border-green-200 text-green-700 font-semibold rounded-lg hover:border-green-300 hover:bg-green-50 transition-colors"
               >
                 Demander un Devis

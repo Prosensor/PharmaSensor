@@ -199,43 +199,7 @@ export default function Header() {
                 Accueil
               </Link>
 
-              {/* Dropdown Solutions Mobile */}
-              <div className="group">
-                <button
-                  onClick={() => toggleDropdown("solutions-mobile")}
-                  className="flex w-full items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 hover:text-green-600"
-                >
-                  Solutions
-                  <ChevronDown className={`h-4 w-4 ${openDropdown === "solutions-mobile" ? "rotate-180" : ""}`} />
-                </button>
-                {openDropdown === "solutions-mobile" && (
-                  <div className="ml-4">
-                    <div className="mt-1 flex flex-col space-y-1 border-l-2 border-green-100 pl-4">
-                      <Link
-                        href="/solutions/pharmasensor-pro"
-                        className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
-                        onClick={toggleMenu}
-                      >
-                        PharmaSensor Pro
-                      </Link>
-                      <Link
-                        href="/solutions/pharmasensor-cloud"
-                        className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
-                        onClick={toggleMenu}
-                      >
-                        PharmaSensor Cloud
-                      </Link>
-                      <Link
-                        href="/solutions/capteurs-specialises"
-                        className="px-3 py-1 text-sm text-gray-700 hover:text-green-600"
-                        onClick={toggleMenu}
-                      >
-                        Capteurs spécialisés
-                      </Link>
-                    </div>
-                  </div>
-                )}
-              </div>
+             
 
               <Link
                 href="/notre-produit"
@@ -245,14 +209,7 @@ export default function Header() {
                 Notre produit
               </Link>
 
-              <Link
-                href="#testimonials"
-                className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-green-600"
-                onClick={toggleMenu}
-              >
-                Témoignages
-              </Link>
-
+              
               <Link
                 href="/tarification"
                 className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-green-600"
@@ -307,11 +264,11 @@ export default function Header() {
 
             <div className="mt-4 flex flex-col space-y-2">
               <Link
-                href="#contact"
+                href="/demande-devis"
                 className="rounded-md bg-green-600 px-4 py-2 text-center text-sm font-medium text-white hover:bg-green-700 transition-all duration-300"
                 onClick={toggleMenu}
               >
-                Demander une démo
+                Demander un devis
               </Link>
             </div>
           </div>

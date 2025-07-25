@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { Quote } from "lucide-react"
+import Link from "next/link"
 
 export const metadata = {
   title: "Avis clients | PharmaSensor",
@@ -146,12 +147,9 @@ export default function AvisPage() {
             Rejoignez plus de 500 pharmacies qui font confiance à PharmaSensor pour la surveillance de leurs équipements critiques.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="rounded-md bg-white px-6 py-3 font-medium text-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-600">
+            <Link href="/demande-devis" className="rounded-md bg-white px-6 py-3 font-medium text-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-600">
               Demander un devis
-            </button>
-            <button className="rounded-md border border-white bg-transparent px-6 py-3 font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-600">
-              Télécharger la Brochure
-            </button>
+            </Link>
           </div>
         </div>
       </div>
