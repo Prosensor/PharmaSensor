@@ -105,182 +105,122 @@ export default function TarificationPage() {
         {/* Pricing Plans Section */}
         <div className="mb-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Choisissez Votre Formule</h2>
+            <h2 className="text-3xl font-bold tracking-tight mb-4">Prix en location</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Nous proposons des formules flexibles pour répondre aux besoins de toutes les pharmacies, des plus petites aux plus grandes.
             </p>
           </div>
-
-          {/* Desktop Table */}
-          <div className="w-full overflow-x-auto hidden md:block">
-            <table className="min-w-[900px] w-full border-collapse rounded-xl overflow-hidden bg-white shadow-md">
+          <div className="w-full overflow-x-auto">
+            <table className="min-w-[600px] w-full border-collapse rounded-xl overflow-hidden bg-white shadow-md">
               <thead>
                 <tr className="bg-green-50">
-                  <th className="py-4 px-2 text-xl font-bold text-green-800 border-b align-bottom">&nbsp;</th>
-                  {plans.map((plan, idx) => (
-                    <th key={plan.name} className="py-4 px-2 text-xl font-bold border-b align-bottom text-center relative">
-                      <div className="flex flex-col items-center">
-                        <span>{plan.name}</span>
-                        <span className="text-2xl font-bold text-green-700">{plan.price}<span className="text-base font-normal">{plan.priceSuffix}</span></span>
-                        {plan.badge && <span className="mt-2 inline-block bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">{plan.badge}</span>}
-                      </div>
-                    </th>
-                  ))}
+                  <th className="py-4 px-2 text-lg font-bold border-b text-center">Produit</th>
+                  <th className="py-4 px-2 text-lg font-bold border-b text-center">Image</th>
+                  <th className="py-4 px-2 text-lg font-bold border-b text-center">Prix mensuel</th>
+                  <th className="py-4 px-2 text-lg font-bold border-b text-center"></th>
                 </tr>
               </thead>
               <tbody>
-                {planFields.map((field) => (
-                  <tr className="border-b" key={field.key}>
-                    <td className="py-3 px-2 font-medium text-gray-700">{field.label}</td>
-                    {plans.map((plan) => (
-                      <td className={`py-3 px-2 text-center${field.key === 'equip' ? ' font-bold' : ''}`}>{plan[field.key as keyof typeof plan]}</td>
-                    ))}
-                  </tr>
-                ))}
+                <tr className="border-b">
+                  <td className="py-4 px-2 text-center font-medium">Solo<br/><span className="text-sm text-gray-500">1 routeur + 1 sonde</span></td>
+                  <td className="py-4 px-2 text-center">
+                    <div className="flex justify-center">
+                      <img src="/capteur1.webp" alt="Pack Solo" className="h-16 w-16 object-contain rounded" />
+                    </div>
+                  </td>
+                  <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">43€<span className="text-base font-normal">/mois</span></td>
+                  <td className="py-4 px-2 text-center">
+                    <Link href="/demande-devis" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
+                  </td>
+                </tr>
+                <tr className="border-b">
+                  <td className="py-4 px-2 text-center font-medium">Dual<br/><span className="text-sm text-gray-500">1 routeur + 2 sondes</span></td>
+                  <td className="py-4 px-2 text-center">
+                    <div className="flex justify-center">
+                      <img src="/capteur1.webp" alt="Pack Dual" className="h-16 w-16 object-contain rounded" />
+                    </div>
+                  </td>
+                  <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">47€<span className="text-base font-normal">/mois</span></td>
+                  <td className="py-4 px-2 text-center">
+                    <Link href="/demande-devis" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
+                  </td>
+                </tr>
                 <tr>
-                  <td className="py-4"></td>
-                  {plans.map((plan, idx) => (
-                    <td className="py-4 text-center" key={plan.name+"btn"}>
-                      <Link href="/demande-devis" className="inline-block w-full max-w-[180px] bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
-                    </td>
-                  ))}
+                  <td className="py-4 px-2 text-center font-medium">Sonde supplémentaire</td>
+                  <td className="py-4 px-2 text-center">
+                    <div className="flex justify-center">
+                      <img src="/capteur1.webp" alt="Sonde supplémentaire" className="h-16 w-16 object-contain rounded" />
+                    </div>
+                  </td>
+                  <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">+5€<span className="text-base font-normal">/mois</span></td>
+                  <td className="py-4 px-2 text-center">
+                    <Link href="/demande-devis" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
+                  </td>
                 </tr>
               </tbody>
             </table>
-                </div>
-
-          {/* Mobile/Tablet Cards with slider */}
-          <div className="md:hidden w-full flex flex-col items-center">
-            <div className="w-full max-w-sm bg-white rounded-xl shadow-md p-6 mb-4 relative">
-              {plans[currentPlan].badge && (
-                <span className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">{plans[currentPlan].badge}</span>
-              )}
-              <div className="text-center mb-4">
-                <h3 className="text-2xl font-bold mb-1">{plans[currentPlan].name}</h3>
-                <div className="text-green-700 text-3xl font-bold">{plans[currentPlan].price}<span className="text-base font-normal">{plans[currentPlan].priceSuffix}</span></div>
-              </div>
-              <ul className="mb-6">
-                {planFields.map((field) => (
-                  <li key={field.key} className="flex justify-between py-1 border-b last:border-b-0">
-                    <span className="font-medium text-gray-700">{field.label}</span>
-                    <span className={field.key === 'equip' ? 'font-bold' : ''}>{plans[currentPlan][field.key as keyof typeof plans[number]]}</span>
-                </li>
-                ))}
-              </ul>
-              <Link href="/demande-devis" className="block w-full bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors text-center">Demander un devis</Link>
-            </div>
-            <div className="flex gap-4">
-              <button
-                onClick={() => setCurrentPlan((prev) => (prev === 0 ? plans.length - 1 : prev - 1))}
-                className="rounded-full bg-green-100 text-green-700 w-10 h-10 flex items-center justify-center text-xl font-bold hover:bg-green-200 transition"
-                aria-label="Précédent"
-              >
-                ←
-              </button>
-              <button
-                onClick={() => setCurrentPlan((prev) => (prev === plans.length - 1 ? 0 : prev + 1))}
-                className="rounded-full bg-green-100 text-green-700 w-10 h-10 flex items-center justify-center text-xl font-bold hover:bg-green-200 transition"
-                aria-label="Suivant"
-              >
-                →
-              </button>
-            </div>
           </div>
         </div>
 
-        {/* Hardware Options Section */}
+        {/* Section Prix à l'achat */}
         <div className="mb-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Options Matérielles</h2>
+            <h2 className="text-3xl font-bold tracking-tight mb-4">Prix à l'achat</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Choisissez entre l'achat ou la location de votre matériel PharmaSensor.
+              Retrouvez nos tarifs à l'achat, adaptés à tous les besoins. Les images seront bientôt disponibles !
             </p>
           </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Option 1 */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Achat</h3>
-                <div className="mt-2 flex items-baseline mb-4">
-                  <span className="text-3xl font-bold">525€</span>
-                </div>
-                <p className="text-gray-600 mb-4">
-                  Achetez votre matériel PharmaSensor et profitez d'un service complet.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Appareil PharmaSensor</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Garantie 2 ans</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Installation et configuration incluses</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Étalonnage annuel (en option)</span>
-                  </li>
-                </ul>
-                <div className="relative h-[200px] w-full rounded-lg overflow-hidden">
-                  <Image
-                    src="/image.png"
-                    alt="Option d'achat PharmaSensor"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Option 2 */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Sérénité</h3>
-                <div className="mt-2 flex items-baseline mb-4">
-                  <span className="text-3xl font-bold">43€</span>
-                  <span className="ml-1 text-lg text-gray-500">/mois</span>
-                </div>
-                <p className="text-gray-600 mb-4">
-                  Optez pour la flexibilité avec notre formule location sans engagement à long terme.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Appareil PharmaSensor</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Remplacement gratuit en cas de panne</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Étalonnage annuel inclus</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="mr-2 h-5 w-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">Mises à jour matérielles gratuites</span>
-                  </li>
-                </ul>
-                <div className="relative h-[200px] w-full rounded-lg overflow-hidden">
-                  <Image
-                    src="/image.png"
-                    alt="Option de location PharmaSensor"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </div>
+          <div className="w-full overflow-x-auto">
+            <table className="min-w-[600px] w-full border-collapse rounded-xl overflow-hidden bg-white shadow-md">
+              <thead>
+                <tr className="bg-green-50">
+                  <th className="py-4 px-2 text-lg font-bold border-b text-center">Produit</th>
+                  <th className="py-4 px-2 text-lg font-bold border-b text-center">Image</th>
+                  <th className="py-4 px-2 text-lg font-bold border-b text-center">Prix à l'achat</th>
+                  <th className="py-4 px-2 text-lg font-bold border-b text-center"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="py-4 px-2 text-center font-medium">Pack Solo<br/><span className="text-sm text-gray-500">1 routeur + 1 sonde</span></td>
+                  <td className="py-4 px-2 text-center">
+                    <div className="flex justify-center">
+                      <img src="/capteur1.webp" alt="Pack Solo" className="h-16 w-16 object-contain rounded" />
+                    </div>
+                  </td>
+                  <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">525€</td>
+                  <td className="py-4 px-2 text-center">
+                    <Link href="/demande-devis" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
+                  </td>
+                </tr>
+                <tr className="border-b">
+                  <td className="py-4 px-2 text-center font-medium">Pack Dual<br/><span className="text-sm text-gray-500">1 routeur + 2 sondes</span></td>
+                  <td className="py-4 px-2 text-center">
+                    <div className="flex justify-center">
+                      <img src="/capteur1.webp" alt="Pack Dual" className="h-16 w-16 object-contain rounded" />
+                    </div>
+                  </td>
+                  <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">629€</td>
+                  <td className="py-4 px-2 text-center">
+                    <Link href="/demande-devis" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-4 px-2 text-center font-medium">Sonde supplémentaire</td>
+                  <td className="py-4 px-2 text-center">
+                    <div className="flex justify-center">
+                      <img src="/capteur1.webp" alt="Sonde supplémentaire" className="h-16 w-16 object-contain rounded" />
+                    </div>
+                  </td>
+                  <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">105€</td>
+                  <td className="py-4 px-2 text-center">
+                    <Link href="/demande-devis" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-
-        {/* Comparison Table */}
-        
 
         {/* FAQ Section */}
         <div className="mb-16">
