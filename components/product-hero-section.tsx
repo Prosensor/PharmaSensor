@@ -79,7 +79,7 @@ export default function ProductHeroSection() {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative w-80 h-80">
                   <Image
-                    src="/sondenew.png"
+                    src="/Capture d'écran 2025-07-25 105515.png"
                     alt="Sonde de température PharmaSensor"
                     fill
                     className="object-contain drop-shadow-2xl"
@@ -105,10 +105,6 @@ export default function ProductHeroSection() {
                   <div className="text-sm text-gray-500">Température actuelle</div>
                 </div>
               </div>
-              
-              {/* Connection lines */}
-              <div className="absolute top-1/2 left-1/2 w-1 h-20 bg-gradient-to-b from-green-400 to-green-600 opacity-30 transform -translate-x-1/2 -translate-y-1/2" />
-              <div className="absolute top-1/2 left-1/2 w-20 h-1 bg-gradient-to-r from-green-400 to-green-600 opacity-30 transform -translate-x-1/2 -translate-y-1/2" />
             </div>
           </div>
         </div>

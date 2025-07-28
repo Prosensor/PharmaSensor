@@ -125,7 +125,7 @@ export default function TarificationPage() {
                   <td className="py-4 px-2 text-center font-medium">Solo<br/><span className="text-sm text-gray-500">1 routeur + 1 sonde</span></td>
                   <td className="py-4 px-2 text-center">
                     <div className="flex justify-center">
-                      <img src="/capteur1.webp" alt="Pack Solo" className="h-16 w-16 object-contain rounded" />
+                      <img src="/CapteurDraginoPharmasensor_capteurs1.jpg" alt="Pack Solo" className="h-16 w-16 object-contain rounded" />
                     </div>
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">43€<span className="text-base font-normal">/mois</span></td>
@@ -137,7 +137,7 @@ export default function TarificationPage() {
                   <td className="py-4 px-2 text-center font-medium">Dual<br/><span className="text-sm text-gray-500">1 routeur + 2 sondes</span></td>
                   <td className="py-4 px-2 text-center">
                     <div className="flex justify-center">
-                      <img src="/capteur1.webp" alt="Pack Dual" className="h-16 w-16 object-contain rounded" />
+                      <img src="/CapteurDraginoPharmasensor_capteurs2.jpg" alt="Pack Dual" className="h-16 w-16 object-contain rounded" />
                     </div>
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">47€<span className="text-base font-normal">/mois</span></td>
@@ -149,7 +149,7 @@ export default function TarificationPage() {
                   <td className="py-4 px-2 text-center font-medium">Sonde supplémentaire</td>
                   <td className="py-4 px-2 text-center">
                     <div className="flex justify-center">
-                      <img src="/capteur1.webp" alt="Sonde supplémentaire" className="h-16 w-16 object-contain rounded" />
+                      <img src="/CapteurDraginoPharmasensor.jpg" alt="Sonde supplémentaire" className="h-16 w-16 object-contain rounded" />
                     </div>
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">+5€<span className="text-base font-normal">/mois</span></td>
@@ -185,7 +185,7 @@ export default function TarificationPage() {
                   <td className="py-4 px-2 text-center font-medium">Pack Solo<br/><span className="text-sm text-gray-500">1 routeur + 1 sonde</span></td>
                   <td className="py-4 px-2 text-center">
                     <div className="flex justify-center">
-                      <img src="/capteur1.webp" alt="Pack Solo" className="h-16 w-16 object-contain rounded" />
+                      <img src="/CapteurDraginoPharmasensor_capteurs1.jpg" alt="Pack Solo" className="h-16 w-16 object-contain rounded" />
                     </div>
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">525€</td>
@@ -197,7 +197,7 @@ export default function TarificationPage() {
                   <td className="py-4 px-2 text-center font-medium">Pack Dual<br/><span className="text-sm text-gray-500">1 routeur + 2 sondes</span></td>
                   <td className="py-4 px-2 text-center">
                     <div className="flex justify-center">
-                      <img src="/capteur1.webp" alt="Pack Dual" className="h-16 w-16 object-contain rounded" />
+                      <img src="/CapteurDraginoPharmasensor_capteurs2.jpg" alt="Pack Dual" className="h-16 w-16 object-contain rounded" />
                     </div>
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">629€</td>
@@ -209,7 +209,7 @@ export default function TarificationPage() {
                   <td className="py-4 px-2 text-center font-medium">Sonde supplémentaire</td>
                   <td className="py-4 px-2 text-center">
                     <div className="flex justify-center">
-                      <img src="/capteur1.webp" alt="Sonde supplémentaire" className="h-16 w-16 object-contain rounded" />
+                      <img src="/CapteurDraginoPharmasensor.jpg" alt="Sonde supplémentaire" className="h-16 w-16 object-contain rounded" />
                     </div>
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">105€</td>

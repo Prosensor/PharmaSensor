@@ -421,7 +421,7 @@ export default function AnimatedBeamSection() {
                 <CloudPlatform
                   ref={cloudRef}
                   className="border-green-200"
-                  imageUrl="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-qFKevjJ8vbnFylynlPGE7Fx81lCPyC.png"
+                  imageUrl="/image.png"
                 />
               </div>
 
@@ -429,7 +429,7 @@ export default function AnimatedBeamSection() {
               <div className="flex w-full justify-center">
                 <Circle ref={div4Ref} className="size-24 border-green-200">
                   <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-removebg-preview%282%29-N3fQnFYFlFzuRqUWa0GR9UxvUE3dKk.png"
+                    src="/Capture d'écran 2025-07-25 105515.png"
                     alt="Dragino Router"
                     className="max-h-full max-w-full object-contain"
                   />
@@ -442,36 +442,36 @@ export default function AnimatedBeamSection() {
                   <Circle
                     ref={div1Ref}
                     className="border-green-200"
-                    imageUrl="/sondenew.png"
+                    imageUrl="/CapteurDraginoPharmasensor.jpg"
                   />
                   <Circle
                     ref={div5Ref}
                     className="border-green-200"
-                    imageUrl="/sondenew.png"
+                    imageUrl="/CapteurDraginoPharmasensor.jpg"
                   />
                 </div>
                 <div className="flex flex-row items-center justify-between">
                   <Circle
                     ref={div2Ref}
                     className="border-green-200"
-                    imageUrl="/sondenew.png"
+                    imageUrl="/CapteurDraginoPharmasensor.jpg"
                   />
                   <Circle
                     ref={div6Ref}
                     className="border-green-200"
-                    imageUrl="/sondenew.png"
+                    imageUrl="/CapteurDraginoPharmasensor.jpg"
                   />
                 </div>
                 <div className="flex flex-row items-center justify-between">
                   <Circle
                     ref={div3Ref}
                     className="border-green-200"
-                    imageUrl="/sondenew.png"
+                    imageUrl="/CapteurDraginoPharmasensor.jpg"
                   />
                   <Circle
                     ref={div7Ref}
                     className="border-green-200"
-                    imageUrl="/sondenew.png"
+                    imageUrl="/CapteurDraginoPharmasensor.jpg"
                   />
                 </div>
               </div>

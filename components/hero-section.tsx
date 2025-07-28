@@ -94,7 +94,7 @@ export default function HeroSection() {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative w-96 h-96">
                   <Image
-                    src="/sondenew.png"
+                    src="/CapteurDraginoPharmasensor.jpg"
                     alt="Sonde de température PharmaSensor"
                     fill
                     className="object-contain drop-shadow-2xl"
@@ -104,7 +104,7 @@ export default function HeroSection() {
               </div>
               
               {/* Floating status cards */}
-              <div className="absolute top-8 right-0 bg-white rounded-xl shadow-xl p-4 border border-gray-100">
+              <div className="absolute top-14 right-0 bg-white rounded-xl shadow-xl p-4 border border-gray-100">
                 <div className="flex items-center gap-3">
                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
                   <div>
@@ -114,7 +114,7 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              <div className="absolute bottom-8 right-0 bg-white rounded-xl shadow-xl p-4 border border-gray-100">
+              <div className="absolute bottom-14 right-0 bg-white rounded-xl shadow-xl p-4 border border-gray-100">
                 <div className="flex items-center gap-3">
                   <div>
                     <div className="text-sm text-gray-500">Connecté</div>
@@ -123,7 +123,7 @@ export default function HeroSection() {
                 </div>
               </div>
               
-              <div className="absolute bottom-8 left-0 bg-white rounded-xl shadow-xl p-4 border border-gray-100">
+              <div className="absolute bottom-14 left-0 bg-white rounded-xl shadow-xl p-4 border border-gray-100">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-green-600">2.8°C</div>
                   <div className="text-sm text-gray-500">Température actuelle</div>
@@ -136,10 +136,6 @@ export default function HeroSection() {
                   <div className="text-xs text-gray-500">Précision</div>
                 </div>
               </div>
-              
-              {/* Connection lines */}
-              <div className="absolute top-1/2 left-1/2 w-1 h-24 bg-gradient-to-b from-green-400 to-green-600 opacity-30 transform -translate-x-1/2 -translate-y-1/2" />
-              <div className="absolute top-1/2 left-1/2 w-24 h-1 bg-gradient-to-r from-green-400 to-green-600 opacity-30 transform -translate-x-1/2 -translate-y-1/2" />
             </div>
           </div>
         </div>
