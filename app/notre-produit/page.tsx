@@ -12,6 +12,18 @@ export default function FonctionnalitesPage() {
   // Ajout de l'état pour le formulaire CTA
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
   const [errorMessage, setErrorMessage] = useState<string>("")
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (imageSrc: string) => {
+    setSelectedImage(imageSrc);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage(null);
+  };
 
   async function handleCtaSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -175,73 +187,61 @@ export default function FonctionnalitesPage() {
           </div>
         </div>
 
+        {/* Gallery Section */}
         <div className="bg-base-100 py-8 sm:py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-12 space-y-4 text-center sm:mb-16 lg:mb-24">
               <h2 className="text-3xl font-bold tracking-tight mb-4">Gallerie de photos</h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                Découvrez notre capteur PharmaSensor en action dans différents environnements
+              </p>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2">
-              <div>
-                <img
-                  src="/capteur1.webp"
-                  alt="Coastal cliffs and ocean view"
-                  className="rounded-box aspect-5/4 min-h-121.75 object-cover"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-6">
-                <img
-                  src="/capteur1.webp"
-                  alt="Silhouettes on beach"
-                  className="rounded-box aspect-5/4 min-h-57.75 object-cover"
-                />
-                <img
-                  src="/capteur1.webp"
-                  alt="Snowy mountain peaks"
-                  className="rounded-box aspect-5/4 min-h-57.75 object-cover"
-                />
-                <img
-                  src="/capteur1.webp"
-                  alt="Rolling green hills"
-                  className="rounded-box aspect-5/4 min-h-57.75 object-cover"
-                />
-                <img
-                  src="/capteur1.webp"
-                  alt="Sunset landscape"
-                  className="rounded-box aspect-5/4 min-h-57.75 object-cover"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-6">
-                <img
-                  src="/capteur1.webp"
-                  alt="Silhouettes on beach"
-                  className="rounded-box aspect-5/4 min-h-57.75 object-cover"
-                />
-                <img
-                 src="/capteur1.webp"
-                  alt="Snowy mountain peaks"
-                  className="rounded-box aspect-5/4 min-h-57.75 object-cover"
-                />
-                <img
-                 src="/capteur1.webp"
-                  alt="Rolling green hills"
-                  className="rounded-box aspect-5/4 min-h-57.75 object-cover"
-                />
-                <img
-                  src="/capteur1.webp"
-                  alt="Sunset landscape"
-                  className="rounded-box aspect-5/4 min-h-57.75 object-cover"
-                />
-              </div>
-              <div>
-                <img
-                  src="/capteur1.webp"
-                  alt="Coastal cliffs and ocean view"
-                  className="rounded-box aspect-5/4 min-h-121.75 object-cover"
-                />
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                {
+                  src: "/IMG_7233.jpg",
+                  alt: "Capteur PharmaSensor - Vue principale",
+                  title: "Vue principale",
+                  span: "md:col-span-2 lg:col-span-1"
+                },
+                {
+                  src: "/IMG_7230.jpg",
+                  alt: "Capteur PharmaSensor - Détail capteur 1",
+                  title: "Détail capteur 1",
+                  span: ""
+                },
+                {
+                  src: "/IMG_7231.jpg",
+                  alt: "Capteur PharmaSensor - Détail capteur 2",
+                  title: "Détail capteur 2",
+                  span: ""
+                },
+                {
+                  src: "/IMG_7223.jpg",
+                  alt: "Capteur PharmaSensor en situation",
+                  title: "En situation",
+                  span: "md:col-span-2"
+                },
+                {
+                  src: "/IMG_7224.jpg",
+                  alt: "Capteur PharmaSensor dans réfrigérateur",
+                  title: "Dans réfrigérateur",
+                  span: ""
+                }
+              ].map((image, index) => (
+                <div 
+                  key={index} 
+                  className={`group cursor-pointer ${image.span}`}
+                  onClick={() => openModal(image.src)}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-64 md:h-80 object-cover rounded-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -343,6 +343,29 @@ export default function FonctionnalitesPage() {
           </div>
         </div>
       </div>
+
+      {/* Modal pour image en grand */}
+      {isModalOpen && selectedImage && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          onClick={closeModal}
+        >
+          <div className="relative max-w-5xl max-h-[90vh]">
+            <button
+              onClick={closeModal}
+              className="absolute -top-12 right-0 text-white text-4xl hover:text-gray-300 transition-colors"
+            >
+              ×
+            </button>
+            <img
+              src={selectedImage}
+              alt="Image en grand"
+              className="max-w-full max-h-[90vh] object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }
