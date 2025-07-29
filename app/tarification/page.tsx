@@ -105,7 +105,7 @@ export default function TarificationPage() {
         {/* Pricing Plans Section */}
         <div className="mb-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Prix en location</h2>
+            <h2 className="text-3xl font-bold tracking-tight mb-4">Prix clé en main</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Nous proposons des formules flexibles pour répondre aux besoins de toutes les pharmacies, des plus petites aux plus grandes.
             </p>
@@ -130,7 +130,7 @@ export default function TarificationPage() {
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">43€<span className="text-base font-normal">/mois</span></td>
                   <td className="py-4 px-2 text-center">
-                    <Link href="/demande-devis" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
+                    <Link href="/contact#contact" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
                   </td>
                 </tr>
                 <tr className="border-b">
@@ -142,7 +142,7 @@ export default function TarificationPage() {
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">47€<span className="text-base font-normal">/mois</span></td>
                   <td className="py-4 px-2 text-center">
-                    <Link href="/demande-devis" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
+                    <Link href="/contact#contact" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
                   </td>
                 </tr>
                 <tr>
@@ -154,7 +154,7 @@ export default function TarificationPage() {
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">+5€<span className="text-base font-normal">/mois</span></td>
                   <td className="py-4 px-2 text-center">
-                    <Link href="/demande-devis" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
+                    <Link href="/contact#contact" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
                   </td>
                 </tr>
               </tbody>
@@ -190,7 +190,7 @@ export default function TarificationPage() {
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">525€</td>
                   <td className="py-4 px-2 text-center">
-                    <Link href="/demande-devis" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
+                    <Link href="/contact#contact" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
                   </td>
                 </tr>
                 <tr className="border-b">
@@ -202,7 +202,7 @@ export default function TarificationPage() {
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">629€</td>
                   <td className="py-4 px-2 text-center">
-                    <Link href="/demande-devis" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
+                    <Link href="/contact#contact" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
                   </td>
                 </tr>
                 <tr>
@@ -214,7 +214,7 @@ export default function TarificationPage() {
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">105€</td>
                   <td className="py-4 px-2 text-center">
-                    <Link href="/demande-devis" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
+                    <Link href="/contact#contact" className="inline-block bg-green-600 text-white font-medium py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Demander un devis</Link>
                   </td>
                 </tr>
               </tbody>
@@ -299,7 +299,7 @@ export default function TarificationPage() {
                 </ul>
                 <div className="mt-6">
                   <Link
-                    href="/demande-devis"
+                    href="/contact#contact"
                     className="inline-flex items-center justify-center rounded-md bg-green-600 px-6 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1"
                   >
                     Demander un devis personnalisé

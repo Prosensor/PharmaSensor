@@ -147,9 +147,9 @@ export default function FeaturesSection() {
               </ul>
               <div className="pt-4">
                 <Link href="/demande-devis">
-                  <button className="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-green-500 focus:ring-offset-2">
-                    Voir une démonstration
-                  </button>
+                <button className="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-green-500 focus:ring-offset-2">
+                  Voir une démonstration
+                </button>
                 </Link>
               </div>
             </div>

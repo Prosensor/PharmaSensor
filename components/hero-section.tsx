@@ -25,13 +25,14 @@ export default function HeroSection() {
             {/* Main heading */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                La surveillance de température
+                Capteur pour 
+                <span className="text-green-600"> armoires</span>
                 <br />
-                <span className="text-green-600">réinventée</span>
+                pharmaceutiques
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                PharmaSensor révolutionne la surveillance de température dans les pharmacies. 
-                Alertes instantanées, conformité garantie, tranquillité assurée.
+                Surveillance automatique des températures. Alertes instantanées, 
+                conformité garantie, installation en 10 minutes.
               </p>
             </div>
             
