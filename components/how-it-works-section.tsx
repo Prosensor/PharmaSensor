@@ -35,7 +35,7 @@ export default function HowItWorksSection() {
     if (timerRef.current) clearTimeout(timerRef.current)
     timerRef.current = setTimeout(() => {
       setActiveStep((s) => (s + 1) % steps.length)
-    }, 4000)
+    }, 6000)
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current)
     }
