@@ -261,7 +261,7 @@ export default function ContactSection() {
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="mr-2 h-5 w-5 text-green-600" />
-                  <span className="text-sm text-muted-foreground">Installation et formation incluses</span>
+                  <span className="text-sm text-muted-foreground">Aide a l'installation et Formation incluses</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="mr-2 h-5 w-5 text-green-600" />

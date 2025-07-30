@@ -64,7 +64,7 @@ export default function ProductHeroSection() {
                 </svg>
               </Link>
               <Link
-                href="/fonctionnalites"
+                href="/faq"
                 className="inline-flex items-center justify-center px-8 py-4 border-2 border-green-200 text-green-700 font-semibold rounded-lg hover:border-green-300 hover:bg-green-50 transition-colors"
               >
                 Voir les Fonctionnalités

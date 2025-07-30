@@ -23,8 +23,8 @@ export default function PricingHeroSection() {
                 <span className="text-green-600">transparents</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Une formule unique, des prix clairs. Pas de surprise, pas de frais cachés. 
-                Juste une solution efficace pour votre pharmacie.
+                Des formules modulables, et des prix clairs. Pas de surprise, pas de frais cachés. 
+                Juste des solutions efficaces pour votre pharmacie.
               </p>
             </div>
             
@@ -37,7 +37,7 @@ export default function PricingHeroSection() {
               </div>
               <div className="bg-white rounded-lg p-6 border border-gray-200">
                 <div className="text-2xl font-bold text-green-600">Gratuit</div>
-                <div className="text-sm text-gray-500">installation</div>
+                <div className="text-sm text-gray-500">Assistance installation</div>
                 <div className="text-xs text-gray-400 mt-1">Incluse</div>
               </div>
             </div>
@@ -45,7 +45,7 @@ export default function PricingHeroSection() {
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="#pricing-plans"
+                href="/tarification#prix-return"
                 className="inline-flex items-center justify-center px-8 py-4 bg-green-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:bg-green-700"
               >
                 Voir les Détails

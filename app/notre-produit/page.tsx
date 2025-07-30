@@ -6,6 +6,7 @@ import Link from "next/link"
 import { CheckCircle, ArrowRight } from 'lucide-react'
 import AnimatedBeamSection from "@/components/animated-beam-demo"
 import ProductHeroSection from "@/components/product-hero-section"
+import DashboardSlider from "@/components/dashboard-slider"
 import { useState } from "react"
 
 export default function FonctionnalitesPage() {
@@ -160,31 +161,7 @@ export default function FonctionnalitesPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 overflow-hidden">
-            <div className="relative h-[500px] w-full rounded-lg border border-gray-200">
-              <Image
-                src="/image.png"
-                alt="PharmaSensor Dashboard Preview"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 to-transparent"></div>
-            </div>
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-green-50 p-4 rounded-lg">
-                <h4 className="font-bold text-green-800 mb-2">Vue d'ensemble</h4>
-                <p className="text-sm text-gray-600">Visualisez l'état de tous vos capteurs sur une seule page</p>
-              </div>
-              <div className="bg-green-50 p-4 rounded-lg">
-                <h4 className="font-bold text-green-800 mb-2">Graphiques détaillés</h4>
-                <p className="text-sm text-gray-600">Analysez les tendances avec des graphiques interactifs</p>
-              </div>
-              <div className="bg-green-50 p-4 rounded-lg">
-                <h4 className="font-bold text-green-800 mb-2">Gestion des alertes</h4>
-                <p className="text-sm text-gray-600">Configurez et gérez vos alertes en quelques clics</p>
-              </div>
-            </div>
-          </div>
+          <DashboardSlider />
         </div>
 
         {/* Gallery Section */}

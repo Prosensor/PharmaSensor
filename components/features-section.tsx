@@ -15,7 +15,7 @@ export default function FeaturesSection() {
             Pourquoi Choisir PharmaSensor?
           </h2>
           <p className="mx-auto mt-4 max-w-[700px] text-lg text-muted-foreground">
-            Notre solution offre une surveillance complète qui répond aux exigences strictes du secteur pharmaceutique
+            Notre solution offre une surveillance complète qui répond aux exigences réglementaires de votre officine
           </p>
         </div>
 
@@ -100,7 +100,7 @@ export default function FeaturesSection() {
                 />
               </svg>
             </div>
-            <h3 className="mb-2 text-xl font-bold">Rapports Automatisés</h3>
+            <h3 className="mb-2 text-xl font-bold">Rapports</h3>
             <p className="mb-4 flex-grow text-muted-foreground">
               Générez des rapports conformes aux exigences réglementaires pour vos audits et inspections.
             </p>
@@ -122,7 +122,7 @@ export default function FeaturesSection() {
             <div className="flex flex-col justify-center space-y-4">
               <h3 className="text-2xl font-bold">Tableau de Bord Intuitif</h3>
               <p className="text-muted-foreground">
-                Visualisez toutes vos données de température en un coup d'œil. Notre interface conviviale vous permet de
+                Visualisez toutes vos données de température sur notre interface web en un coup d'œil. Notre interface conviviale vous permet de
                 surveiller plusieurs équipements simultanément et d'accéder à l'historique complet.
               </p>
               <ul className="space-y-2">
@@ -169,11 +169,6 @@ export default function FeaturesSection() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Replace old logo section with new block */}
-        <div className="mt-16">
-          <Logos07Block />
         </div>
       </div>
     </section>

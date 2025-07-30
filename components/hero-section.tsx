@@ -25,10 +25,8 @@ export default function HeroSection() {
             {/* Main heading */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Capteur pour 
-                <span className="text-green-600"> armoires</span>
-                <br />
-                pharmaceutiques
+                Enregistreur de température pour 
+                <span className="text-green-600"> pharmacie</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
                 Surveillance automatique des températures. Alertes instantanées, 
@@ -44,7 +42,7 @@ export default function HeroSection() {
               </div>
               <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
                 <div className="text-2xl font-bold text-green-600">±0.3°C</div>
-                <div className="text-sm text-gray-600">Précision extrême</div>
+                <div className="text-sm text-gray-600">Précision</div>
               </div>
               <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
                 <div className="text-2xl font-bold text-green-600">Sans fil</div>
@@ -64,7 +62,7 @@ export default function HeroSection() {
                 </svg>
               </Link>
               <Link
-                href="/fonctionnalites"
+                href="/notre-produit"
                 className="inline-flex items-center justify-center px-8 py-4 border-2 border-green-200 text-green-700 font-semibold rounded-lg hover:border-green-300 hover:bg-green-50 transition-colors"
               >
                 Découvrir les Fonctionnalités

@@ -378,12 +378,11 @@ export default function AnimatedBeamSection() {
               Architecture Technique
             </div>
             <h2 className="text-3xl font-bold text-gray-800">
-              Solution IoT Innovante pour la Surveillance Pharmaceutique
+              Solution IoT Innovante pour la Surveillance de votre officine
             </h2>
             <p className="text-lg text-gray-600">
               Notre système intégré combine des capteurs sans fil de haute précision, une connectivité sécurisée et une
-              plateforme cloud puissante pour une surveillance en temps réel de vos environnements pharmaceutiques
-              critiques.
+              plateforme cloud puissante pour une surveillance en temps réel de vos réfrigérateurs.
             </p>
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-center">
@@ -406,7 +405,7 @@ export default function AnimatedBeamSection() {
               </li>
             </ul>
             <button className="rounded-full bg-green-600 px-6 py-2 text-white hover:bg-green-700 transition-all duration-300">
-              En savoir plus
+              Demander un devis
             </button>
           </div>
 

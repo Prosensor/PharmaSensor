@@ -5,12 +5,26 @@ import Image from "next/image"
 import Link from "next/link"
 import { CheckCircle, ArrowRight } from 'lucide-react'
 import PricingHeroSection from "@/components/pricing-hero-section"
+import ProductImageModal from "@/components/product-image-modal"
 import { useState } from "react"
 
 export default function TarificationPage() {
   // Ajout de l'état pour le formulaire CTA
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
   const [errorMessage, setErrorMessage] = useState<string>("")
+  
+  // États pour le modal d'image
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalImage, setModalImage] = useState({ src: "", alt: "", name: "" });
+
+  const openModal = (src: string, alt: string, name: string) => {
+    setModalImage({ src, alt, name });
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   async function handleCtaSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -103,11 +117,11 @@ export default function TarificationPage() {
       <div className="container px-4 md:px-6 mx-auto max-w-7xl py-16">
 
         {/* Pricing Plans Section */}
-        <div className="mb-16">
+        <div className="mb-16" id="prix-return">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Prix clé en main</h2>
+            <h2 className="text-3xl font-bold tracking-tight mb-4">Formule sérénité</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Nous proposons des formules flexibles pour répondre aux besoins de toutes les pharmacies, des plus petites aux plus grandes.
+              Nous proposons une formule d'abonnement sans engagement
             </p>
           </div>
           <div className="w-full overflow-x-auto">
@@ -125,7 +139,12 @@ export default function TarificationPage() {
                   <td className="py-4 px-2 text-center font-medium">Solo<br/><span className="text-sm text-gray-500">1 routeur + 1 sonde</span></td>
                   <td className="py-4 px-2 text-center">
                     <div className="flex justify-center">
-                      <img src="/CapteurDraginoPharmasensor_capteurs1.jpg" alt="Pack Solo" className="h-16 w-16 object-contain rounded" />
+                      <button
+                        onClick={() => openModal("/CapteurDraginoPharmasensor_capteurs1.jpg", "Pack Solo", "Pack Solo - 1 routeur + 1 sonde")}
+                        className="h-16 w-16 object-contain rounded hover:scale-110 transition-transform duration-200 cursor-pointer"
+                      >
+                        <img src="/CapteurDraginoPharmasensor_capteurs1.jpg" alt="Pack Solo" className="h-full w-full object-contain rounded" />
+                      </button>
                     </div>
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">43€<span className="text-base font-normal">/mois</span></td>
@@ -137,7 +156,12 @@ export default function TarificationPage() {
                   <td className="py-4 px-2 text-center font-medium">Dual<br/><span className="text-sm text-gray-500">1 routeur + 2 sondes</span></td>
                   <td className="py-4 px-2 text-center">
                     <div className="flex justify-center">
-                      <img src="/CapteurDraginoPharmasensor_capteurs2.jpg" alt="Pack Dual" className="h-16 w-16 object-contain rounded" />
+                      <button
+                        onClick={() => openModal("/CapteurDraginoPharmasensor_capteurs2.jpg", "Pack Dual", "Pack Dual - 1 routeur + 2 sondes")}
+                        className="h-16 w-16 object-contain rounded hover:scale-110 transition-transform duration-200 cursor-pointer"
+                      >
+                        <img src="/CapteurDraginoPharmasensor_capteurs2.jpg" alt="Pack Dual" className="h-full w-full object-contain rounded" />
+                      </button>
                     </div>
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">47€<span className="text-base font-normal">/mois</span></td>
@@ -149,7 +173,12 @@ export default function TarificationPage() {
                   <td className="py-4 px-2 text-center font-medium">Sonde supplémentaire</td>
                   <td className="py-4 px-2 text-center">
                     <div className="flex justify-center">
-                      <img src="/CapteurDraginoPharmasensor.jpg" alt="Sonde supplémentaire" className="h-16 w-16 object-contain rounded" />
+                      <button
+                        onClick={() => openModal("/CapteurDraginoPharmasensor.jpg", "Sonde supplémentaire", "Sonde supplémentaire")}
+                        className="h-16 w-16 object-contain rounded hover:scale-110 transition-transform duration-200 cursor-pointer"
+                      >
+                        <img src="/CapteurDraginoPharmasensor.jpg" alt="Sonde supplémentaire" className="h-full w-full object-contain rounded" />
+                      </button>
                     </div>
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">+5€<span className="text-base font-normal">/mois</span></td>
@@ -165,9 +194,9 @@ export default function TarificationPage() {
         {/* Section Prix à l'achat */}
         <div className="mb-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Prix à l'achat</h2>
+            <h2 className="text-3xl font-bold tracking-tight mb-4">Formule achat</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Retrouvez nos tarifs à l'achat, adaptés à tous les besoins. Les images seront bientôt disponibles !
+              Optez pour notre formule d'achat, un investissement unique pour une maîtrise totale.
             </p>
           </div>
           <div className="w-full overflow-x-auto">
@@ -185,7 +214,12 @@ export default function TarificationPage() {
                   <td className="py-4 px-2 text-center font-medium">Pack Solo<br/><span className="text-sm text-gray-500">1 routeur + 1 sonde</span></td>
                   <td className="py-4 px-2 text-center">
                     <div className="flex justify-center">
-                      <img src="/CapteurDraginoPharmasensor_capteurs1.jpg" alt="Pack Solo" className="h-16 w-16 object-contain rounded" />
+                      <button
+                        onClick={() => openModal("/CapteurDraginoPharmasensor_capteurs1.jpg", "Pack Solo", "Pack Solo - 1 routeur + 1 sonde")}
+                        className="h-16 w-16 object-contain rounded hover:scale-110 transition-transform duration-200 cursor-pointer"
+                      >
+                        <img src="/CapteurDraginoPharmasensor_capteurs1.jpg" alt="Pack Solo" className="h-full w-full object-contain rounded" />
+                      </button>
                     </div>
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">525€</td>
@@ -197,7 +231,12 @@ export default function TarificationPage() {
                   <td className="py-4 px-2 text-center font-medium">Pack Dual<br/><span className="text-sm text-gray-500">1 routeur + 2 sondes</span></td>
                   <td className="py-4 px-2 text-center">
                     <div className="flex justify-center">
-                      <img src="/CapteurDraginoPharmasensor_capteurs2.jpg" alt="Pack Dual" className="h-16 w-16 object-contain rounded" />
+                      <button
+                        onClick={() => openModal("/CapteurDraginoPharmasensor_capteurs2.jpg", "Pack Dual", "Pack Dual - 1 routeur + 2 sondes")}
+                        className="h-16 w-16 object-contain rounded hover:scale-110 transition-transform duration-200 cursor-pointer"
+                      >
+                        <img src="/CapteurDraginoPharmasensor_capteurs2.jpg" alt="Pack Dual" className="h-full w-full object-contain rounded" />
+                      </button>
                     </div>
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">629€</td>
@@ -209,7 +248,12 @@ export default function TarificationPage() {
                   <td className="py-4 px-2 text-center font-medium">Sonde supplémentaire</td>
                   <td className="py-4 px-2 text-center">
                     <div className="flex justify-center">
-                      <img src="/CapteurDraginoPharmasensor.jpg" alt="Sonde supplémentaire" className="h-16 w-16 object-contain rounded" />
+                      <button
+                        onClick={() => openModal("/CapteurDraginoPharmasensor.jpg", "Sonde supplémentaire", "Sonde supplémentaire")}
+                        className="h-16 w-16 object-contain rounded hover:scale-110 transition-transform duration-200 cursor-pointer"
+                      >
+                        <img src="/CapteurDraginoPharmasensor.jpg" alt="Sonde supplémentaire" className="h-full w-full object-contain rounded" />
+                      </button>
                     </div>
                   </td>
                   <td className="py-4 px-2 text-center text-2xl font-bold text-green-700">105€</td>
@@ -462,6 +506,15 @@ export default function TarificationPage() {
           </div>
         </div>
       </div>
+      
+      {/* Modal pour afficher les images en grand */}
+      <ProductImageModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        imageSrc={modalImage.src}
+        imageAlt={modalImage.alt}
+        productName={modalImage.name}
+      />
     </div>
   )
 }
