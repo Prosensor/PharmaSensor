@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 
 // Importez le composant WifiIcon
 import { WifiIcon } from "@/components/wifi-icon"
+import Link from "next/link"
 
 // Hook personnalisé pour remplacer useWindowSize
 function useWindowSize() {
@@ -404,9 +405,14 @@ export default function AnimatedBeamSection() {
                 Alertes et rapports automatisés conformes aux normes
               </li>
             </ul>
-            <button className="rounded-full bg-green-600 px-6 py-2 text-white hover:bg-green-700 transition-all duration-300">
-              Demander un devis
-            </button>
+            <Link href="/demande-devis" passHref legacyBehavior>
+              <button
+                className="inline-block rounded-full bg-green-600 px-6 py-2 text-white hover:bg-green-700 transition-all duration-300"
+                type="button"
+              >
+                Demander un devis
+              </button>
+            </Link>
           </div>
 
           {/* Right side: Visual demonstration */}
