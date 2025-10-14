@@ -46,10 +46,10 @@ export const metadata: Metadata = {
     siteName: "PharmaSensor",
     images: [
       {
-        url: "https://www.pharmasensor.com/og-image.jpg",
+        url: "https://www.pharmasensor.com/logo.png",
         width: 1200,
         height: 630,
-        alt: "PharmaSensor - Solution de surveillance de température",
+        alt: "PharmaSensor - Logo",
       },
     ],
     locale: "fr_FR",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "PharmaSensor | Surveillance de température pour pharmacies",
     description:
       "Solution de surveillance de température pour le secteur pharmaceutique. Protégez vos produits sensibles avec des alertes en temps réel.",
-    images: ["https://www.pharmasensor.com/twitter-image.jpg"],
+    images: ["https://www.pharmasensor.com/logo.png"],
     creator: "@pharmasensor",
   },
   robots: {
@@ -94,7 +94,44 @@ export default function RootLayout({
     <html lang="fr">
       <body className={inter.className}>
           <Header />
-          <main>{children}</main>
+        <main>{children}</main>
+        {/* JSON-LD: Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'PharmaSensor',
+              url: 'https://www.pharmasensor.com',
+              logo: 'https://www.pharmasensor.com/favicon.png',
+              sameAs: [],
+              contactPoint: [{
+                '@type': 'ContactPoint',
+                contactType: 'customer support',
+                url: 'https://www.pharmasensor.com/contact',
+                availableLanguage: ['French']
+              }],
+            }),
+          }}
+        />
+        {/* JSON-LD: WebSite + potentialAction Search */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'PharmaSensor',
+              url: 'https://www.pharmasensor.com',
+              potentialAction: {
+                '@type': 'SearchAction',
+                target: 'https://www.pharmasensor.com/recherche?q={search_term_string}',
+                'query-input': 'required name=search_term_string',
+              },
+            }),
+          }}
+        />
           <Footer />
       </body>
     </html>

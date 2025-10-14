@@ -55,6 +55,36 @@ export default function FonctionnalitesPage() {
   return (
     <div className="w-full pb-16 flex justify-center">
       <div className="container px-4 md:px-6 mx-auto max-w-7xl">
+        {/* JSON-LD Product for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org/',
+              '@type': 'Product',
+              name: 'PharmaSensor - Système de surveillance de température',
+              image: [
+                'https://www.pharmasensor.com/CapteurDraginoPharmasensor.jpg',
+                'https://www.pharmasensor.com/CapteurDraginoPharmasensor_capteurs1.jpg',
+                'https://www.pharmasensor.com/CapteurDraginoPharmasensor_capteurs2.jpg',
+              ],
+              description: 'Capteurs connectés et tableau de bord pour surveiller les températures des armoires et réfrigérateurs pharmaceutiques, avec alertes en temps réel et conformité garantie.',
+              brand: {
+                '@type': 'Brand',
+                name: 'PharmaSensor',
+              },
+              offers: {
+                '@type': 'AggregateOffer',
+                priceCurrency: 'EUR',
+                lowPrice: '43',
+                highPrice: '629',
+                offerCount: '3',
+                availability: 'https://schema.org/InStock',
+                url: 'https://www.pharmasensor.com/tarification',
+              },
+            }),
+          }}
+        />
         <ProductHeroSection />
 
         <AnimatedBeamSection />

@@ -10,6 +10,58 @@ export const metadata: Metadata = {
 export default function FAQPage() {
   return (
     <div className="w-full">
+      {/* JSON-LD FAQPage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: "Combien de temps dure l'installation ?",
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: "L'installation est réalisée par vous-même, c'est très simple et prend environ 10 minutes. Aucun besoin d'équipe technique : tout est guidé étape par étape, sans compétence particulière requise.",
+                },
+              },
+              {
+                '@type': 'Question',
+                name: "L'installation nécessite-t-elle des travaux ?",
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: "Non, aucune modification de votre infrastructure n'est nécessaire. Nos capteurs sont autonomes et se connectent via WiFi. L'installation est non-invasive et peut être réalisée pendant vos heures d'ouverture.",
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Comment configurer les alertes ?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: "La configuration des alertes se fait via notre interface web intuitive. Vous pouvez définir les seuils de température, choisir les destinataires (email, SMS) et personnaliser les messages d'alerte selon vos besoins.",
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Quelle est la précision des capteurs ?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Nos capteurs offrent une précision de ±0.3°C, ce qui dépasse largement les exigences réglementaires pour le secteur pharmaceutique.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Que se passe-t-il en cas de panne internet ?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: "Nos capteurs disposent d'une mémoire locale qui stocke les données pendant 30 jours en cas de perte de connexion. Dès que la connexion est rétablie, toutes les données sont synchronisées automatiquement.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
       {/* Hero Section */}
       <section className="w-full py-20 md:py-32 bg-gradient-to-br from-green-50 to-white">
         <div className="container px-4 md:px-6 mx-auto max-w-7xl">
