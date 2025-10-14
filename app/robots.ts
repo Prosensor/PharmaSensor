@@ -9,8 +9,8 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin/", "/private/", "/api/"],
       },
     ],
-    sitemap: "https://www.pharmasensor.com/sitemap.xml",
-    host: "https://www.pharmasensor.com",
+    sitemap: "https://www.pharmasensor.fr/sitemap.xml",
+    host: "https://www.pharmasensor.fr",
   }
 }
 

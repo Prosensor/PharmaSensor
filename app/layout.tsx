@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://www.pharmasensor.com"),
+  metadataBase: new URL("https://www.pharmasensor.fr"),
   alternates: {
     canonical: "/",
     languages: {
@@ -42,11 +42,11 @@ export const metadata: Metadata = {
     title: "PharmaSensor | Surveillance de température pour pharmacies",
     description:
       "Solution de surveillance de température pour le secteur pharmaceutique. Protégez vos produits sensibles avec des alertes en temps réel.",
-    url: "https://www.pharmasensor.com",
+    url: "https://www.pharmasensor.fr",
     siteName: "PharmaSensor",
     images: [
       {
-        url: "https://www.pharmasensor.com/logo.png",
+        url: "https://www.pharmasensor.fr/logo.png",
         width: 1200,
         height: 630,
         alt: "PharmaSensor - Logo",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "PharmaSensor | Surveillance de température pour pharmacies",
     description:
       "Solution de surveillance de température pour le secteur pharmaceutique. Protégez vos produits sensibles avec des alertes en temps réel.",
-    images: ["https://www.pharmasensor.com/logo.png"],
+    images: ["https://www.pharmasensor.fr/logo.png"],
     creator: "@pharmasensor",
   },
   robots: {
@@ -103,13 +103,13 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: 'PharmaSensor',
-              url: 'https://www.pharmasensor.com',
-              logo: 'https://www.pharmasensor.com/favicon.png',
+              url: 'https://www.pharmasensor.fr',
+              logo: 'https://www.pharmasensor.fr/favicon.png',
               sameAs: [],
               contactPoint: [{
                 '@type': 'ContactPoint',
                 contactType: 'customer support',
-                url: 'https://www.pharmasensor.com/contact',
+                url: 'https://www.pharmasensor.fr/contact',
                 availableLanguage: ['French']
               }],
             }),
@@ -123,10 +123,10 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'WebSite',
               name: 'PharmaSensor',
-              url: 'https://www.pharmasensor.com',
+              url: 'https://www.pharmasensor.fr',
               potentialAction: {
                 '@type': 'SearchAction',
-                target: 'https://www.pharmasensor.com/recherche?q={search_term_string}',
+                target: 'https://www.pharmasensor.fr/recherche?q={search_term_string}',
                 'query-input': 'required name=search_term_string',
               },
             }),
