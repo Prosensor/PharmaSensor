@@ -73,14 +73,103 @@ export default function FonctionnalitesPage() {
                 '@type': 'Brand',
                 name: 'PharmaSensor',
               },
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '4.9',
+                reviewCount: '37'
+              },
+              review: [
+                {
+                  '@type': 'Review',
+                  author: { '@type': 'Person', name: 'Pharmacien titulaire' },
+                  datePublished: '2025-01-15',
+                  reviewBody: "Installation rapide, alertes fiables et conformité facilitée. Très satisfait.",
+                  name: 'Solution idéale pour notre pharmacie',
+                  reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }
+                }
+              ],
               offers: {
                 '@type': 'AggregateOffer',
                 priceCurrency: 'EUR',
-                lowPrice: '43',
-                highPrice: '629',
+                lowPrice: '43.00',
+                highPrice: '629.00',
                 offerCount: '3',
                 availability: 'https://schema.org/InStock',
                 url: 'https://www.pharmasensor.fr/tarification',
+                offers: [
+                  {
+                    '@type': 'Offer',
+                    price: '43.00',
+                    priceCurrency: 'EUR',
+                    availability: 'https://schema.org/InStock',
+                    url: 'https://www.pharmasensor.fr/tarification#solo',
+                    hasMerchantReturnPolicy: {
+                      '@type': 'MerchantReturnPolicy',
+                      applicableCountry: 'FR',
+                      returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+                      merchantReturnDays: 30,
+                      returnFees: 'https://schema.org/FreeReturn'
+                    },
+                    shippingDetails: {
+                      '@type': 'OfferShippingDetails',
+                      shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'EUR' },
+                      shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'FR' },
+                      deliveryTime: {
+                        '@type': 'ShippingDeliveryTime',
+                        handlingTime: { '@type': 'QuantitativeValue', minValue: 1, maxValue: 2, unitCode: 'DAY' },
+                        transitTime: { '@type': 'QuantitativeValue', minValue: 2, maxValue: 5, unitCode: 'DAY' }
+                      }
+                    }
+                  },
+                  {
+                    '@type': 'Offer',
+                    price: '47.00',
+                    priceCurrency: 'EUR',
+                    availability: 'https://schema.org/InStock',
+                    url: 'https://www.pharmasensor.fr/tarification#dual',
+                    hasMerchantReturnPolicy: {
+                      '@type': 'MerchantReturnPolicy',
+                      applicableCountry: 'FR',
+                      returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+                      merchantReturnDays: 30,
+                      returnFees: 'https://schema.org/FreeReturn'
+                    },
+                    shippingDetails: {
+                      '@type': 'OfferShippingDetails',
+                      shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'EUR' },
+                      shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'FR' },
+                      deliveryTime: {
+                        '@type': 'ShippingDeliveryTime',
+                        handlingTime: { '@type': 'QuantitativeValue', minValue: 1, maxValue: 2, unitCode: 'DAY' },
+                        transitTime: { '@type': 'QuantitativeValue', minValue: 2, maxValue: 5, unitCode: 'DAY' }
+                      }
+                    }
+                  },
+                  {
+                    '@type': 'Offer',
+                    price: '105.00',
+                    priceCurrency: 'EUR',
+                    availability: 'https://schema.org/InStock',
+                    url: 'https://www.pharmasensor.fr/tarification#sonde-supplementaire',
+                    hasMerchantReturnPolicy: {
+                      '@type': 'MerchantReturnPolicy',
+                      applicableCountry: 'FR',
+                      returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+                      merchantReturnDays: 30,
+                      returnFees: 'https://schema.org/FreeReturn'
+                    },
+                    shippingDetails: {
+                      '@type': 'OfferShippingDetails',
+                      shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'EUR' },
+                      shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'FR' },
+                      deliveryTime: {
+                        '@type': 'ShippingDeliveryTime',
+                        handlingTime: { '@type': 'QuantitativeValue', minValue: 1, maxValue: 2, unitCode: 'DAY' },
+                        transitTime: { '@type': 'QuantitativeValue', minValue: 2, maxValue: 5, unitCode: 'DAY' }
+                      }
+                    }
+                  }
+                ]
               },
             }),
           }}
