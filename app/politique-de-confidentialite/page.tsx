@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
 
           <div className="space-y-4">
             <p className="text-gray-700">
-              Chez PharmaSensor, nous accordons une importance capitale à la protection de vos données personnelles.
+              Chez Prosensor (marque commerciale PharmaSensor), nous accordons une importance capitale à la protection de vos données personnelles.
               Cette politique de confidentialité explique comment nous collectons, utilisons, partageons et protégeons
               vos informations lorsque vous utilisez notre site web et nos services.
             </p>
@@ -111,9 +111,9 @@ export default function PrivacyPolicyPage() {
             </ul>
             <p className="text-gray-700">
               Pour exercer ces droits, veuillez nous contacter à l'adresse email suivante :
-              <a href="mailto:privacy@pharmasensor.com" className="text-green-600 hover:underline">
+              <a href="mailto:info@prosensor.com" className="text-green-600 hover:underline">
                 {" "}
-                privacy@pharmasensor.com
+                info@prosensor.com
               </a>
             </p>
 
@@ -139,16 +139,15 @@ export default function PrivacyPolicyPage() {
               protection des données, veuillez nous contacter à :
             </p>
             <div className="pl-6 text-gray-700">
-              <p>PharmaSensor</p>
-              <p>123 Avenue de la Santé</p>
-              <p>75001 Paris, France</p>
+              <p>Prosensor</p>
+              <p>5 rue Maud Fontenoy</p>
+              <p>57140 Norroy-le-Veneur, France</p>
               <p>
                 Email :{" "}
-                <a href="mailto:privacy@pharmasensor.com" className="text-green-600 hover:underline">
-                  privacy@pharmasensor.com
+                <a href="mailto:info@prosensor.com" className="text-green-600 hover:underline">
+                  info@prosensor.com
                 </a>
               </p>
-              <p>Téléphone : +33 1 23 45 67 89</p>
             </div>
           </div>
 

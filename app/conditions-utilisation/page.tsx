@@ -18,7 +18,7 @@ export default function TermsOfServicePage() {
 
           <div className="space-y-4">
             <p className="text-gray-700">
-              Bienvenue sur le site web de PharmaSensor. Les présentes conditions d'utilisation régissent votre accès et
+              Bienvenue sur le site web de PharmaSensor (marque commerciale de Prosensor). Les présentes conditions d'utilisation régissent votre accès et
               votre utilisation de notre site web, de nos produits et de nos services. Veuillez les lire attentivement
               avant d'utiliser nos services.
             </p>
@@ -31,13 +31,12 @@ export default function TermsOfServicePage() {
             <h2 className="text-2xl font-bold tracking-tight">1. Définitions</h2>
             <ul className="list-disc pl-6 text-gray-700">
               <li>
-                <strong>"PharmaSensor"</strong>, <strong>"nous"</strong>, <strong>"notre"</strong> ou{" "}
-                <strong>"nos"</strong> désigne la société PharmaSensor, SAS au capital de 50 000 €, immatriculée au RCS
-                de Paris sous le numéro 123 456 789.
+                <strong>"Prosensor"</strong>, <strong>"PharmaSensor"</strong>, <strong>"nous"</strong>, <strong>"notre"</strong> ou{" "}
+                <strong>"nos"</strong> désigne la société Prosensor, immatriculée au RCS de Metz sous le numéro 451 740 187.
               </li>
               <li>
                 <strong>"Services"</strong> désigne l'ensemble des produits, logiciels, services et site web fournis par
-                PharmaSensor.
+                Prosensor sous la marque PharmaSensor.
               </li>
               <li>
                 <strong>"Utilisateur"</strong>, <strong>"vous"</strong>, <strong>"votre"</strong> ou{" "}
@@ -80,7 +79,7 @@ export default function TermsOfServicePage() {
             <h3 className="text-xl font-semibold">3.1 Nos droits</h3>
             <p className="text-gray-700">
               Le contenu de notre site web, y compris les textes, graphiques, logos, icônes, images, clips audio,
-              téléchargements numériques et compilations de données, est la propriété de PharmaSensor ou de ses
+              téléchargements numériques et compilations de données, est la propriété de Prosensor ou de ses
               fournisseurs de contenu et est protégé par les lois françaises et internationales sur le droit d'auteur,
               les marques et autres lois sur la propriété intellectuelle.
             </p>
@@ -101,9 +100,9 @@ export default function TermsOfServicePage() {
             <h2 className="text-2xl font-bold tracking-tight">4. Responsabilité</h2>
             <h3 className="text-xl font-semibold">4.1 Limitation de responsabilité</h3>
             <p className="text-gray-700">
-              Dans toute la mesure permise par la loi applicable, PharmaSensor ne pourra être tenue responsable des
+              Dans toute la mesure permise par la loi applicable, Prosensor ne pourra être tenue responsable des
               dommages indirects, accessoires, spéciaux, consécutifs ou punitifs, ou de toute perte de profits ou de
-              revenus, que ces dommages soient prévisibles ou non, et même si PharmaSensor a été informée de la
+              revenus, que ces dommages soient prévisibles ou non, et même si Prosensor a été informée de la
               possibilité de tels dommages.
             </p>
 
@@ -131,7 +130,7 @@ export default function TermsOfServicePage() {
             <h2 className="text-2xl font-bold tracking-tight">7. Droit applicable et juridiction compétente</h2>
             <p className="text-gray-700">
               Les présentes conditions sont régies par le droit français. Tout litige relatif à l'interprétation ou à
-              l'exécution de ces conditions sera soumis à la compétence exclusive des tribunaux de Paris, France.
+              l'exécution de ces conditions sera soumis à la compétence exclusive des tribunaux de Metz, France.
             </p>
 
             <h2 className="text-2xl font-bold tracking-tight">8. Dispositions diverses</h2>
@@ -147,16 +146,15 @@ export default function TermsOfServicePage() {
               Si vous avez des questions concernant ces conditions d'utilisation, veuillez nous contacter à :
             </p>
             <div className="pl-6 text-gray-700">
-              <p>PharmaSensor</p>
-              <p>123 Avenue de la Santé</p>
-              <p>75001 Paris, France</p>
+              <p>Prosensor</p>
+              <p>5 rue Maud Fontenoy</p>
+              <p>57140 Norroy-le-Veneur, France</p>
               <p>
                 Email :{" "}
-                <a href="mailto:legal@pharmasensor.com" className="text-green-600 hover:underline">
-                  legal@pharmasensor.com
+                <a href="mailto:info@prosensor.com" className="text-green-600 hover:underline">
+                  info@prosensor.com
                 </a>
               </p>
-              <p>Téléphone : +33 1 23 45 67 89</p>
             </div>
           </div>
 

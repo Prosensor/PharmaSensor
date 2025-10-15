@@ -19,77 +19,65 @@ export default function LegalNoticePage() {
           <div className="space-y-4">
             <p className="text-gray-700">
               Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l'économie
-              numérique, nous vous informons des mentions légales suivantes concernant le site www.pharmasensor.com.
+              numérique, nous vous informons des mentions légales suivantes concernant le site www.pharmasensor.fr.
             </p>
 
             <h2 className="text-2xl font-bold tracking-tight">1. Éditeur du site</h2>
             <div className="pl-6 text-gray-700">
               <p>
-                <strong>Raison sociale :</strong> PharmaSensor SAS
+                <strong>Raison sociale :</strong> Prosensor
               </p>
               <p>
-                <strong>Forme juridique :</strong> Société par Actions Simplifiée
+                <strong>Marque commerciale :</strong> PharmaSensor
               </p>
               <p>
-                <strong>Capital social :</strong> 50 000 €
+                <strong>Siège social :</strong> 5 rue Maud Fontenoy, 57140 Norroy-le-Veneur, France
               </p>
               <p>
-                <strong>Siège social :</strong> 123 Avenue de la Santé, 75001 Paris, France
+                <strong>SIRET :</strong> 451 740 187 00012
               </p>
               <p>
-                <strong>SIRET :</strong> 123 456 789 00012
-              </p>
-              <p>
-                <strong>RCS :</strong> Paris B 123 456 789
-              </p>
-              <p>
-                <strong>N° TVA Intracommunautaire :</strong> FR 12 123456789
-              </p>
-              <p>
-                <strong>Directeur de la publication :</strong> Jean Dupont, Président
+                <strong>RCS :</strong> Metz 451 740 187
               </p>
               <p>
                 <strong>Contact :</strong>{" "}
-                <a href="mailto:contact@pharmasensor.com" className="text-green-600 hover:underline">
-                  contact@pharmasensor.com
+                <a href="mailto:info@prosensor.com" className="text-green-600 hover:underline">
+                  info@prosensor.com
                 </a>
-              </p>
-              <p>
-                <strong>Téléphone :</strong> +33 1 23 45 67 89
               </p>
             </div>
 
             <h2 className="text-2xl font-bold tracking-tight">2. Hébergeur du site</h2>
             <div className="pl-6 text-gray-700">
               <p>
-                <strong>Raison sociale :</strong> Vercel Inc.
+                <strong>Raison sociale :</strong> LWS (Ligne Web Services)
               </p>
               <p>
-                <strong>Adresse :</strong> 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis
+                <strong>Adresse :</strong> 4 rue Galvani, 91300 Massy, France
               </p>
               <p>
                 <strong>Site web :</strong>{" "}
                 <a
-                  href="https://vercel.com"
+                  href="https://www.lws.fr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-green-600 hover:underline"
                 >
-                  https://vercel.com
+                  https://www.lws.fr
                 </a>
               </p>
             </div>
 
             <h2 className="text-2xl font-bold tracking-tight">3. Propriété intellectuelle</h2>
             <p className="text-gray-700">
-              L'ensemble du contenu du site www.pharmasensor.com, incluant, de façon non limitative, les graphismes,
+              L'ensemble du contenu du site www.pharmasensor.fr, incluant, de façon non limitative, les graphismes,
               images, textes, vidéos, animations, sons, logos, gifs et icônes ainsi que leur mise en forme sont la
-              propriété exclusive de PharmaSensor à l'exception des marques, logos ou contenus appartenant à d'autres
+              propriété exclusive de Prosensor à l'exception des marques, logos ou contenus appartenant à d'autres
               sociétés partenaires ou auteurs.
             </p>
             <p className="text-gray-700">
               Toute reproduction, distribution, modification, adaptation, retransmission ou publication, même partielle,
-              de ces différents éléments est strictement interdite sans l'accord exprès par écrit de PharmaSensor. Cette
+              de ces différents éléments est strictement interdite sans l'accord exprès par écrit de Prosensor. Cette
               représentation ou reproduction, par quelque procédé que ce soit, constitue une contrefaçon sanctionnée par
               les articles L.335-2 et suivants du Code de la propriété intellectuelle.
             </p>
@@ -117,8 +105,8 @@ export default function LegalNoticePage() {
 
             <h2 className="text-2xl font-bold tracking-tight">6. Liens hypertextes</h2>
             <p className="text-gray-700">
-              Le site www.pharmasensor.com peut contenir des liens hypertextes vers d'autres sites internet ou
-              applications. PharmaSensor n'exerce aucun contrôle sur ces sites et applications et décline toute
+              Le site www.pharmasensor.fr peut contenir des liens hypertextes vers d'autres sites internet ou
+              applications. Prosensor n'exerce aucun contrôle sur ces sites et applications et décline toute
               responsabilité quant à leur contenu ou à leur utilisation.
             </p>
 
@@ -131,11 +119,11 @@ export default function LegalNoticePage() {
             <h2 className="text-2xl font-bold tracking-tight">8. Médiation de la consommation</h2>
             <p className="text-gray-700">
               Conformément aux dispositions du Code de la consommation concernant le règlement amiable des litiges,
-              PharmaSensor adhère au Service du Médiateur du e-commerce de la FEVAD (Fédération du e-commerce et de la
+              Prosensor adhère au Service du Médiateur du e-commerce de la FEVAD (Fédération du e-commerce et de la
               vente à distance).
             </p>
             <p className="text-gray-700">
-              Après démarche préalable écrite des consommateurs vis-à-vis de PharmaSensor, le Service du Médiateur peut
+              Après démarche préalable écrite des consommateurs vis-à-vis de Prosensor, le Service du Médiateur peut
               être saisi pour tout litige de consommation dont le règlement n'aurait pas abouti. Pour connaître les
               modalités de saisine du Médiateur, rendez-vous sur :{" "}
               <a
@@ -150,7 +138,7 @@ export default function LegalNoticePage() {
 
             <h2 className="text-2xl font-bold tracking-tight">9. Accessibilité</h2>
             <p className="text-gray-700">
-              PharmaSensor s'efforce de rendre son site internet accessible conformément à l'article 47 de la loi n°
+              Prosensor s'efforce de rendre son site internet accessible conformément à l'article 47 de la loi n°
               2005-102 du 11 février 2005 pour l'égalité des droits et des chances, la participation et la citoyenneté
               des personnes handicapées.
             </p>

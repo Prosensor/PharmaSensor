@@ -18,7 +18,7 @@ export default function CookiePolicyPage() {
 
           <div className="space-y-4">
             <p className="text-gray-700">
-              Cette politique de cookies explique ce que sont les cookies, comment PharmaSensor les utilise, et quelles
+              Cette politique de cookies explique ce que sont les cookies, comment Prosensor (marque commerciale PharmaSensor) les utilise, et quelles
               sont vos options concernant leur utilisation.
             </p>
 
@@ -186,16 +186,15 @@ export default function CookiePolicyPage() {
               nous contacter à :
             </p>
             <div className="pl-6 text-gray-700">
-              <p>PharmaSensor</p>
-              <p>123 Avenue de la Santé</p>
-              <p>75001 Paris, France</p>
+              <p>Prosensor</p>
+              <p>5 rue Maud Fontenoy</p>
+              <p>57140 Norroy-le-Veneur, France</p>
               <p>
                 Email :{" "}
-                <a href="mailto:privacy@pharmasensor.com" className="text-green-600 hover:underline">
-                  privacy@pharmasensor.com
+                <a href="mailto:info@prosensor.com" className="text-green-600 hover:underline">
+                  info@prosensor.com
                 </a>
               </p>
-              <p>Téléphone : +33 1 23 45 67 89</p>
             </div>
           </div>
 
