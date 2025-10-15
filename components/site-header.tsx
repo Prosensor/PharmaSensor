@@ -164,6 +164,14 @@ export default function Header() {
           {/* Boutons d'action */}
           <div className="hidden items-center space-x-4 lg:flex">
             <Link
+              href="https://iot.prosensor.fr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md border border-green-600 px-4 py-2 text-sm font-medium text-green-600 hover:bg-green-50 transition-all duration-300"
+            >
+              Espace Client
+            </Link>
+            <Link
               href="/demande-devis"
               className="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 transition-all duration-300"
             >
@@ -263,6 +271,15 @@ export default function Header() {
             </nav>
 
             <div className="mt-4 flex flex-col space-y-2">
+              <Link
+                href="https://iot.prosensor.fr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-md border border-green-600 px-4 py-2 text-center text-sm font-medium text-green-600 hover:bg-green-50 transition-all duration-300"
+                onClick={toggleMenu}
+              >
+                Espace Client
+              </Link>
               <Link
                 href="/demande-devis"
                 className="rounded-md bg-green-600 px-4 py-2 text-center text-sm font-medium text-white hover:bg-green-700 transition-all duration-300"

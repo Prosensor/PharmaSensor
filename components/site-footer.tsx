@@ -47,6 +47,19 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link 
+                  href="https://iot.prosensor.fr/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-green-100 hover:text-white transition-colors inline-flex items-center"
+                >
+                  Espace Client
+                  <svg className="ml-1 h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -109,6 +122,33 @@ export default function Footer() {
                 Samedi - Dimanche: Fermé
               </p>
             </div>
+            
+            {/* Section Prosensor intégrée */}
+            <div className="mt-4 pt-4 border-t border-green-800">
+              <div className="flex items-center space-x-4">
+                <div className="relative h-16 w-20 overflow-hidden rounded-lg">
+                  <Image
+                    src="/batiment-prosensor.jpg"
+                    alt="Bâtiment Prosensor"
+                    fill
+                    className="object-cover"
+                    sizes="80px"
+                  />
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm text-green-200 font-medium">Une marque de</p>
+                  <Link 
+                    href="https://www.prosensor.fr/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-base text-green-100 hover:text-white transition-colors font-bold"
+                  >
+                    Prosensor
+                  </Link>
+                  <p className="text-sm text-green-300">Fabricant depuis 1989</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -136,6 +176,7 @@ export default function Footer() {
           </div>
           <div className="text-xs text-green-100">© {currentYear} PharmaSensor. Tous droits réservés.</div>
         </div>
+
 
         {/* Certifications */}
         <div className="flex flex-wrap items-center justify-center gap-6 border-t border-green-800 py-6">
