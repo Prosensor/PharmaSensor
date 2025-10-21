@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
 
   const mailOptions = {
     from: '"Site PharmaSensor" <contact@greensensor.fr>',
-    to: "corentinadlpro@gmail.com",
+    to: "info@prosensor.com",
     subject: "Nouvelle demande de devis PharmaSensor",
     text: `\nNom: ${data.nom}\nPharmacie: ${data.pharmacie}\nEmail: ${data.email}\nTéléphone: ${data.telephone}\nNombre d'équipements: ${data.equipements}\nMessage: ${data.message || "(aucun message)"}\nConsentement RGPD: ${data.consent ? "Oui" : "Non"}\n`,
     html: `

@@ -98,12 +98,6 @@ export default function Footer() {
                 </span>
               </li>
               <li className="flex items-center">
-                <Phone className="mr-2 h-5 w-5 text-green-100" />
-                <Link href="tel:+33123456789" className="text-green-100 hover:text-white transition-colors">
-                +33 3 87 53 53 53
-                </Link>
-              </li>
-              <li className="flex items-center">
                 <Mail className="mr-2 h-5 w-5 text-green-100" />
                 <Link
                   href="mailto:info@prosensor.com"
