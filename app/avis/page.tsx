@@ -115,36 +115,11 @@ export default function AvisPage() {
           </div>
         </div>
 
-        {/* Témoignages */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((t, idx) => (
-            <div key={idx} className="flex flex-col rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-md">
-              <div className="mb-4 text-green-600">
-                <Quote size={32} />
-              </div>
-              <p className="mb-4 flex-grow italic text-muted-foreground">"{t.text}"</p>
-              <div className="mt-auto flex items-center pt-4 border-t">
-                <Image
-                  src={t.image}
-                  alt={t.name}
-                  width={40}
-                  height={40}
-                  className="rounded-full mr-3"
-                />
-                <div>
-                  <div className="font-medium">{t.name}</div>
-                  <div className="text-sm text-muted-foreground">{t.role}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
         {/* CTA */}
         <div className="mt-16 rounded-xl bg-green-600 p-8 text-center text-white shadow-lg">
           <h3 className="text-2xl font-bold mb-4">Prêt à Sécuriser Votre Inventaire Pharmaceutique?</h3>
           <p className="mx-auto mb-6 max-w-[600px]">
-            Rejoignez plus de 500 pharmacies qui font confiance à PharmaSensor pour la surveillance de leurs équipements critiques.
+          Rejoignez de nombreuses pharmacies qui font confiance à PharmaSensor pour la surveillance de leurs équipements critiques.  
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/demande-devis" className="rounded-md bg-white px-6 py-3 font-medium text-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-600">
