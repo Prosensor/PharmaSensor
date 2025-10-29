@@ -122,7 +122,7 @@ export default function Footer() {
               <div className="flex items-center space-x-4">
                 <div className="relative h-16 w-20 overflow-hidden rounded-lg">
                   <Image
-                    src="/batiment-prosensor.jpg"
+                    src="/Nouveaux batiment.jpg"
                     alt="Bâtiment Prosensor"
                     fill
                     className="object-cover"
