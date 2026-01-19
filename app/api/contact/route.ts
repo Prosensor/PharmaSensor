@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
 
     const mailOptions = {
       from: '"Site PharmaSensor" <contact@greensensor.fr>',
-      to: "corentinadlpro@gmail.com",
+      to: "info@prosensor.com",
       subject: message && message.startsWith("Sujet : ") ? `Nouveau message de contact PharmaSensor` : `Nouvelle demande de contact PharmaSensor`,
       text: `Nom: ${name}\nPharmacie: ${pharmacyName}\nEmail: ${email}\nTéléphone: ${phone}\nFormule: ${formule || "Non spécifiée"}\nNombre d'équipements: ${equipment || "Non spécifié"}\nMessage: ${message || "(aucun message)"}\n`,
       html,
