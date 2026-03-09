@@ -3,8 +3,9 @@ import { Quote } from "lucide-react"
 import Link from "next/link"
 
 export const metadata = {
-  title: "Avis clients | PharmaSensor",
-  description: "Découvrez les témoignages et avis de nos clients sur la solution PharmaSensor.",
+  title: "Avis clients PharmaSensor – Surveillance de température pour pharmacies",
+  description:
+    "Découvrez les avis et témoignages de pharmacies équipées par PharmaSensor, la solution d’enregistrement et de surveillance de température pour armoires et réfrigérateurs pharmaceutiques.",
 }
 
 const caseStudy = {

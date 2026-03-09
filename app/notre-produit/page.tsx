@@ -183,7 +183,8 @@ export default function FonctionnalitesPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight mb-4">Fonctionnalités Principales</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              PharmaSensor offre une suite complète de fonctionnalités pour assurer une surveillance optimale de vos équipements pharmaceutiques.
+              PharmaSensor est la solution Prosensor d&apos;enregistrement et de surveillance de température pour pharmacies et armoires
+              pharmaceutiques, avec une suite complète de fonctionnalités pour vos équipements critiques.
             </p>
           </div>
 

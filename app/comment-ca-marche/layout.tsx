@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Comment ça marche ? | PharmaSensor",
-  description: "Découvrez comment PharmaSensor fonctionne en 3 étapes simples pour sécuriser votre pharmacie avec une surveillance de température automatisée.",
+  title: "Comment fonctionne PharmaSensor ? – Surveillance de température en pharmacie",
+  description:
+    "Comprenez étape par étape comment PharmaSensor enregistre et surveille les températures de vos armoires pharmaceutiques, avec alertes automatiques et rapports de conformité prêts pour les inspections.",
 }
 
 export default function CommentCaMarcheLayout({

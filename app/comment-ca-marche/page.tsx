@@ -213,20 +213,20 @@ export default function CommentCaMarchePage() {
                     Vous avez maintenant une vue d'ensemble complète du processus PharmaSensor. 
                     Prêt à sécuriser votre pharmacie ?
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a
-                      href="/contact"
-                      className="inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
-                    >
-                      Commencer maintenant
-                    </a>
-                    <a
-                      href="/tarification"
-                      className="inline-flex items-center justify-center px-6 py-3 border-2 border-green-600 text-green-600 font-semibold rounded-lg hover:bg-green-50 transition-colors"
-                    >
-                      Voir les tarifs
-                    </a>
-                  </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
+              >
+                Commencer maintenant
+              </a>
+              <a
+                href="/tarification"
+                className="inline-flex items-center justify-center px-6 py-3 border-2 border-green-600 text-green-600 font-semibold rounded-lg hover:bg-green-50 transition-colors"
+              >
+                Voir les tarifs PharmaSensor
+              </a>
+            </div>
                 </div>
               </div>
               {/* End Final Content */}

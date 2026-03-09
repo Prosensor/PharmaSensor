@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Tarification | PharmaSensor",
-  description: "Découvrez nos formules tarifaires flexibles pour la surveillance de température dans le secteur pharmaceutique.",
+  title: "Tarifs PharmaSensor – Enregistreur de température pour pharmacies",
+  description:
+    "Consultez les tarifs PharmaSensor pour l’enregistrement et la surveillance de température en pharmacie : formules de location clés en main et prix à l’achat de nos capteurs pour armoires réfrigérées.",
 }
 
 export default function TarificationLayout({ children }: { children: React.ReactNode }) {
