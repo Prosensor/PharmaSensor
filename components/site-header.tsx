@@ -72,7 +72,7 @@ export default function Header() {
       <div className="container mx-auto max-w-7xl px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center" aria-label="Retour à l’accueil PharmaSensor">
             <Image
               src="/logo.jpg"
               alt="PharmaSensor Logo"
@@ -83,7 +83,7 @@ export default function Header() {
           </Link>
 
           {/* Navigation Desktop */}
-          <nav className="hidden lg:flex lg:items-center lg:space-x-1">
+          <nav className="hidden lg:flex lg:items-center lg:space-x-1" aria-label="Navigation principale">
             <Link
               href="/"
               className={`px-3 py-2 text-sm font-medium relative ${
@@ -117,6 +117,9 @@ export default function Header() {
             <div ref={resourcesRef} className="relative">
               <button
                 onClick={() => toggleDropdown("resources")}
+                aria-haspopup="true"
+                aria-expanded={openDropdown === "resources"}
+                aria-controls="resources-menu-desktop"
                 className={`flex items-center px-3 py-2 text-sm font-medium relative ${
                   isScrolled ? "text-gray-700 hover:text-green-600" : "text-gray-700 hover:text-green-600"
                 } transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full`}
@@ -127,7 +130,11 @@ export default function Header() {
                 />
               </button>
               {openDropdown === "resources" && (
-                <div className="absolute left-0 top-full mt-1 w-48 rounded-md bg-white py-2 shadow-lg z-50">
+                <div
+                  id="resources-menu-desktop"
+                  className="absolute left-0 top-full mt-1 w-48 rounded-md bg-white py-2 shadow-lg z-50"
+                  role="menu"
+                >
                  
                   <Link
                     href="/comment-ca-marche"
@@ -198,7 +205,7 @@ export default function Header() {
               isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
             }`}
           >
-            <nav className="flex flex-col space-y-2">
+            <nav className="flex flex-col space-y-2" aria-label="Navigation mobile">
               <Link
                 href="/"
                 className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-green-600"
@@ -230,13 +237,16 @@ export default function Header() {
               <div className="group">
                 <button
                   onClick={() => toggleDropdown("resources-mobile")}
+                  aria-haspopup="true"
+                  aria-expanded={openDropdown === "resources-mobile"}
+                  aria-controls="resources-menu-mobile"
                   className="flex w-full items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 hover:text-green-600"
                 >
                   Informations
                   <ChevronDown className={`h-4 w-4 ${openDropdown === "resources-mobile" ? "rotate-180" : ""}`} />
                 </button>
                 {openDropdown === "resources-mobile" && (
-                  <div className="ml-4">
+                  <div className="ml-4" id="resources-menu-mobile" role="menu">
                     <div className="mt-1 flex flex-col space-y-1 border-l-2 border-green-100 pl-4">
                     <Link
                     href="/comment-ca-marche"

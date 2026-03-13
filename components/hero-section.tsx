@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full py-20 md:py-32 overflow-hidden">
+    <section className="relative w-full py-20 md:py-32 overflow-hidden" aria-labelledby="hero-title">
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-white to-blue-50 opacity-50" />
       <div className="absolute top-20 left-10 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-pulse" />
@@ -24,7 +24,10 @@ export default function HeroSection() {
             
             {/* Main heading */}
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1
+                id="hero-title"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+              >
                 Enregistreur de température pour 
                 <span className="text-green-600"> pharmacie</span>
               </h1>
@@ -98,6 +101,7 @@ export default function HeroSection() {
                     fill
                     className="object-contain drop-shadow-2xl"
                     priority
+                    sizes="(min-width: 1024px) 384px, (min-width: 768px) 320px, 80vw"
                   />
                 </div>
               </div>

@@ -183,8 +183,13 @@ export default function DemandeDevisPage() {
                         />
                       </FormControl>
                       <span className="text-sm text-muted-foreground">
-                        J'accepte que mes données soient traitées conformément à la {" "}
-                        <Link href="/politique-de-confidentialite" className="text-green-600 hover:underline" target="_blank">
+                        J'accepte que mes données soient traitées conformément à la{" "}
+                        <Link
+                          href="/politique-de-confidentialite"
+                          className="text-green-600 hover:underline"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           politique de confidentialité
                         </Link>.
                         <span className="text-red-500">*</span>

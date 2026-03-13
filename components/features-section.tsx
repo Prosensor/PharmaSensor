@@ -157,9 +157,11 @@ export default function FeaturesSection() {
               <div className="relative h-[300px] w-full overflow-hidden rounded-lg border shadow-md">
                 <Image
                   src="/image.png"
-                  alt="Tableau de bord PharmaSensor"
+                  alt="Tableau de bord PharmaSensor avec graphiques de température"
                   fill
                   className="object-cover"
+                  sizes="(min-width: 1024px) 560px, (min-width: 768px) 480px, 100vw"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 to-transparent"></div>
                 <div className="absolute bottom-4 right-4 rounded-lg bg-white p-2 shadow-lg">

@@ -63,7 +63,7 @@ export default function HowItWorksSection() {
           </p>
         </div>
         {/* Stepper horizontal */}
-        <div className="flex flex-col items-center w-full">
+          <div className="flex flex-col items-center w-full" aria-label="Étapes de fonctionnement de PharmaSensor">
           <div className="flex w-full max-w-2xl justify-between items-center mb-8 relative">
             {steps.map((step, idx) => (
               <div key={idx} className="flex-1 flex flex-col items-center z-10">
@@ -75,6 +75,8 @@ export default function HowItWorksSection() {
                         : "bg-white text-gray-400 border-gray-200 hover:border-green-400"
                     }
                   `}
+                  type="button"
+                  aria-label={step.title}
                   onClick={() => goToStep(idx)}
                   aria-current={activeStep === idx ? "step" : undefined}
                 >
@@ -94,7 +96,10 @@ export default function HowItWorksSection() {
             />
           </div>
           {/* Contenu animé */}
-          <div className="relative w-full max-w-xl min-h-[200px] mx-auto">
+          <div
+            className="relative w-full max-w-xl min-h-[200px] mx-auto"
+            aria-live="polite"
+          >
             {steps.map((step, idx) => (
               <div
                 key={idx}
