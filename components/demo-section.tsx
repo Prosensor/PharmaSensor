@@ -209,7 +209,10 @@ export default function ContactSection() {
                   <Phone className="mr-3 h-5 w-5 text-green-600" />
                   <div>
                     <h4 className="font-medium">Téléphone</h4>
-                    <Link href="tel:+33123456789" className="text-muted-foreground hover:text-green-600">
+                    <Link
+                      href="tel:+33123456789"
+                      className="text-muted-foreground underline decoration-dotted underline-offset-2 hover:text-green-600"
+                    >
                     +33 3 87 53 53 53
                     </Link>
                   </div>
@@ -218,7 +221,10 @@ export default function ContactSection() {
                   <Mail className="mr-3 h-5 w-5 text-green-600" />
                   <div>
                     <h4 className="font-medium">Email</h4>
-                    <Link href="mailto:info@prosensor.com" className="text-muted-foreground hover:text-green-600">
+                    <Link
+                      href="mailto:info@prosensor.com"
+                      className="text-muted-foreground underline decoration-dotted underline-offset-2 hover:text-green-600"
+                    >
                     info@prosensor.com
                     </Link>
                   </div>
@@ -281,6 +287,7 @@ export default function ContactSection() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                title="Localisation de Prosensor sur Google Maps"
               ></iframe>
             </div>
           </div>

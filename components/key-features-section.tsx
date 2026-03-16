@@ -137,7 +137,10 @@ export default function FAQSection() {
                   <div>
                     <h4 className="font-medium">Par téléphone</h4>
                     <p className="text-sm text-muted-foreground">Lun-Ven, 9h-18h</p>
-                    <Link href="tel:+33123456789" className="text-green-600 hover:underline">
+                    <Link
+                      href="tel:+33123456789"
+                      className="text-green-600 underline decoration-dotted underline-offset-2 hover:text-green-700"
+                    >
                       +33 1 23 45 67 89
                     </Link>
                   </div>
@@ -149,7 +152,10 @@ export default function FAQSection() {
                   <div>
                     <h4 className="font-medium">Par email</h4>
                     <p className="text-sm text-muted-foreground">Réponse sous 24h</p>
-                    <Link href="mailto:contact@pharmasensor.com" className="text-green-600 hover:underline">
+                    <Link
+                      href="mailto:contact@pharmasensor.com"
+                      className="text-green-600 underline decoration-dotted underline-offset-2 hover:text-green-700"
+                    >
                       contact@pharmasensor.com
                     </Link>
                   </div>

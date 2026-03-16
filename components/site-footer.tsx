@@ -173,30 +173,30 @@ export default function Footer() {
 
 
         {/* Certifications */}
-        <div className="flex flex-wrap items-center justify-center gap-6 border-t border-green-800 py-6">
+            <div className="flex flex-wrap items-center justify-center gap-6 border-t border-green-800 py-6">
           <div className="flex items-center">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-800">
               <span className="text-xs font-medium text-white">FDA</span>
             </div>
-            <span className="ml-2 text-xs text-green-100">FDA 21 CFR Part 11</span>
+            <span className="ml-2 text-xs text-green-50">FDA 21 CFR Part 11</span>
           </div>
           <div className="flex items-center">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-800">
               <span className="text-xs font-medium text-white">GMP</span>
             </div>
-            <span className="ml-2 text-xs text-green-100">EU GMP Annex 11</span>
+            <span className="ml-2 text-xs text-green-50">EU GMP Annex 11</span>
           </div>
           <div className="flex items-center">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-800">
               <span className="text-xs font-medium text-white">USP</span>
             </div>
-            <span className="ml-2 text-xs text-green-100">USP &lt;789&gt;</span>
+            <span className="ml-2 text-xs text-green-50">USP &lt;789&gt;</span>
           </div>
           <div className="flex items-center">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-800">
               <span className="text-xs font-medium text-white">ISO</span>
             </div>
-            <span className="ml-2 text-xs text-green-100">ISO/IEC 27001</span>
+            <span className="ml-2 text-xs text-green-50">ISO/IEC 27001</span>
           </div>
         </div>
       </div>
